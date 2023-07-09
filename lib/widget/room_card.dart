@@ -1,0 +1,116 @@
+import 'package:dotted_line/dotted_line.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+class RoomCard extends StatelessWidget {
+  const RoomCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 181.h,
+      width: 335.w,
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(251, 245, 232, 1),
+        borderRadius: BorderRadius.circular(20.r),
+      ),
+      child: Padding(
+        padding: EdgeInsets.only(
+            top: 21.41.h, left: 20.w, right: 20.w, bottom: 30.17.h),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Text(
+                  'Now',
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14.sp),
+                ),
+                Spacer(),
+                Icon(
+                  Icons.more_horiz_rounded,
+                  color: Colors.black,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 1.h,
+            ),
+            Text(
+              'The importance of User Experien...',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600),
+            ),
+            SizedBox(
+              height: 6.h,
+            ),
+            Row(
+              children: [
+                SvgPicture.asset('assets/icons/microphone.svg'),
+                SizedBox(
+                  width: 11.w,
+                ),
+                RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.sp,
+                        color: Colors.grey),
+                    children: [
+                      TextSpan(
+                        text: 'Host:',
+                      ),
+                      TextSpan(
+                        text: ' Ahmad Ali',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                            wordSpacing: 2,
+                            height: 1.4.h),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 12.65.h,
+            ),
+            DottedLine(dashColor: Colors.grey),
+            SizedBox(
+              height: 9.5.h,
+            ),
+            Image.asset('assets/images/room_card_bottom.png'),
+            // SizedBox(
+            //   height: 31.h,
+            //   width: 291.w,
+            //   child: Stack(
+            //     children: [
+            //       Image.asset('assets/images/ahmad_ali_room.png'),
+            //       Padding(
+            //         padding:  EdgeInsets.only(left: 24.0.w),
+            //         child: Image.asset('assets/images/noor.png'),
+            //       ),
+            //       Padding(
+            //         padding:  EdgeInsets.only(left: 50.0.w),
+            //         child: Image.asset('assets/images/fatena.png'),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
+          ],
+        ),
+      ),
+    );
+  }
+}
