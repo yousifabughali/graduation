@@ -6,9 +6,11 @@ import 'package:provider/provider.dart';
 
 class InterestsElement extends StatefulWidget {
   String? title;
+  void Function(bool?)? onChanged;
    InterestsElement({
     required this.title,
-    super.key,
+  required this.onChanged,
+  super.key,
   });
 
   @override
@@ -16,6 +18,7 @@ class InterestsElement extends StatefulWidget {
 }
 
 class _InterestsElementState extends State<InterestsElement> {
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,13 +31,16 @@ class _InterestsElementState extends State<InterestsElement> {
           child: Checkbox(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5.r)),
-              value: false,
+              value: isChecked,
               onChanged: (value) {
-                setState(() {
+
+                  setState(() {
+                    isChecked = value ?? false;
+                  });
                   if(value==true){
-                    Provider.of<AuthProvider>(context).intrests.add(widget.title!);
+                    Provider.of<AuthProvider>(context,listen: false).intrests.add(widget.title!);
                   }
-                });
+
 
               }),
         ),

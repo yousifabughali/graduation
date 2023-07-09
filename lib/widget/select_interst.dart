@@ -26,6 +26,11 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
   bool content=true;
   double heightOfBottomSheet=732.h;
 
+  changeInterestValue(bool value){
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -73,34 +78,48 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
                 ? SingleChildScrollView(
                     child: Column(
                       children: [
-                        InterestsElement(title: 'Flutter'),
+                        InterestsElement(title: 'Flutter',onChanged: (value){
+                          changeInterestValue(value!);
+                        },),
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'Ui/Ux'),
+                        InterestsElement(title: 'Ui/Ux',onChanged: (value){
+                          changeInterestValue(value!);
+                        },),
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'Digital Marketing'),
+                        InterestsElement(title: 'Digital Marketing',onChanged: (value){
+                          changeInterestValue(value!);
+                        },),
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: '.Net'),
+                        InterestsElement(title: '.Net',onChanged: (value){
+                          changeInterestValue(value!);
+                        },),
 
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'AWS'),
+                        InterestsElement(title: 'AWS',onChanged: (value){
+                          changeInterestValue(value!);
+                        },),
 
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'React'),
+                        InterestsElement(title: 'React',onChanged: (value){
+                          changeInterestValue(value!);
+                        },),
 
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'Node.js'),
+                        InterestsElement(title: 'Node.js',onChanged: (value){
+                          changeInterestValue(value!);
+                        },),
 
                         SizedBox(
                           height: 12.h,
@@ -115,8 +134,8 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
           padding:
               EdgeInsets.only(left: 25.w, right: 25.w, top: 17.h, bottom: 17.h),
           child: ElevatedButton(
-            onPressed: ()  {
-              setState(() async {
+            onPressed: () async {
+              setState(()  async{
                 if (!flag) {
                   flag = !flag;
 

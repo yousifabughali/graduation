@@ -73,8 +73,10 @@ class AuthProvider extends ChangeNotifier{
      log('xxxx');
        }
   }
-   signUp() async {
+  Future<void> signUp() async {
   //  if(signUpKey.currentState!.validate()) {
+     log(passwordController.text.toString());
+     log(emailController.text.toString());
       UserCredential? credential= await AuthHelper.authHelper.signUp(
           emailController.text,passwordController.text);
       AppUser appUser =AppUser(name: nameController.text,email: emailController.text, userName: userNameController.text,interests: intrests,id: credential!.user!.uid!);
@@ -88,7 +90,7 @@ class AuthProvider extends ChangeNotifier{
   }
 
 
-  saveIntresets() async {
+  Future<void> saveIntresets() async {
     //  if(signUpKey.currentState!.validate()) {
 
     AppUser appUser =AppUser(name: nameController.text,email: emailController.text, userName: userNameController.text,id: id,interests: intrests,level: level );
