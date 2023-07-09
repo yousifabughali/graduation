@@ -43,6 +43,7 @@ class _SignInState extends State<SignIn> {
             ),
           ),
           Form(
+            key: provider.signInKey,
             child: Padding(
               padding: EdgeInsets.only(left: 24.w, right: 24.w, bottom: 62),
               child: Column(
@@ -52,6 +53,7 @@ class _SignInState extends State<SignIn> {
                     width: 327.w,
                     child: TextFormField(
                       controller: provider.emailController,
+                      validator: provider.emailValidation,
                       decoration: InputDecoration(
                         label: Text('Email'),
                         border: OutlineInputBorder(
@@ -70,6 +72,8 @@ class _SignInState extends State<SignIn> {
                     width: 327.w,
                     child: TextFormField(
                       controller: provider.passwordController,
+                      validator: provider.passwordValidation,
+
                       decoration: InputDecoration(
                         label: Text('Password'),
                         // suffix: IconButton(onPressed: (){},icon: Icon(Icons.add)),

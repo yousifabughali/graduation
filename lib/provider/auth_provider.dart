@@ -20,7 +20,7 @@ class AuthProvider extends ChangeNotifier{
   TextEditingController passwordController= TextEditingController();
   TextEditingController userNameController= TextEditingController();
   TextEditingController nameController= TextEditingController();
-  List<String> intrests=[];
+  Set<String> intrests={};
   String level='';
   String? id;
 
@@ -79,6 +79,7 @@ class AuthProvider extends ChangeNotifier{
      log(emailController.text.toString());
       UserCredential? credential= await AuthHelper.authHelper.signUp(
           emailController.text,passwordController.text);
+      id = credential!.user!.uid;
       AppUser appUser =AppUser(name: nameController.text,email: emailController.text, userName: userNameController.text,interests: intrests,id: credential!.user!.uid!);
       FireStoreHelper.fireStoreHelper.addUsersToFireStore(appUser);
       if (credential!=null){

@@ -2,6 +2,7 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:graduation/model/article.dart';
 import 'package:graduation/model/user.dart';
 
 class FireStoreHelper {
@@ -9,17 +10,19 @@ class FireStoreHelper {
 
   static FireStoreHelper fireStoreHelper = FireStoreHelper._();
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-  final String categoryCollectionName = 'categories';
+  // final String categoryCollectionName = 'categories';
 
   CollectionReference<Map<String, dynamic>> userCollection =
       FirebaseFirestore.instance.collection('users');
 
-  CollectionReference<Map<String, dynamic>> categoriesCollection =
-      FirebaseFirestore.instance.collection('categories');
+  CollectionReference<Map<String, dynamic>> articlesCollection =
+      FirebaseFirestore.instance.collection('articles');
 
   addUsersToFireStore(AppUser appUser) async {
     await userCollection.doc(appUser.id).set(appUser.toMap());
   }
+
+
 
   Future<AppUser> getUserFromFireStore(String id) async {
     DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
@@ -28,27 +31,42 @@ class FireStoreHelper {
     return AppUser.fromMap(documentSnapshot.data()!);
   }
 
-  Future<void> addIntresetsAndLevels(List<String> interests,String levels,String userId) async {
+
+
+  Future<void> addIntresetsAndLevels(Set<String> interests,String levels,String userId) async {
     await userCollection.doc(userId).update({
       'interests': interests,
       'level':levels
     });
   }
+/*
+  addArticlesToFireStore(Article article) async {
+    await articlesCollection.doc(article.id).set(article.toMap());
+  }
+
+
+  Future<Article> getArticleFromFireStore(String id) async {
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+    await articlesCollection.doc(id).get();
+    log(documentSnapshot.data()!.toString());
+    return Article.fromMap(documentSnapshot.data()!);
+  }
+  */
 
 
 
-// Future<List<Category>> getAllCategories() async {
-  //   QuerySnapshot<Map<String, dynamic>> querySnapshot =
-  //       await categoriesCollection.get();
-  //   List<QueryDocumentSnapshot<Map<String, dynamic>>> documents =
-  //       querySnapshot.docs;
-  //   List<Category> categories = documents.map((e) {
-  //     Category category = Category.fromMap(e.data());
-  //     category.id = e.id;
-  //     return category;
-  //   }).toList();
-  //   return categories;
-  // }
+Future<List<Article>> getAllArticles() async {
+    QuerySnapshot<Map<String, dynamic>> querySnapshot =
+        await articlesCollection.get();
+    List<QueryDocumentSnapshot<Map<String, dynamic>>> documents =
+        querySnapshot.docs;
+    List<Article> articles = documents.map((e) {
+      Article atricle = Article.fromMap(e.data());
+      atricle.id = e.id;
+      return atricle;
+    }).toList();
+    return articles;
+  }
   //
   //
   //

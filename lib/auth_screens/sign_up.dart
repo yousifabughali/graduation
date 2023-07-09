@@ -40,6 +40,7 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
           Form(
+            key: provider.signUpKey,
             child: Padding(
               padding: EdgeInsets.only(left: 24.w, right: 24.w),
               child: Column(
@@ -49,6 +50,7 @@ class _SignUpState extends State<SignUp> {
                     width: 327.w,
                     child: TextFormField(
                       controller: provider.nameController,
+                      validator: provider.nullValidation,
                       decoration: InputDecoration(
                         label: Text('Name'),
                         border: OutlineInputBorder(
@@ -67,7 +69,7 @@ class _SignUpState extends State<SignUp> {
                     width: 327.w,
                     child: TextFormField(
                       controller: provider.userNameController,
-                      validator: provider.passwordValidation,
+                      validator: provider.nullValidation,
                       decoration: InputDecoration(
                         label: Text('Username'),
                         prefixText: '@',
@@ -87,6 +89,7 @@ class _SignUpState extends State<SignUp> {
                     width: 327.w,
                     child: TextFormField(
                       controller: provider.emailController,
+                      validator: provider.emailValidation,
                       decoration: InputDecoration(
                         label: Text('Email'),
                         border: OutlineInputBorder(
@@ -105,6 +108,7 @@ class _SignUpState extends State<SignUp> {
                     width: 327.w,
                     child: TextFormField(
                       controller: provider.passwordController,
+                      validator: provider.passwordValidation,
                       decoration: InputDecoration(
                         label: Text('Password'),
                         // suffix: IconButton(onPressed: (){},icon: Icon(Icons.add)),

@@ -4,7 +4,7 @@ class AppUser {
   String? password;
   late String userName;
   late String name;
-  List<String>? interests;
+  Set<String>? interests;
   String? level;
 
   AppUser({
@@ -18,11 +18,11 @@ class AppUser {
   });
 
   AppUser.fromMap(Map<String, dynamic> map) {
-    final list = map['interests'] as List;
+    final set = map['interests'] as Set<String>;
     email= map['email'];
     userName= map['userName'];
     name=map['name'];
-    interests = list.map((e) => e.toString()).toList();
+    interests = set.map((e) => e.toString()).toSet();
     level=map['level'];
   }
 

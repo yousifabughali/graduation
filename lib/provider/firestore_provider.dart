@@ -2,30 +2,29 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:graduation/helper/firestore_helper.dart';
+import 'package:graduation/model/article.dart';
 
 
 class FireStoreProvider extends ChangeNotifier {
-  TextEditingController categoryNameController = TextEditingController();
-  TextEditingController productNameController = TextEditingController();
-  TextEditingController productDescriptionController = TextEditingController();
-  TextEditingController productPriceController = TextEditingController();
-  TextEditingController productQuantityController = TextEditingController();
+  TextEditingController articleNameController = TextEditingController();
+  TextEditingController articleDescriptionController = TextEditingController();
+  TextEditingController articleTagsController = TextEditingController();
 
-  // File? selectedImage;
-  // List<Category> categories = [];
+
+  File? selectedImage;
+  List<Article> articles = [];
   // List<Product> products = [];
 
-  // FireStoreProvider() {
-  //   getAllCategories();
-  // }
+  FireStoreProvider() {
+    getAllCategories();
+  }
 
 
-  // getAllCategories() async {
-  //   categories = await FireStoreHelper.fireStoreHelper.getAllCategories();
-  //   notifyListeners();
-  // }
-  //
-  //
+  getAllCategories() async {
+    articles = await FireStoreHelper.fireStoreHelper.getAllArticles();
+    notifyListeners();
+  }
+
   // getAllProduct(String catId) async {
   //   products = await  FireStoreHelper.fireStoreHelper.getAllProduct(catId);
   //   notifyListeners();

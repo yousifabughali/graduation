@@ -6,10 +6,8 @@ import 'package:provider/provider.dart';
 
 class InterestsElement extends StatefulWidget {
   String? title;
-  void Function(bool?)? onChanged;
    InterestsElement({
     required this.title,
-  required this.onChanged,
   super.key,
   });
 

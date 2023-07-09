@@ -23,13 +23,6 @@ class SelectYourIntrest extends StatefulWidget {
 
 class _SelectYourIntrestState extends State<SelectYourIntrest> {
   bool flag = false;
-  bool content=true;
-  double heightOfBottomSheet=732.h;
-
-  changeInterestValue(bool value){
-
-
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,48 +71,34 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
                 ? SingleChildScrollView(
                     child: Column(
                       children: [
-                        InterestsElement(title: 'Flutter',onChanged: (value){
-                          changeInterestValue(value!);
-                        },),
+                        InterestsElement(title: 'Flutter',),
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'Ui/Ux',onChanged: (value){
-                          changeInterestValue(value!);
-                        },),
+                        InterestsElement(title: 'Ui/Ux',),
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'Digital Marketing',onChanged: (value){
-                          changeInterestValue(value!);
-                        },),
+                        InterestsElement(title: 'Digital Marketing'),
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: '.Net',onChanged: (value){
-                          changeInterestValue(value!);
-                        },),
+                        InterestsElement(title: '.Net'),
 
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'AWS',onChanged: (value){
-                          changeInterestValue(value!);
-                        },),
+                        InterestsElement(title: 'AWS',),
 
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'React',onChanged: (value){
-                          changeInterestValue(value!);
-                        },),
+                        InterestsElement(title: 'React'),
 
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'Node.js',onChanged: (value){
-                          changeInterestValue(value!);
-                        },),
+                        InterestsElement(title: 'Node.js'),
 
                         SizedBox(
                           height: 12.h,
@@ -134,18 +113,18 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
           padding:
               EdgeInsets.only(left: 25.w, right: 25.w, top: 17.h, bottom: 17.h),
           child: ElevatedButton(
-            onPressed: () async {
-              setState(()  async{
+            onPressed: ()  {
+              setState(()  {
                 if (!flag) {
                   flag = !flag;
 
                 } else {
                   //TODO:: to all done
-                  await context.read<AuthProvider>().saveIntresets();
-                  if(!mounted) return;
+                   context.read<AuthProvider>().saveIntresets();
+
+                  // if(!mounted) return;
                   Navigator.pop(context);
                   openBottomSheet(context, AllDone());
-
 
                 }
               });

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation/provider/auth_provider.dart';
+import 'package:provider/provider.dart';
+
 class SelectLevel extends StatefulWidget {
   SelectLevel({
     Key? key,
@@ -9,81 +12,82 @@ class SelectLevel extends StatefulWidget {
   State<SelectLevel> createState() => _SelectLevelState();
 }
 
+enum ExperienceLevel {
+  freshLearner,
+  internship,
+  junior,
+  midLevel,
+  senior,
+}
+
 class _SelectLevelState extends State<SelectLevel> {
+  ExperienceLevel? _selectedLevel;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
+    final provider = Provider.of<AuthProvider>(context);
+
+    return ListView(
       children: [
-        Row(
-          children: [
-            Text('Intermediate'),
-            Spacer(),
-            SizedBox(
-              height: 20.h,
-              width: 20.w,
-              child: Checkbox(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.r)),
-                  value: true, onChanged: (_) {}),
-            ),
-          ],
+        RadioListTile<ExperienceLevel>(
+          title: Text('Fresh Learner'),
+          value: ExperienceLevel.freshLearner,
+          groupValue: _selectedLevel,
+          onChanged: (value) {
+            setState(() {
+              _selectedLevel = value;
+              provider.level=value.toString();
+
+            });
+          },
         ),
-        SizedBox(height: 12.h,),
-        Row(
-          children: [
-            Text('Beginner'),
-            Spacer(),
-            SizedBox(
-              height: 20.h,
-              width: 20.w,
-              child: Checkbox(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.r)),
-                  value: true, onChanged: (_) {}),
-            ),
-          ],
+        RadioListTile<ExperienceLevel>(
+          title: Text('Internship'),
+          value: ExperienceLevel.internship,
+          groupValue: _selectedLevel,
+          onChanged: (value) {
+            setState(() {
+              _selectedLevel = value;
+              provider.level=value.toString();
+            });
+          },
         ),
-        SizedBox(height: 12.h,),
-        Row(
-          children: [
-            Text('Senior'),
-            Spacer(),
-            SizedBox(
-              height: 20.h,
-              width: 20.w,
-              child: Checkbox(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.r)),
-                  value: true, onChanged: (_) {}),
-            ),
-          ],
+        RadioListTile<ExperienceLevel>(
+          title: Text('Junior'),
+          value: ExperienceLevel.junior,
+          groupValue: _selectedLevel,
+          onChanged: (value) {
+            setState(() {
+              _selectedLevel = value;
+              provider.level=value.toString();
+
+            });
+          },
         ),
-        SizedBox(height: 12.h,),
-        Row(
-          children: [
-            Text('Design'),
-            Spacer(),
-            SizedBox(
-              height: 20.h,
-              width: 20.w,
-              child: Checkbox(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.r)),
-                  value: true, onChanged: (_) {}),
-            ),
-          ],
+        RadioListTile<ExperienceLevel>(
+          title: Text('Mid-Level'),
+          value: ExperienceLevel.midLevel,
+          groupValue: _selectedLevel,
+          onChanged: (value) {
+            setState(() {
+              _selectedLevel = value;
+              provider.level=value.toString();
+
+            });
+          },
         ),
-        SizedBox(height: 12.h,),
-        Row(
-          children: [
-            Text('Design'),
-            Spacer(),
-            SizedBox(
-              height: 20.h,
-              width: 20.w,
-              child: Checkbox(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.r)),
-                  value: true, onChanged: (_) {}),
-            ),
-          ],
+        RadioListTile<ExperienceLevel>(
+          title: Text('Senior'),
+          value: ExperienceLevel.senior,
+          groupValue: _selectedLevel,
+          onChanged: (value) {
+            setState(() {
+              _selectedLevel = value;
+              provider.level=value.toString();
+
+            });
+          },
         ),
-        SizedBox(height: 12.h,),
       ],
     );
   }
