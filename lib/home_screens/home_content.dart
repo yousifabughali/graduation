@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/sub_pages/notification_screen.dart';
 import 'package:graduation/sub_pages/search_page.dart';
 import 'package:graduation/widget/home_content_follow_card.dart';
 import 'package:graduation/widget/question_sheet.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreenContent extends StatefulWidget {
   const HomeScreenContent({Key? key}) : super(key: key);
@@ -16,6 +18,7 @@ class HomeScreenContent extends StatefulWidget {
 class _HomeScreenContentState extends State<HomeScreenContent> {
   @override
   Widget build(BuildContext context) {
+    final provider = context.read<FireStoreProvider>();
     return Padding(
       padding: EdgeInsets.only(top: 12.h),
       child: SingleChildScrollView(
@@ -78,7 +81,9 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                     icon: SvgPicture.asset('assets/icons/search.svg')),
               ],
             ),
-            Column(
+            ListView(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               children: [
                 SizedBox(
                   height: 29.h,
@@ -147,16 +152,47 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                 SizedBox(
                   height: 22.h,
                 ),
-                HomeFollowCard(),
-                SizedBox(
-                  height: 22.h,
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  itemCount: provider.posts.length,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () async {
+                        await provider.getAllComments(provider.posts[index].postId!);
+                        openBottomSheet(context,QuestionSheet(post: provider.posts[index]));
+                      },
+                      child: HomeFollowCard(post: provider.posts[index]),
+                    );
+                  },
                 ),
-                HomeFollowCard(),
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+  openBottomSheet(BuildContext context, Widget widget) {
+    return showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      showDragHandle: true,
+
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40.0.r),
+            topRight: Radius.circular(40.0.r)),
+      ),
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: 550.h,
+          width: 375.w,
+          child: widget,
+        );
+      },
     );
   }
 

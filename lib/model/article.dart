@@ -3,7 +3,8 @@ class Article {
   String? id;
   late String description;
   late String image;
-  Set<String>? hashtags;
+  String? hashtags;
+  // Set<String>? hashtags;
   String? date;
 
   Article({
@@ -16,11 +17,12 @@ class Article {
   });
 
   Article.fromMap(Map<String, dynamic> map) {
-    final set = map['hashtags'] as Set<String>;
+    // final set = map['hashtags'] as Set<String>;
     question= map['question'];
     description= map['description'];
     image=map['image'];
-    hashtags = set.map((e) => e.toString()).toSet();
+    hashtags=map['hashtags'];
+    // hashtags = set.map((e) => e.toString()).toSet();
     date=map['date'];
   }
 

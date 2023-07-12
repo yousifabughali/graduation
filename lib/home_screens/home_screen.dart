@@ -32,9 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
       child: SafeArea(
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.white,
+          backgroundColor: Color.fromRGBO(250, 250, 250, 1),
           body: Padding(
-            padding: EdgeInsets.only(top: 12.0.h, left: 20.w, right: 20.w),
+            padding: EdgeInsets.only(top: 16.0.h, left: 16.w, right: 16.w),
             child: index == 0 ? HomeScreenContent() : index == 1
                 ? ArticleContent()
                 : index == 3 ? RoomContent() : index == 4

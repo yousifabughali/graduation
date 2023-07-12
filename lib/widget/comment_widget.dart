@@ -2,9 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:graduation/model/comments.dart';
 
 class CommentWidget extends StatelessWidget {
-  const CommentWidget({
+  Comments comment;
+   CommentWidget({
+    required this.comment,
     super.key,
   });
 
@@ -45,7 +48,7 @@ class CommentWidget extends StatelessWidget {
                     ),
                     Spacer(),
                     Text(
-                      'Today',
+                      comment.date,
                       style: TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeight.w400,
@@ -57,7 +60,7 @@ class CommentWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 6.h,),
                 Text(
-                  '''Lorem Ipsum is simply dummy text of the \nLorem Ipsum is simply dummy text ''',
+                  comment.answer,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w400,

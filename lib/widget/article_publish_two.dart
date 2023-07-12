@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/app_router/router.dart';
+import 'package:graduation/provider/firestore_provider.dart';
+import 'package:provider/provider.dart';
 
 class ArticlePublish2 extends StatefulWidget {
   const ArticlePublish2({Key? key}) : super(key: key);
@@ -23,8 +25,8 @@ class _ArticlePublish2State extends State<ArticlePublish2> {
                 fixedSize: Size(72.w, 32.h),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r))),
-            onPressed: () {
-              AppRouter.popRouter();
+            onPressed: () async{
+              await context.read<FireStoreProvider>().addNewArticle();
             },
             child: const Text(
               'Done',
@@ -38,12 +40,17 @@ class _ArticlePublish2State extends State<ArticlePublish2> {
           SizedBox(
             height: 20.h,
           ),
-          TextField(
-            autofocus: true,
-            decoration: InputDecoration(
-              hintText: 'Start typing...',
-              enabledBorder: InputBorder.none,
-              border: InputBorder.none,
+          Form(
+            key: context.read<FireStoreProvider>().addNewArticleKey2,
+            child: TextFormField(
+              controller: context.read<FireStoreProvider>().articleDescriptionController,
+              validator: context.read<FireStoreProvider>().requiredValidator,
+              autofocus: true,
+              decoration: InputDecoration(
+                hintText: 'Start typing...',
+                enabledBorder: InputBorder.none,
+                border: InputBorder.none,
+              ),
             ),
           ),
 

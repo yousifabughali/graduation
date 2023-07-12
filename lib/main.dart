@@ -31,9 +31,13 @@ class MyApp extends StatelessWidget {
         return ScreenUtilInit(
             designSize: const Size(375, 812),
             builder: (context, child) {
-              return  MaterialApp(
-                navigatorKey: AppRouter.navKey,
-                home: SplashScreen(),
+              return  StreamBuilder(
+                builder: (context, snapshot) {
+                  return MaterialApp(
+                    navigatorKey: AppRouter.navKey,
+                    home: SplashScreen(),
+                  );
+                }
               );
             });
       }

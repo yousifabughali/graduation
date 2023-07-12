@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
+import 'package:graduation/provider/auth_provider.dart';
+import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/settings/billing_page.dart';
 import 'package:graduation/settings/subscribe_membership.dart';
 import 'package:graduation/splashScreen.dart';
 import 'package:graduation/sub_pages/payment_page.dart';
 import 'package:graduation/widget/settings_buttons.dart';
+import 'package:provider/provider.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -64,6 +67,7 @@ class _SettingsState extends State<Settings> {
         SettingsButtons(icon: 'help.svg',title: 'Help',callFunction: (){}),
         SettingsButtons(icon: 'about.svg',title: 'About',callFunction: (){}),
         SettingsButtons(icon: 'book.svg',title: 'Terms of service',callFunction: (){}),
+        SizedBox(height: 20.h,),
         Text(
           'login Setting',
           style: TextStyle(
@@ -75,8 +79,8 @@ class _SettingsState extends State<Settings> {
         SizedBox(
           height: 8.h,
         ),
-        SettingsButtons(icon: 'logout.svg',title: 'Logout',callFunction: (){
-          AppRouter.NavigateWithReplacemtnToWidget(SplashScreen());
+        SettingsButtons(icon: 'logout.svg',title: 'Logout',callFunction: () async {
+          await context.read<AuthProvider>().signOut();
         }),
         SizedBox(height: 20.h,),
         Text(

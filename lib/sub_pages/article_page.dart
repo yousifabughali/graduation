@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
-import 'package:graduation/widget/bottom_sheet.dart';
-import 'package:graduation/widget/select_interst.dart';
-import 'package:graduation/widget/select_level.dart';
+import 'package:graduation/model/article.dart';
+
 
 class ArticlePage extends StatefulWidget {
-  const ArticlePage({Key? key}) : super(key: key);
+  Article article;
+  ArticlePage({required this.article,Key? key}) : super(key: key);
 
   @override
   State<ArticlePage> createState() => _ArticlePageState();
@@ -44,7 +44,7 @@ class _ArticlePageState extends State<ArticlePage> {
             SizedBox(
               height: 275.h,
               width: 375.w,
-              child: Image.asset('assets/images/articleImage.png',
+              child: Image.network(widget.article.image,
                   fit: BoxFit.cover),
             ),
             Column(
@@ -71,7 +71,7 @@ class _ArticlePageState extends State<ArticlePage> {
                             height: 48.h,
                             width: 335,
                             child: Text(
-                              'The importance of User Experience design in today\'s digital age',
+                              widget.article.question,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
@@ -82,7 +82,7 @@ class _ArticlePageState extends State<ArticlePage> {
                             height: 4.h,
                           ),
                           Text(
-                            'Published 2 days ago',
+                              widget.article.date.toString()??'',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 12,
@@ -125,6 +125,7 @@ class _ArticlePageState extends State<ArticlePage> {
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.black,
                                     fixedSize: Size(72.w, 32.h),
+                                    elevation: 0,
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(12.r))),
@@ -144,8 +145,7 @@ class _ArticlePageState extends State<ArticlePage> {
                             height: 34.h,
                           ),
                           Text(
-                            '''In today's digital age, User Experience (UX) design has become increasingly important for businesses and organizations that want to create successful products and services. UX design is the process of designing digital or physical products that are easy to use, enjoyable, and effective for their intended users. The following are some reasons why UX design is important in today's digital age:
-Enhances User Satisfaction: UX design focuses on designing products that meet the needs and expectations of users. When users are satisfied with a product, they are more likely to continue using it, recommend it to others, and provide positive feedback, which can increase the product's success.''',
+                            widget.article.description,
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
@@ -165,7 +165,7 @@ Enhances User Satisfaction: UX design focuses on designing products that meet th
                                     color: Colors.grey),
                                 child: Center(
                                   child: Text(
-                                    '#Uxdesign',
+                                    widget.article.hashtags??'',
 
                                     style: TextStyle(
                                         color: Colors.black,

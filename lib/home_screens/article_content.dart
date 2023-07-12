@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:graduation/provider/firestore_provider.dart';
+import 'package:graduation/sub_pages/article_page.dart';
 import 'package:graduation/widget/article_card.dart';
 import 'package:graduation/widget/article_publish.dart';
+import 'package:provider/provider.dart';
 
 class ArticleContent extends StatefulWidget {
   const ArticleContent({Key? key}) : super(key: key);
@@ -14,6 +17,7 @@ class ArticleContent extends StatefulWidget {
 class _ArticleContentState extends State<ArticleContent> {
   @override
   Widget build(BuildContext context) {
+    final provider = context.read<FireStoreProvider>();
     return ListView(
       children: [
         Row(
@@ -39,21 +43,25 @@ class _ArticleContentState extends State<ArticleContent> {
           ],
         ),
         SizedBox(
-          height: 20.5.h,
+          height: 14.h,
         ),
-        ArticleCard(),
-        SizedBox(
-          height: 32.h,
+        ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: provider.articles.length,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ArticlePage(article: provider.articles[index],)));
+                // AppRouter.NavigateToWidget(ProductsScreen(
+                //     fireStoreProvider.categories[index].id!));
+              },
+              child: ArticleCard(
+                  article: provider.articles[index]),
+            );
+          },
         ),
-        ArticleCard(),
-        SizedBox(
-          height: 32.h,
-        ),
-        ArticleCard(),
-        SizedBox(
-          height: 32.h,
-        ),
-        ArticleCard(),
       ],
     );
   }

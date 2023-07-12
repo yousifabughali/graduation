@@ -3,10 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/auth_screens/sign_in.dart';
+import 'package:graduation/model/post.dart';
+import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/sub_pages/question_screen.dart';
+import 'package:graduation/widget/comment_widget.dart';
+import 'package:provider/provider.dart';
 
 class QuestionSheet extends StatefulWidget {
-  const QuestionSheet({Key? key}) : super(key: key);
+  Post post;
+
+  QuestionSheet({required this.post, Key? key}) : super(key: key);
 
   @override
   State<QuestionSheet> createState() => _QuestionSheetState();
@@ -15,8 +21,9 @@ class QuestionSheet extends StatefulWidget {
 class _QuestionSheetState extends State<QuestionSheet> {
   @override
   Widget build(BuildContext context) {
+    final provider = context.read<FireStoreProvider>();
     return Padding(
-      padding: EdgeInsets.only(left: 26.w, right: 26.h, top: 10.h),
+      padding: EdgeInsets.only(left: 25.w, right: 25.h, top: 10.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -78,7 +85,7 @@ class _QuestionSheetState extends State<QuestionSheet> {
           Padding(
             padding: EdgeInsets.only(left: 5.0.w),
             child: Text(
-              'Question Goes Here',
+              widget.post.question,
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
@@ -91,13 +98,19 @@ class _QuestionSheetState extends State<QuestionSheet> {
           ),
           Padding(
             padding: EdgeInsets.only(left: 5.w),
-            child: Text(
-              '''Lorem ipsum dolor sit amet, consectetur \nadipisicing elit, sed do eiusmod tempor \nincididunt et dolore''',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w400,
-                fontSize: 14,
-                height: 1.4,
+            child: SizedBox(
+              width: 325.w,
+              height: 57.h,
+              child: Text(
+                widget.post.description,
+                maxLines: 3,
+                style: TextStyle(
+                  overflow: TextOverflow.ellipsis,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
+                  height: 1.2,
+                ),
               ),
             ),
           ),
@@ -124,7 +137,7 @@ class _QuestionSheetState extends State<QuestionSheet> {
               SvgPicture.asset('assets/icons/share.svg'),
               Spacer(),
               Text(
-                'sun.11.11.23',
+                widget.post.date!,
                 style: TextStyle(
                   color: Colors.grey,
                   fontWeight: FontWeight.w400,
@@ -152,94 +165,22 @@ class _QuestionSheetState extends State<QuestionSheet> {
           SizedBox(
             height: 20,
           ),
+          provider.comments.length == 0
+              ? Spacer()
+              : CommentWidget(comment: provider.comments[0]),
+
           SizedBox(
-            width: 335.w,
-            height: 107.h,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset(
-                  'assets/icons/a1.png',
-                  height: 40.h,
-                  width: 40.w,
-                ),
-                SizedBox(
-                  width: 10.w,
-                ),
-                SizedBox(
-                  width: 275.w,
-                  height: 104.h,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Ahmed Ali',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16.sp,
-                            ),
-                          ),
-                          Spacer(),
-                          Text(
-                            'Today',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.sp,
-                              height: 1.4,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 6.h,),
-                      Text(
-                        '''Lorem Ipsum is simply dummy text of the \nLorem Ipsum is simply dummy text ''',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12.sp,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 7.h,
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            '28 likes. 15 reply',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.sp,
-                            ),
-                          ),
-                          Spacer(),
-                          SvgPicture.asset('assets/icons/comment_like.svg'),
-                          SizedBox(
-                            width: 4.w,
-                          ),
-                          SvgPicture.asset('assets/icons/comment_reply.svg'),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+            height: 32.5,
           ),
-          SizedBox(height: 32.5,),
           ElevatedButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>QuestionScreen()));
+            onPressed: () async {
+              await provider.getAllComments(widget.post.postId!);
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return QuestionScreen(
+                    postId: widget.post.postId!, post: widget.post);
+              }));
             },
-            child:  Text(
+            child: Text(
               'See Full Post',
               style: TextStyle(color: Colors.black),
             ),

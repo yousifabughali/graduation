@@ -68,9 +68,9 @@ class AuthHelper{
   //
   // }
   //
-  // signOut() async{
-  //   await firebaseAuth.signOut();
-  //   AppRouter.NavigateWithReplacemtnToWidget(SignInScreen());
-  //
-  // }
+  signOut() async{
+    await firebaseAuth.signOut();
+    AppRouter.NavigateWithReplacemtnToWidget(SignIn());
+
+  }
 }

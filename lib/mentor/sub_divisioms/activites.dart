@@ -30,9 +30,9 @@ class _ActivitesState extends State<Activites> {
               fontSize: 16.sp,
               fontWeight: FontWeight.w600),
         ),
-        ArticleCard(),
-        ArticleCard(),
-        ArticleCard(),
+        // ArticleCard(),
+        // ArticleCard(),
+        // ArticleCard(),
       ],
     );
   }

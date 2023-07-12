@@ -20,7 +20,7 @@ class AuthProvider extends ChangeNotifier{
   TextEditingController passwordController= TextEditingController();
   TextEditingController userNameController= TextEditingController();
   TextEditingController nameController= TextEditingController();
-  Set<String> intrests={};
+  List<String> intrests=[];
   String level='';
   String? id;
 
@@ -80,7 +80,7 @@ class AuthProvider extends ChangeNotifier{
       UserCredential? credential= await AuthHelper.authHelper.signUp(
           emailController.text,passwordController.text);
       id = credential!.user!.uid;
-      AppUser appUser =AppUser(name: nameController.text,email: emailController.text, userName: userNameController.text,interests: intrests,id: credential!.user!.uid!);
+      AppUser appUser =AppUser(name: nameController.text,email: emailController.text, userName: userNameController.text,interests: intrests,postId: credential!.user!.uid!);
       FireStoreHelper.fireStoreHelper.addUsersToFireStore(appUser);
       if (credential!=null){
         //AppRouter.NavigateWithReplacemtnToWidget(HomeScreen());
@@ -94,7 +94,7 @@ class AuthProvider extends ChangeNotifier{
   Future<void> saveIntresets() async {
     //  if(signUpKey.currentState!.validate()) {
 
-    AppUser appUser =AppUser(name: nameController.text,email: emailController.text, userName: userNameController.text,id: id,interests: intrests,level: level );
+    AppUser appUser =AppUser(name: nameController.text,email: emailController.text, userName: userNameController.text,postId: id,interests: intrests,level: level );
     await FireStoreHelper.fireStoreHelper.addIntresetsAndLevels(intrests,level,id!);
 
   }
@@ -109,14 +109,14 @@ class AuthProvider extends ChangeNotifier{
   //   }
   // }
 
-  // signOut(){
-  //   emailController.text='';
-  //   phoneController.text='';
-  //   userNameController.text='';
-  //   passwordController.text='';
-  //   AuthHelper.authHelper.signOut();
-  //
-  // }
+  signOut(){
+    emailController.text='';
+    userNameController.text='';
+    passwordController.text='';
+    nameController.text='';
+    AuthHelper.authHelper.signOut();
+
+  }
   //
   // forgetPassword(){
   //   AuthHelper.authHelper.forgetPassword('yousifabughali@gmail.com');

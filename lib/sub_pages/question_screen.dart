@@ -4,18 +4,29 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
 import 'package:graduation/mentor/public_mentor_profile.dart';
+import 'package:graduation/model/post.dart';
+import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/widget/comment_widget.dart';
+import 'package:provider/provider.dart';
+
+import '../model/comments.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({Key? key}) : super(key: key);
+  String postId;
+  Post post;
+
+  QuestionScreen({required this.postId,required this.post, Key? key}) : super(key: key);
 
   @override
   State<QuestionScreen> createState() => _QuestionScreenState();
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
+
   @override
   Widget build(BuildContext context) {
+    final provider = context.read<FireStoreProvider>();
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -24,7 +35,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
           leading: Padding(
             padding: EdgeInsets.only(left: 10.w, top: 10.h),
             child: IconButton(
-              onPressed: (){
+              onPressed: () {
                 AppRouter.popRouter();
               },
               icon: SvgPicture.asset(
@@ -39,7 +50,10 @@ class _QuestionScreenState extends State<QuestionScreen> {
           height: 90.h,
           width: 395.w,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(40.r),topRight: Radius.circular(40.r),),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40.r),
+              topRight: Radius.circular(40.r),
+            ),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -47,7 +61,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
               SizedBox(
                 height: 53.h,
                 width: 273.w,
-                child: TextField(
+                child: TextFormField(
+                  controller: provider.commentController,
+                  validator: provider.requiredValidator,
                   decoration: InputDecoration(
                     hintText: 'Write your comment',
                     border: OutlineInputBorder(
@@ -56,18 +72,23 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   ),
                 ),
               ),
-              SvgPicture.asset('assets/icons/comment_sent.svg'),
+              InkWell(
+                onTap: () async{
+                  await provider.addNewComment(widget.postId);
+                },
+                child: SvgPicture.asset('assets/icons/comment_sent.svg'),
+              ),
             ],
           ),
         ),
         body: Padding(
-          padding: EdgeInsets.only(left: 26.w, right: 26.h, top: 10.h),
+          padding: EdgeInsets.only(left: 25.w, right: 25.h, top: 10.h),
           child: ListView(
             shrinkWrap: true,
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               InkWell(
-                onTap: (){
+                onTap: () {
                   AppRouter.NavigateToWidget(MentorPublicProfile());
                 },
                 child: Row(
@@ -129,7 +150,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
               Padding(
                 padding: EdgeInsets.only(left: 5.0.w),
                 child: Text(
-                  'Question Goes Here',
+                  widget.post.question,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
@@ -143,7 +164,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
               Padding(
                 padding: EdgeInsets.only(left: 5.w),
                 child: Text(
-                  '''Lorem ipsum dolor sit amet, consectetur \nadipisicing elit, sed do eiusmod tempor \nincididunt et dolore''',
+                  widget.post.description,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w400,
@@ -175,7 +196,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   SvgPicture.asset('assets/icons/share.svg'),
                   Spacer(),
                   Text(
-                    'sun.11.11.23',
+                    widget.post.date!,
                     style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w400,
@@ -203,13 +224,22 @@ class _QuestionScreenState extends State<QuestionScreen> {
               SizedBox(
                 height: 20,
               ),
-              CommentWidget(),
-              SizedBox(height: 14,),
-              CommentWidget(),
-              SizedBox(height: 14,),
-              CommentWidget(),
-              SizedBox(height: 14,),
-              CommentWidget(),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                itemCount: provider.comments.length,
+                itemBuilder: (context, index) {
+                  return CommentWidget(comment: provider.comments[index]);
+                },
+              ),
+              // CommentWidget(),
+              // SizedBox(height: 14,),
+              // CommentWidget(),
+              // SizedBox(height: 14,),
+              // CommentWidget(),
+              // SizedBox(height: 14,),
+              // CommentWidget(),
             ],
           ),
         ),

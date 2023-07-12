@@ -1,14 +1,15 @@
 class AppUser {
+
   late String email;
-  String? id;
+  String? postId;
   String? password;
   late String userName;
   late String name;
-  Set<String>? interests;
+  List<String>? interests;
   String? level;
 
   AppUser({
-    this.id,
+    this.postId,
     required this.email,
     this.password,
     required this.userName,
@@ -18,11 +19,11 @@ class AppUser {
   });
 
   AppUser.fromMap(Map<String, dynamic> map) {
-    final set = map['interests'] as Set<String>;
+    final set = map['interests'] as List;
     email= map['email'];
     userName= map['userName'];
     name=map['name'];
-    interests = set.map((e) => e.toString()).toSet();
+    interests = set.map((e) => e.toString()).toList();
     level=map['level'];
   }
 

@@ -34,7 +34,7 @@ class _SettingsButtonsState extends State<SettingsButtons> {
         widget.callFunction();
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         foregroundColor: Colors.black,
         elevation: 0,
       ),

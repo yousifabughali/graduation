@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation/app_router/router.dart';
 
-class AllDone extends StatelessWidget {
+class AllDone extends StatefulWidget {
   const AllDone({Key? key}) : super(key: key);
 
+  @override
+  State<AllDone> createState() => _AllDoneState();
+}
+
+class _AllDoneState extends State<AllDone> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(Duration(seconds: 3),() => AppRouter.popRouter(),);
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
