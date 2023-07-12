@@ -2,6 +2,8 @@ import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:graduation/app_router/router.dart';
+import 'package:graduation/widget/speaking_room_item.dart';
 
 class RoomScreen extends StatefulWidget {
   const RoomScreen({Key? key}) : super(key: key);
@@ -31,7 +33,9 @@ class _RoomScreenState extends State<RoomScreen> {
             child: Row(
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    AppRouter.popRouter();
+                  },
                   child: Text(
                     'Leave Room',
                     style: TextStyle(
@@ -64,7 +68,9 @@ class _RoomScreenState extends State<RoomScreen> {
         ),
         body: Padding(
           padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 39.h),
-          child: Column(
+          child: ListView(
+            shrinkWrap: true,
+            physics: AlwaysScrollableScrollPhysics(),
             children: [
               SizedBox(
                 height: 142.h,
@@ -159,40 +165,265 @@ class _RoomScreenState extends State<RoomScreen> {
               SizedBox(
                 height: 18.h,
               ),
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Column(
-                          children: [
-                            Stack(
-                              children: [
-                                Image.asset('assets/icons/a1.png'),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 45.w, top: 35.h),
-                                  child: Stack(
-                                    children: [
-                                      SvgPicture.asset(
-                                        'assets/icons/oval.svg',
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 6.5.w, top: 7.h),
-                                        child:
-                                        SvgPicture.asset('assets/icons/camera.svg'),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-
-                      ],
-                    ),
-                  ],
-                ),
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Yousef',
+                        host: true,
+                        mic: 'mic_speaking',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Fatena',
+                        host: false,
+                        mic: 'mic_unmute',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Noor',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Rima',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Yousef',
+                        host: false,
+                        mic: 'mic_speaking',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Fatena',
+                        host: false,
+                        mic: 'mic_unmute',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Noor',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Rima',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Yousef',
+                        host: false,
+                        mic: 'mic_speaking',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Fatena',
+                        host: false,
+                        mic: 'mic_unmute',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Noor',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Rima',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Yousef',
+                        host: false,
+                        mic: 'mic_speaking',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Fatena',
+                        host: false,
+                        mic: 'mic_unmute',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Noor',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Rima',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Yousef',
+                        host: false,
+                        mic: 'mic_speaking',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Fatena',
+                        host: false,
+                        mic: 'mic_unmute',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Noor',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Rima',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Yousef',
+                        host: false,
+                        mic: 'mic_speaking',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Fatena',
+                        host: false,
+                        mic: 'mic_unmute',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Noor',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Rima',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Yousef',
+                        host: false,
+                        mic: 'mic_speaking',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Fatena',
+                        host: false,
+                        mic: 'mic_unmute',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Noor',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Rima',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Yousef',
+                        host: false,
+                        mic: 'mic_speaking',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Fatena',
+                        host: false,
+                        mic: 'mic_unmute',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Noor',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                      SpeakingRoomItem(
+                        image: 'a1',
+                        name: 'Rima',
+                        host: false,
+                        mic: 'mic_muted',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                ],
               ),
             ],
           ),
