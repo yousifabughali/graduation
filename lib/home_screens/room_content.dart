@@ -2,6 +2,8 @@ import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:graduation/app_router/router.dart';
+import 'package:graduation/sub_pages/room_page.dart';
 import 'package:graduation/widget/room_card.dart';
 
 class RoomContent extends StatefulWidget {
@@ -65,7 +67,12 @@ class _RoomContentState extends State<RoomContent> {
             SizedBox(
               height: 37.h,
             ),
-            RoomCard(),
+            InkWell(
+              onTap: (){
+                AppRouter.NavigateToWidget(RoomScreen());
+              },
+              child: RoomCard(),
+            ),
             SizedBox(
               height: 10.h,
             ),
@@ -170,12 +177,13 @@ class _RoomContentState extends State<RoomContent> {
                       style: TextStyle(
                           fontWeight: FontWeight.w400, fontSize: 14.sp),
                     ),
-
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             RoomCard(),
           ],
         ),

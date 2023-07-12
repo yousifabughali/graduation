@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation/app_router/router.dart';
@@ -8,8 +9,15 @@ import 'package:graduation/splashScreen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
+import 'helper/internet_connectivity.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  Map _source = {ConnectivityResult.none: false};
+  final NetworkConnectivity _networkConnectivity = NetworkConnectivity.instance;
+  String string = '';
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

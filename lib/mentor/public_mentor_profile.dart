@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
+import 'package:graduation/widget/account_room_card.dart';
 import 'package:graduation/widget/article_card.dart';
 import 'package:graduation/widget/home_content_follow_card.dart';
+import 'package:graduation/widget/raise_hand.dart';
+import 'package:graduation/widget/see_more.dart';
 
 class MentorPublicProfile extends StatefulWidget {
   const MentorPublicProfile({Key? key}) : super(key: key);
@@ -128,7 +131,9 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                     ),
                     Spacer(),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        openBottomSheet(context, AccountRoomCard());
+                      },
                       child: Text(
                         'see more',
                         style: TextStyle(
@@ -271,6 +276,26 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
           ),
         ),
       ),
+    );
+  }
+  openBottomSheet(BuildContext context, Widget widget) {
+    return showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      showDragHandle: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40.0.r),
+            topRight: Radius.circular(40.0.r)),
+      ),
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: 401.h,
+          width: 375.w,
+          child: widget,
+        );
+      },
     );
   }
 }

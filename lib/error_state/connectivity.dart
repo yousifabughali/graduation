@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:graduation/app_router/router.dart';
+import 'package:graduation/splashScreen.dart';
 
 class CheckConnectivity extends StatelessWidget {
   const CheckConnectivity({Key? key}) : super(key: key);
@@ -52,7 +54,10 @@ class CheckConnectivity extends StatelessWidget {
                   fixedSize: Size(176.w, 56.h),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(26.r))),
-              onPressed: () {},
+              onPressed: () {
+                AppRouter.NavigateWithReplacemtnToWidget(SplashScreen());
+
+              },
               child: const Text(
                 'Retry',
                 style: TextStyle(

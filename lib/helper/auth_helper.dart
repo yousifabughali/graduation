@@ -5,6 +5,8 @@ import 'package:graduation/auth_screens/sign_in.dart';
 import 'package:graduation/helper/firestore_helper.dart';
 import 'package:graduation/model/user.dart';
 
+import '../auth_screens/first_page.dart';
+
 class AuthHelper{
   AuthHelper._();
   static AuthHelper authHelper=AuthHelper._();
@@ -45,18 +47,18 @@ class AuthHelper{
 
   }
 
-  // Future<AppUser?> checkUser() async {
-  //   User? user =  FirebaseAuth.instance.currentUser;
-  //   if (user == null) {
-  //     AppRouter.NavigateWithReplacemtnToWidget(SignIn());
-  //     return null;
-  //   } else {
-  //     AppUser appUser= await FireStoreHelper.fireStoreHelper.getUserFromFireStore(user.uid);
-  //     return appUser;
-  //     // AppRouter.NavigateWithReplacemtnToWidget(HomeScreen());
-  //
-  //   }
-  // }
+  Future<AppUser?> checkUser() async {
+    User? user =  FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      AppRouter.NavigateWithReplacemtnToWidget(RegisterScreen());
+      return null;
+    } else {
+      AppUser appUser= await FireStoreHelper.fireStoreHelper.getUserFromFireStore(user.uid);
+      return appUser;
+      // AppRouter.NavigateWithReplacemtnToWidget(HomeScreen());
+
+    }
+  }
 
   // verifyEmail(){
   //   User? user = firebaseAuth.currentUser;

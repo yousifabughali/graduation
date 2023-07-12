@@ -1,26 +1,42 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:graduation/app_router/router.dart';
 import 'package:graduation/auth_screens/first_page.dart';
+import 'package:graduation/error_state/connectivity.dart';
+import 'package:graduation/provider/auth_provider.dart';
 import 'package:graduation/provider/firestore_provider.dart';
 import 'package:provider/provider.dart';
+import 'dart:developer' as developer;
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
-
-
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+
   @override
-  void initState() {
+  void initState()  {
+
     context.read<FireStoreProvider>();
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>RegisterScreen()));
-    });  }
+    navigationFun(context);
+  }
+
+
+  navigationFun(BuildContext context) async{
+    await Future.delayed(const Duration(seconds: 3));
+     Provider.of<AuthProvider>(context,listen: false).checkUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
