@@ -30,20 +30,22 @@ class RecentlySearchCard extends StatelessWidget {
               Text(
                 'Ahmad Ali',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: const Color.fromRGBO(36, 36, 36, 1),
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w500,
+                  fontFamily: 'Poppins'
                 ),
               ),Text(
                 'Lorem Ipsum is simply dummy text of the',
                 style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w400,
+                    color: const Color.fromRGBO(36, 36, 36, 0.5),
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Poppins'
                 ),
               ),
               SizedBox(height: 5.5.h,),
-              DottedLine(dashColor: Colors.grey),
+              const DottedLine(dashColor: Color.fromRGBO(36, 36, 36, 0.5),dashGapLength: 6),
             ],
           ),
         ),
@@ -56,12 +58,13 @@ class RecentlySearchCard extends StatelessWidget {
                   borderRadius:
                   BorderRadius.circular(12.r))),
           onPressed: () {},
-          child: const Text(
+          child:  Text(
             'Follow',
             style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontSize: 14,
+                color: const Color.fromRGBO(255, 255, 255, 1),
+                fontWeight: FontWeight.w500,
+                fontSize: 14.sp,
+                fontFamily: 'Poppins'
             ),
           ),
         ),

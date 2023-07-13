@@ -1,12 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConversationSearchCard extends StatelessWidget {
-  String str1,str2;
-  IconData icon1,icon2;
-   ConversationSearchCard({
-     required this.str1,required this.str2,required this.icon1,required this.icon2,
+  String str1, str2;
+
+  ConversationSearchCard({
+    required this.str1,
+    required this.str2,
     super.key,
   });
 
@@ -21,27 +21,16 @@ class ConversationSearchCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.h),
               color: Color.fromRGBO(244, 244, 244, 1)),
           child: Padding(
-            padding:
-            EdgeInsets.symmetric(vertical: 12.h, horizontal: 14.w),
+            padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 14.w),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Icon(
-                    icon1,
-                      color: Colors.red,
-                    ),
-                    SizedBox(
-                      width: 2.w,
-                    ),
-                    Text(
-                      str1,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ],
+                Text(
+                  str1,
+                  style: TextStyle(
+                      color: const Color.fromRGBO(0, 0, 0, 1),
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Poppins'),
                 ),
                 SizedBox(
                   height: 3.h,
@@ -49,15 +38,19 @@ class ConversationSearchCard extends StatelessWidget {
                 Text(
                   'Lorem Ipsum is simply dummy text of the',
                   style: TextStyle(
-                      color: Colors.grey,
+                      color: const Color.fromRGBO(36, 36, 36, 0.5),
                       fontSize: 12.sp,
-                      fontWeight: FontWeight.w400),
+                      height: 1.5,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Poppins'),
                 ),
               ],
             ),
           ),
         ),
-        SizedBox(width: 13.w,),
+        SizedBox(
+          width: 13.w,
+        ),
         Container(
           height: 87.h,
           width: 161.w,
@@ -65,27 +58,16 @@ class ConversationSearchCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.h),
               color: Color.fromRGBO(244, 244, 244, 1)),
           child: Padding(
-            padding:
-            EdgeInsets.symmetric(vertical: 12.h, horizontal: 14.w),
+            padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 14.w),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Icon(
-                      icon2,
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      width: 2.w,
-                    ),
-                    Text(
-                      str2,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ],
+                Text(
+                  str2,
+                  style: TextStyle(
+                      color: const Color.fromRGBO(0, 0, 0, 1),
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Poppins'),
                 ),
                 SizedBox(
                   height: 3.h,
@@ -93,9 +75,11 @@ class ConversationSearchCard extends StatelessWidget {
                 Text(
                   'Lorem Ipsum is simply dummy text of the',
                   style: TextStyle(
-                      color: Colors.grey,
+                      color: const Color.fromRGBO(36, 36, 36, 0.5),
                       fontSize: 12.sp,
-                      fontWeight: FontWeight.w400),
+                      height: 1.5,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Poppins'),
                 ),
               ],
             ),

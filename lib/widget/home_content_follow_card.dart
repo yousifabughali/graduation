@@ -1,16 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/model/post.dart';
-import 'package:graduation/provider/firestore_provider.dart';
-import 'package:graduation/widget/question_sheet.dart';
-import 'package:provider/provider.dart';
 
 class HomeFollowCard extends StatelessWidget {
   Post post;
-   HomeFollowCard({
-     required this.post,
+
+  HomeFollowCard({
+    required this.post,
     super.key,
   });
 
@@ -26,16 +23,15 @@ class HomeFollowCard extends StatelessWidget {
           color: Colors.white,
         ),
         child: Padding(
-          padding: EdgeInsets.only(left: 10.w),
+          padding: EdgeInsets.only(top: 6.w,right: 13.w,left: 12.w,bottom: 13.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsets.only(
                   left: 9.w,
-                  top: 18.h,
-                  bottom: 24.h,
-                  right: 13.w,
+                  bottom: 12.h,
+                  top: 12.h,
                 ),
                 child: Row(
                   children: [
@@ -54,9 +50,11 @@ class HomeFollowCard extends StatelessWidget {
                         Text(
                           post.name,
                           style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
+                              color: const Color.fromRGBO(36, 36, 36, 1),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.sp,
+                              fontFamily: 'Poppins'
+                          ),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -64,13 +62,15 @@ class HomeFollowCard extends StatelessWidget {
                         Text(
                           post.username,
                           style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500),
+                              color: const Color.fromRGBO(36, 36, 36, 0.5),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.sp,
+                              fontFamily: 'Poppins'
+                          ),
                         ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.black,
@@ -78,12 +78,13 @@ class HomeFollowCard extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.r))),
                       onPressed: () {},
-                      child: const Text(
+                      child:  Text(
                         'Follow',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14,
+                            color: const Color.fromRGBO(255, 255, 255, 1),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp,
+                            fontFamily: 'Poppins'
                         ),
                       ),
                     ),
@@ -91,13 +92,18 @@ class HomeFollowCard extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding:  EdgeInsets.only(left: 5.0.w),
-                child: Text(
-                  post.question,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14,
+                padding: EdgeInsets.only(left: 5.0.w),
+                child: SizedBox(
+                  width: 295.w,
+                  height: 21.h,
+                  child: Text(
+                    post.question,
+                    style: TextStyle(
+                        color: const Color.fromRGBO(36, 36, 36, 1),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.sp,
+                        fontFamily: 'Poppins'
+                    ),
                   ),
                 ),
               ),
@@ -105,31 +111,34 @@ class HomeFollowCard extends StatelessWidget {
                 height: 4.h,
               ),
               Padding(
-                padding:  EdgeInsets.only(left:5.w),
+                padding: EdgeInsets.only(left: 5.w,bottom: 10.h),
                 child: SizedBox(
                   width: 295.w,
                   height: 57.h,
                   child: Text(
                     post.description,
-                    maxLines: 3,
-                    style: TextStyle(
-
-                      color: Colors.black,
+                    maxLines: 4,
+                    style:  TextStyle(
+                      color: const Color.fromRGBO(36, 36, 36, 1),
                       fontWeight: FontWeight.w400,
-                      fontSize: 14,
-                      height: 1.2,
+                      fontSize: 12.sp,
+                      height: 1.5,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 22.h,),
+              Spacer(),
               Row(
                 children: [
                   SvgPicture.asset('assets/icons/like.svg'),
-                  SizedBox(width: 10.w,),
+                  SizedBox(
+                    width: 10.w,
+                  ),
                   SvgPicture.asset('assets/icons/reply.svg'),
-                  SizedBox(width: 10.w,),
+                  SizedBox(
+                    width: 10.w,
+                  ),
                   SvgPicture.asset('assets/icons/share.svg'),
                 ],
               ),
@@ -139,8 +148,4 @@ class HomeFollowCard extends StatelessWidget {
       ),
     );
   }
-
-
 }
-
-

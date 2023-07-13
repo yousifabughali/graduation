@@ -27,6 +27,7 @@ class _PublishQuesionState extends State<PublishQuesion> {
         child: Column(
           children: [
             TextFormField(
+              maxLines: 2,
               controller: provider.postNameController,
               validator: provider.requiredValidator,
               decoration: InputDecoration(
@@ -37,6 +38,7 @@ class _PublishQuesionState extends State<PublishQuesion> {
             ),
             SizedBox(height: 15.h,),
             TextFormField(
+              maxLines: 10,
               controller: provider.postDescriptionController,
               validator: provider.requiredValidator,
               decoration: InputDecoration(
@@ -69,9 +71,10 @@ class _PublishQuesionState extends State<PublishQuesion> {
                   child: const Text(
                     'Post',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Color.fromRGBO(36, 36, 36, 1),
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
+                      fontFamily: 'Poppins'
                     ),
                   ),
                 ),

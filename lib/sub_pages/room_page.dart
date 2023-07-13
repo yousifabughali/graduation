@@ -18,7 +18,7 @@ class _RoomScreenState extends State<RoomScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(250, 250, 250, 1),
+        backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
         bottomNavigationBar: Container(
           clipBehavior: Clip.antiAlias,
           height: 90.h,
@@ -37,22 +37,22 @@ class _RoomScreenState extends State<RoomScreen> {
                   onPressed: () {
                     AppRouter.popRouter();
                   },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(26.r),
+                    ),
+                    backgroundColor: const Color.fromRGBO(251, 245, 232, 1),
+                    minimumSize: Size(176.w, 56.h),
+                  ),
                   child: Text(
                     'Leave Room',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 16.sp,
                       fontFamily: 'Poppins',
-                      color: Color.fromRGBO(36, 36, 36, 1),
+                      color: const Color.fromRGBO(36, 36, 36, 1),
                     ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(26.r),
-                    ),
-                    backgroundColor: Color.fromRGBO(251, 245, 232, 1),
-                    minimumSize: Size(176.w, 56.h),
                   ),
                 ),
                 SizedBox(
@@ -66,7 +66,7 @@ class _RoomScreenState extends State<RoomScreen> {
                 ),
                 InkWell(
                   onTap: (){
-                    openBottomSheet(context, RaiseHand());
+                    openBottomSheet(context, const RaiseHand());
                   },
                   child: SvgPicture.asset('assets/icons/raise.svg'),
                 ),
@@ -78,7 +78,7 @@ class _RoomScreenState extends State<RoomScreen> {
           padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 39.h),
           child: ListView(
             shrinkWrap: true,
-            physics: AlwaysScrollableScrollPhysics(),
+            physics: const AlwaysScrollableScrollPhysics(),
             children: [
               SizedBox(
                 height: 142.h,
@@ -94,8 +94,8 @@ class _RoomScreenState extends State<RoomScreen> {
                               fontWeight: FontWeight.w500,
                               fontSize: 14.sp),
                         ),
-                        Spacer(),
-                        Icon(
+                        const Spacer(),
+                        const Icon(
                           Icons.more_horiz_rounded,
                           color: Colors.black,
                         ),
@@ -105,7 +105,7 @@ class _RoomScreenState extends State<RoomScreen> {
                       'The importance of User Experience design in today\'s digital age',
                       style: TextStyle(
                         fontFamily: 'Poppins',
-                        color: Color.fromRGBO(36, 36, 36, 1),
+                        color: const Color.fromRGBO(36, 36, 36, 1),
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                       ),
@@ -116,7 +116,7 @@ class _RoomScreenState extends State<RoomScreen> {
                           width: 65.w,
                           height: 30.17.h,
                           decoration: BoxDecoration(
-                            color: Color.fromRGBO(239, 242, 248, 1),
+                            color: const Color.fromRGBO(239, 242, 248, 1),
                             borderRadius: BorderRadius.circular(12.r),
                           ),
                           child: Row(
@@ -128,7 +128,7 @@ class _RoomScreenState extends State<RoomScreen> {
                                 '155',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  color: Color.fromRGBO(36, 36, 36, 1),
+                                  color: const Color.fromRGBO(36, 36, 36, 1),
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -143,7 +143,7 @@ class _RoomScreenState extends State<RoomScreen> {
                           width: 65.w,
                           height: 30.17.h,
                           decoration: BoxDecoration(
-                            color: Color.fromRGBO(239, 242, 248, 1),
+                            color: const Color.fromRGBO(239, 242, 248, 1),
                             borderRadius: BorderRadius.circular(12.r),
                           ),
                           child: Row(
@@ -154,7 +154,7 @@ class _RoomScreenState extends State<RoomScreen> {
                                 '5',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  color: Color.fromRGBO(36, 36, 36, 1),
+                                  color: const Color.fromRGBO(36, 36, 36, 1),
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -164,7 +164,7 @@ class _RoomScreenState extends State<RoomScreen> {
                         ),
                       ],
                     ),
-                    DottedLine(
+                    const DottedLine(
                         dashColor: Color.fromRGBO(36, 36, 36, 0.5),
                         dashGapLength: 6),
                   ],

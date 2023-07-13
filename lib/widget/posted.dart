@@ -19,7 +19,10 @@ class Posted extends StatelessWidget {
         Text(
           'question posted !',
           style: TextStyle(
-              fontSize: 22, fontWeight: FontWeight.w600, color: Colors.black),
+            fontSize: 22.sp,
+            fontWeight: FontWeight.w600,
+            color: const Color.fromRGBO(36, 36, 36, 1),
+          ),
         ),
         SizedBox(
           height: 46.h,
@@ -31,36 +34,43 @@ class Posted extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => const HomeScreen()));
                 },
-                child: Text(
-                  'Go To Question',
-                  style: TextStyle(color: Colors.white),
-                ),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.r)),
                   backgroundColor: Colors.black,
                   minimumSize: Size(150.w, 56.h),
                 ),
+                child:  Text(
+                  'Go To Post',
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    color: const Color.fromRGBO(255, 255, 255, 1),
+                  ),
+                ),
               ),
-
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => const HomeScreen()));
                 },
-                child: Text(
-                  'Back Home',
-                  style: TextStyle(color: Colors.black),
-                ),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Colors.black, width: 1),
+                    side: const BorderSide(color: Color.fromRGBO(36, 36, 36, 1), width: 0.6),
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                   backgroundColor: Colors.white,
                   minimumSize: Size(150.w, 56.h),
+                ),
+                child: Text(
+                  'Back Home',
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    color: const Color.fromRGBO(36, 36, 36, 1),
+                  ),
                 ),
               ),
             ],

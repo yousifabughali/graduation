@@ -13,7 +13,7 @@ class RoomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         openBottomSheet(context, RoomSheet());
       },
       child: Container(
@@ -34,9 +34,10 @@ class RoomCard extends StatelessWidget {
                   Text(
                     'Now',
                     style: TextStyle(
-                        color: Colors.grey,
+                        color: const Color.fromRGBO(36, 36, 36, 0.5),
                         fontWeight: FontWeight.w500,
-                        fontSize: 14.sp),
+                        fontSize: 14.sp,
+                        fontFamily: 'Poppins'),
                   ),
                   Spacer(),
                   Icon(
@@ -53,7 +54,8 @@ class RoomCard extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 16.sp,
-                    fontWeight: FontWeight.w600),
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Poppins'),
               ),
               SizedBox(
                 height: 6.h,
@@ -67,9 +69,11 @@ class RoomCard extends StatelessWidget {
                   RichText(
                     text: TextSpan(
                       style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14.sp,
-                          color: Colors.grey),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.sp,
+                        color: const Color.fromRGBO(36, 36, 36, 0.5),
+                        fontFamily: 'Poppins',
+                      ),
                       children: [
                         TextSpan(
                           text: 'Host:',
@@ -77,7 +81,7 @@ class RoomCard extends StatelessWidget {
                         TextSpan(
                           text: ' Ahmad Ali',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: const Color.fromRGBO(36, 36, 36,1),
                               fontWeight: FontWeight.w600,
                               fontSize: 14,
                               wordSpacing: 2,
@@ -113,13 +117,13 @@ class RoomCard extends StatelessWidget {
               //     ],
               //   ),
               // ),
-
             ],
           ),
         ),
       ),
     );
   }
+
   openBottomSheet(BuildContext context, Widget widget) {
     return showModalBottomSheet<void>(
       context: context,

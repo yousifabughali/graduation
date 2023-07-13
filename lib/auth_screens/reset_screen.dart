@@ -15,35 +15,61 @@ class _ResetPasswordState extends State<ResetPassword> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding:  EdgeInsets.only(left: 20.w,top: 68.h,right: 20.w),
+        padding: EdgeInsets.only(left: 20.w, top: 68.h, right: 20.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(width: 4.w,),
-                IconButton(onPressed: (){
-                  Navigator.pop(context);
-                },icon: Icon(Icons.arrow_back),color: Colors.black,),
-                Spacer(),
-                IconButton(onPressed: (){
-                  Navigator.pop(context);
-                },icon: Icon(Icons.close),color: Colors.black,),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.arrow_back),
+                  color: Colors.black,
+                ),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.close),
+                  color: Colors.black,
+                ),
               ],
             ),
-            SizedBox(height: 24.h,),
-            Text('Change Your Password',style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.w600),),
-            SizedBox(height: 16.h,),
+            SizedBox(
+              height: 24.h,
+            ),
+            Text(
+              'Change Your Password',
+              style: TextStyle(
+                color: const Color.fromRGBO(0, 0, 0, 1),
+                fontFamily: 'Poppins',
+                fontSize: 24.sp,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(
+              height: 16.h,
+            ),
             Padding(
-              padding:  EdgeInsets.only(right: 29.w),
-              child: Text('Time to reset your password, remember don’t forget to write it to notes',style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.w500,),),
-
+              padding: EdgeInsets.only(right: 29.w),
+              child: Text(
+                'Time to reset your password, remember don’t forget to write it to notes',
+                style: TextStyle(
+                  color: const Color.fromRGBO(142, 142, 149, 1),
+                  fontFamily: 'Poppins',
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
             ),
             SizedBox(
               height: 56.h,
             ),
             Padding(
-              padding:  EdgeInsets.only(left: 4.0.w,right: 4.w),
+              padding: EdgeInsets.only(left: 4.0.w, right: 4.w),
               child: TextFormField(
                 decoration: InputDecoration(
                   label: Text('Password'),
@@ -51,7 +77,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12.r),
                     borderSide:
-                    BorderSide(style: BorderStyle.solid, width: 1.w),
+                        BorderSide(style: BorderStyle.solid, width: 1.w),
                   ),
                 ),
                 obscureText: true,
@@ -62,24 +88,26 @@ class _ResetPasswordState extends State<ResetPassword> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
-
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
               },
-              child: Text(
-                'Submit',
-                style: TextStyle(color: Colors.white),
-              ),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                    side: BorderSide(color: Colors.black)),
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
                 backgroundColor: Colors.black,
                 minimumSize: Size(325.w, 56.h),
               ),
+              child: Text(
+                'Submit',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16.sp),
+              ),
             ),
-
           ],
-
         ),
       ),
     );

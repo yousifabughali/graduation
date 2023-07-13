@@ -16,14 +16,14 @@ class QuestionScreen extends StatefulWidget {
   String postId;
   Post post;
 
-  QuestionScreen({required this.postId,required this.post, Key? key}) : super(key: key);
+  QuestionScreen({required this.postId, required this.post, Key? key})
+      : super(key: key);
 
   @override
   State<QuestionScreen> createState() => _QuestionScreenState();
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
-
   @override
   Widget build(BuildContext context) {
     final provider = context.read<FireStoreProvider>();
@@ -68,6 +68,12 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   validator: provider.requiredValidator,
                   decoration: InputDecoration(
                     hintText: 'Write your comment',
+                    hintStyle: TextStyle(
+                      fontFamily: 'Poppins',
+                      color: const Color.fromRGBO(36, 36, 36, 0.5),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14.sp,
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.r),
                     ),
@@ -75,8 +81,12 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 ),
               ),
               InkWell(
-                onTap: () async{
-                  await provider.addNewComment(widget.postId,provider2.nameController.text,provider2.userNameController.text,);
+                onTap: () async {
+                  await provider.addNewComment(
+                    widget.postId,
+                    provider2.nameController.text,
+                    provider2.userNameController.text,
+                  );
                 },
                 child: SvgPicture.asset('assets/icons/comment_sent.svg'),
               ),
@@ -91,7 +101,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
             children: [
               InkWell(
                 onTap: () {
-                  AppRouter.NavigateToWidget(MentorPublicProfile());
+                  AppRouter.NavigateToWidget(const MentorPublicProfile());
                 },
                 child: Row(
                   children: [
@@ -110,9 +120,11 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         Text(
                           widget.post.name,
                           style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
+                            color: const Color.fromRGBO(36, 36, 36, 1),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16.sp,
+                            fontFamily: 'Poppins',
+                          ),
                         ),
                         SizedBox(
                           height: 2.h,
@@ -120,27 +132,31 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         Text(
                           widget.post.username,
                           style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500),
+                            color: const Color.fromRGBO(36, 36, 36, 0.5),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp,
+                            fontFamily: 'Poppins',
+                          ),
                         ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          fixedSize: Size(72.w, 32.h),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12.r))),
+                        backgroundColor: Colors.black,
+                        fixedSize: Size(72.w, 32.h),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.r),
+                        ),
+                      ),
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         'Follow',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14,
-                        ),
+                            color: const Color.fromRGBO(255, 255, 255, 1),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp,
+                            fontFamily: 'Poppins'),
                       ),
                     ),
                   ],
@@ -154,9 +170,10 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 child: Text(
                   widget.post.question,
                   style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14,
+                    color: const Color.fromRGBO(36, 36, 36, 1),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.sp,
+                    fontFamily: 'Poppins',
                   ),
                 ),
               ),
@@ -168,10 +185,12 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 child: Text(
                   widget.post.description,
                   style: TextStyle(
-                    color: Colors.black,
+                    color: const Color.fromRGBO(36, 36, 36, 1),
                     fontWeight: FontWeight.w400,
-                    fontSize: 14,
-                    height: 1.4,
+                    fontSize: 12.sp,
+                    height: 1.5,
+                    overflow: TextOverflow.ellipsis,
+                    fontFamily: 'Poppins',
                   ),
                 ),
               ),
@@ -181,7 +200,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
               Text(
                 '28 views. 155 likes',
                 style: TextStyle(
-                  color: Colors.grey,
+                  fontFamily: 'Poppins',
+                  color: const Color.fromRGBO(142, 142, 149, 1),
                   fontWeight: FontWeight.w400,
                   fontSize: 12.sp,
                 ),
@@ -196,13 +216,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
                     width: 10.w,
                   ),
                   SvgPicture.asset('assets/icons/share.svg'),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     widget.post.date!,
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: const Color.fromRGBO(142, 142, 149, 1),
                       fontWeight: FontWeight.w400,
                       fontSize: 12.sp,
+                      fontFamily: 'Poppins',
                     ),
                   ),
                 ],
@@ -210,7 +231,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
               SizedBox(
                 height: 18.h,
               ),
-              DottedLine(dashColor: Colors.grey),
+              const DottedLine(dashColor: Colors.grey),
               //////////////////////////////////
               SizedBox(
                 height: 15.h,
@@ -218,30 +239,25 @@ class _QuestionScreenState extends State<QuestionScreen> {
               Text(
                 'see all comments',
                 style: TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12.sp,
+                  color: const Color.fromRGBO(142, 142, 149, 1),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14.sp,
+                  fontFamily: 'Poppins',
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 itemCount: provider.comments.length,
                 itemBuilder: (context, index) {
                   return CommentWidget(comment: provider.comments[index]);
                 },
               ),
-              // CommentWidget(),
-              // SizedBox(height: 14,),
-              // CommentWidget(),
-              // SizedBox(height: 14,),
-              // CommentWidget(),
-              // SizedBox(height: 14,),
-              // CommentWidget(),
+
             ],
           ),
         ),

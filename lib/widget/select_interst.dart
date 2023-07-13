@@ -38,7 +38,11 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
               children: [
                 Text(
                   flag ? 'Choose Your Level' : 'Choose your interests',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Poppins',
+                      color: const Color.fromRGBO(36, 36, 36, 1)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -46,8 +50,13 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
                 Text(
                   flag
                       ? 'You are almost done. Select your level!'
-                      : 'You are almost done. Select at least 5 topics so \n we can show what you might like.',
-                  style: TextStyle(color: Colors.grey),
+                      : 'You are almost done. Select your interest, so \n we can show what you might like.',
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Poppins',
+                    color: const Color.fromRGBO(147, 147, 147, 1),
+                  ),
                 ),
               ],
             ),
@@ -71,11 +80,15 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
                 ? SingleChildScrollView(
                     child: Column(
                       children: [
-                        InterestsElement(title: 'Flutter',),
+                        InterestsElement(
+                          title: 'Flutter',
+                        ),
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'Ui/Ux',),
+                        InterestsElement(
+                          title: 'Ui/Ux',
+                        ),
                         SizedBox(
                           height: 12.h,
                         ),
@@ -84,22 +97,20 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
                           height: 12.h,
                         ),
                         InterestsElement(title: '.Net'),
-
                         SizedBox(
                           height: 12.h,
                         ),
-                        InterestsElement(title: 'AWS',),
-
+                        InterestsElement(
+                          title: 'AWS',
+                        ),
                         SizedBox(
                           height: 12.h,
                         ),
                         InterestsElement(title: 'React'),
-
                         SizedBox(
                           height: 12.h,
                         ),
                         InterestsElement(title: 'Node.js'),
-
                         SizedBox(
                           height: 12.h,
                         ),
@@ -113,19 +124,17 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
           padding:
               EdgeInsets.only(left: 25.w, right: 25.w, top: 17.h, bottom: 17.h),
           child: ElevatedButton(
-            onPressed: ()  {
-              setState(()  {
+            onPressed: () {
+              setState(() {
                 if (!flag) {
                   flag = !flag;
-
                 } else {
                   //TODO:: to all done
-                   context.read<AuthProvider>().saveIntresets();
+                  context.read<AuthProvider>().saveIntresets();
 
                   // if(!mounted) return;
                   Navigator.pop(context);
                   openBottomSheet(context, AllDone());
-
                 }
               });
             },
@@ -145,6 +154,7 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
       ],
     );
   }
+
   openBottomSheet(BuildContext context, Widget widget) {
     return showModalBottomSheet<void>(
       context: context,
@@ -166,4 +176,3 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
     );
   }
 }
-

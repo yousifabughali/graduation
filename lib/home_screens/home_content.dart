@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:graduation/app_router/router.dart';
+import 'package:graduation/provider/auth_provider.dart';
 import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/sub_pages/notification_screen.dart';
 import 'package:graduation/sub_pages/search_page.dart';
@@ -22,7 +24,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
     return Padding(
       padding: EdgeInsets.only(top: 12.h),
       child: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           children: [
             Row(
@@ -37,53 +39,52 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                   width: 16.w,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     Text(
                       'Good Morning',
                       style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                      ),
+                          color: const Color.fromRGBO(142, 142, 149, 1),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14.sp,
+                          fontFamily: 'Poppins'),
                     ),
                     SizedBox(
                       height: 1.h,
                     ),
                     Text(
-                      'Ahmad Ali',
+                      Provider.of<AuthProvider>(context).nameController.text,
                       style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                      ),
+                          color: const Color.fromRGBO(0, 0, 0, 1),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18.sp,
+                          fontFamily: 'Poppins'),
                     ),
                   ],
                 ),
-                Spacer(),
-                IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => NotificationScreen()));
-                    },
-                    icon: SvgPicture.asset('assets/icons/notifi.svg')),
+                const Spacer(),
+                InkWell(
+                  onTap: () {
+                    AppRouter.NavigateToWidget(const NotificationScreen());
+                  },
+                  child: SvgPicture.asset('assets/icons/not.svg'),
+                ),
+
                 SizedBox(
                   width: 6.w,
                 ),
-                IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SearchPage()));
-                    },
-                    icon: SvgPicture.asset('assets/icons/search.svg')),
+                InkWell(
+                  onTap: () {
+                    AppRouter.NavigateToWidget(const SearchPage());
+                  },
+                  child: SvgPicture.asset('assets/icons/search.svg'),
+                ),
               ],
             ),
             ListView(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               children: [
                 SizedBox(
                   height: 29.h,
@@ -93,7 +94,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                   width: 335.w,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.r),
-                    gradient: RadialGradient(
+                    gradient: const RadialGradient(
                       colors: [
                         Color.fromRGBO(255, 198, 70, 0.8),
                         Color.fromRGBO(185, 152, 79, 0.8)
@@ -106,14 +107,20 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                         EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
                     child: Stack(
                       children: [
-                        const Text(
-                          'If You Have Experience Of 5+ \nYears in Your Field, Become a\nMentor With Us',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                        SizedBox(
+                          height: 81.h,
+                          width: 295.w,
+                          child: Text(
+                            'If You Have Experience Of 5+ \nYears in Your Field, Become A \nMentor With Us',
+                            style: TextStyle(
+                              color: const Color.fromRGBO(36, 36, 36, 1),
+                              fontWeight: FontWeight.w600,
+                              fontFamily: 'Poppins',
+                              fontSize: 16.sp,
                               wordSpacing: 4,
-                              height: 1.5),
+                              height: 1.8,
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.only(bottom: 17.h),
@@ -122,7 +129,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                             children: [
                               Row(
                                 children: [
-                                  Spacer(),
+                                  const Spacer(),
                                   ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.black,
@@ -131,13 +138,13 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                             borderRadius:
                                                 BorderRadius.circular(12.r))),
                                     onPressed: () {},
-                                    child: const Text(
+                                    child: Text(
                                       'Get Started',
                                       style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 14,
-                                      ),
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 14.sp,
+                                          fontFamily: 'Poppins'),
                                     ),
                                   ),
                                 ],
@@ -154,7 +161,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                 ),
                 ListView.builder(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   itemCount: provider.posts.length,
                   itemBuilder: (context, index) {
@@ -174,13 +181,13 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
       ),
     );
   }
+
   openBottomSheet(BuildContext context, Widget widget) {
     return showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
       showDragHandle: true,
-
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40.0.r),
@@ -195,5 +202,4 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
       },
     );
   }
-
 }

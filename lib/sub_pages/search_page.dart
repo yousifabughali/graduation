@@ -75,9 +75,10 @@ class _SearchPageState extends State<SearchPage> {
               child: Text(
                 'Recently',
                 style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16.sp,
+                    color: const Color.fromRGBO(0, 0, 0, 1),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16.sp,
+                    fontFamily: 'Poppins'
                 ),
               ),
             ),
@@ -101,20 +102,21 @@ class _SearchPageState extends State<SearchPage> {
               child: Text(
                 'Conversation',
                 style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+                  color: const Color.fromRGBO(0, 0, 0, 1),
+                  fontWeight: FontWeight.w600,
                   fontSize: 16.sp,
+                  fontFamily: 'Poppins'
                 ),
               ),
             ),
             SizedBox(
               height: 16.h,
             ),
-            ConversationSearchCard(str1: 'Sales',icon1: Icons.stacked_line_chart,str2: 'Coding',icon2: Icons.laptop_chromebook,),
+            ConversationSearchCard(str1: '📈 Sales',str2: '💻 Coding',),
             SizedBox(height: 9.h,),
-            ConversationSearchCard(str2: 'Softwore',icon2: Icons.desktop_mac_outlined,str1: 'Knowledge',icon1: Icons.lightbulb,),
+            ConversationSearchCard(str1: '🖥️ Softwore',str2: '💡 Knowledge',),
             SizedBox(height: 9.h,),
-            ConversationSearchCard(str2: 'Design',icon2: Icons.design_services_outlined,str1: 'Trending',icon1: Icons.local_fire_department_outlined,),
+            ConversationSearchCard(str1: '👩🏻‍💻 Design',str2: ' 🔥 Trending',),
           ],
         ),
       ),

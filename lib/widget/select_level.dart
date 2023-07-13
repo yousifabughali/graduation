@@ -30,61 +30,97 @@ class _SelectLevelState extends State<SelectLevel> {
     return ListView(
       children: [
         RadioListTile<ExperienceLevel>(
-          title: Text('Fresh Learner'),
+          title: Text(
+            'Fresh Learner',
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Poppins',
+              color: const Color.fromRGBO(36, 36, 36, 1),
+            ),
+          ),
           value: ExperienceLevel.freshLearner,
           groupValue: _selectedLevel,
           onChanged: (value) {
             setState(() {
               _selectedLevel = value;
-              provider.level=value.toString();
-
+              provider.level = value.toString();
             });
           },
         ),
         RadioListTile<ExperienceLevel>(
-          title: Text('Internship'),
+          title: Text(
+            'Internship',
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Poppins',
+              color: const Color.fromRGBO(36, 36, 36, 1),
+            ),
+          ),
           value: ExperienceLevel.internship,
           groupValue: _selectedLevel,
           onChanged: (value) {
             setState(() {
               _selectedLevel = value;
-              provider.level=value.toString();
+              provider.level = value.toString();
             });
           },
         ),
         RadioListTile<ExperienceLevel>(
-          title: Text('Junior'),
+          title: Text(
+            'Junior',
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Poppins',
+              color: const Color.fromRGBO(36, 36, 36, 1),
+            ),
+          ),
           value: ExperienceLevel.junior,
           groupValue: _selectedLevel,
           onChanged: (value) {
             setState(() {
               _selectedLevel = value;
-              provider.level=value.toString();
-
+              provider.level = value.toString();
             });
           },
         ),
         RadioListTile<ExperienceLevel>(
-          title: Text('Mid-Level'),
+          title: Text(
+            'Mid-Level',
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Poppins',
+              color: const Color.fromRGBO(36, 36, 36, 1),
+            ),
+          ),
           value: ExperienceLevel.midLevel,
           groupValue: _selectedLevel,
           onChanged: (value) {
             setState(() {
               _selectedLevel = value;
-              provider.level=value.toString();
-
+              provider.level = value.toString();
             });
           },
         ),
         RadioListTile<ExperienceLevel>(
-          title: Text('Senior'),
+          title: Text(
+            'Senior',
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Poppins',
+              color: const Color.fromRGBO(36, 36, 36, 1),
+            ),
+          ),
           value: ExperienceLevel.senior,
           groupValue: _selectedLevel,
           onChanged: (value) {
             setState(() {
               _selectedLevel = value;
-              provider.level=value.toString();
-
+              provider.level = value.toString();
             });
           },
         ),
@@ -93,22 +129,3 @@ class _SelectLevelState extends State<SelectLevel> {
   }
 }
 
-// Padding(
-//   padding:  EdgeInsets.only(left: 25.w,right: 25.w,top: 17.h,bottom: 17.h),
-//   child: ElevatedButton(
-//     onPressed: () {
-//
-//     },
-//     child: Text(
-//       'Finish',
-//       style: TextStyle(color: Colors.white),
-//     ),
-//     style: ElevatedButton.styleFrom(
-//       shape: RoundedRectangleBorder(
-//           borderRadius: BorderRadius.circular(12.r),
-//           side: BorderSide(color: Colors.black)),
-//       backgroundColor: Colors.black,
-//       minimumSize: Size(325.w, 56.h),
-//     ),
-//   ),
-// ),

@@ -21,7 +21,14 @@ class _InterestsElementState extends State<InterestsElement> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(widget.title!),
+        Text(widget.title!,
+          style: TextStyle(
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w400,
+            fontFamily: 'Poppins',
+            color: const Color.fromRGBO(36, 36, 36, 1),
+          ),
+        ),
         Spacer(),
         SizedBox(
           height: 20.h,
@@ -31,12 +38,14 @@ class _InterestsElementState extends State<InterestsElement> {
                   borderRadius: BorderRadius.circular(5.r)),
               value: isChecked,
               onChanged: (value) {
-
                   setState(() {
                     isChecked = value ?? false;
                   });
                   if(value==true){
                     Provider.of<AuthProvider>(context,listen: false).intrests.add(widget.title!);
+                  }else{
+                    Provider.of<AuthProvider>(context,listen: false).intrests.remove(widget.title!);
+
                   }
 
 

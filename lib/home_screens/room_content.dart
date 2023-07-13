@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
-import 'package:graduation/sub_pages/room_page.dart';
+import 'package:graduation/provider/auth_provider.dart';
+import 'package:graduation/sub_pages/notification_screen.dart';
+import 'package:graduation/sub_pages/search_page.dart';
 import 'package:graduation/widget/room_card.dart';
 import 'package:graduation/widget/room_sheet.dart';
+import 'package:provider/provider.dart';
 
 class RoomContent extends StatefulWidget {
   const RoomContent({Key? key}) : super(key: key);
@@ -20,7 +23,7 @@ class _RoomContentState extends State<RoomContent> {
     return Padding(
       padding: EdgeInsets.only(top: 12.h),
       child: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           children: [
             Row(
@@ -35,52 +38,63 @@ class _RoomContentState extends State<RoomContent> {
                   width: 16.w,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Good Morning',
                       style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                      ),
+                          color: const Color.fromRGBO(142, 142, 149, 1),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14.sp,
+                          fontFamily: 'Poppins'),
                     ),
                     SizedBox(
                       height: 1.h,
                     ),
                     Text(
-                      'Ahmad Ali',
+                      Provider.of<AuthProvider>(context).nameController.text,
                       style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                      ),
+                          color: const Color.fromRGBO(0, 0, 0, 1),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18.sp,
+                          fontFamily: 'Poppins'),
                     ),
                   ],
                 ),
-                Spacer(),
-                SvgPicture.asset('assets/icons/notification.svg'),
+                const Spacer(),
+                InkWell(
+                  onTap: () {
+                    AppRouter.NavigateToWidget(const NotificationScreen());
+                  },
+                  child: SvgPicture.asset('assets/icons/not.svg'),
+                ),
                 SizedBox(
                   width: 6.w,
                 ),
-                SvgPicture.asset('assets/icons/search.svg'),
+                InkWell(
+                  onTap: () {
+                    AppRouter.NavigateToWidget(const SearchPage());
+                  },
+                  child: SvgPicture.asset('assets/icons/search.svg'),
+                ),
               ],
             ),
             SizedBox(
               height: 37.h,
             ),
-            RoomCard(),
+            const RoomCard(),
             SizedBox(
               height: 10.h,
             ),
             InkWell(
-              onTap: (){
-                openBottomSheet(context, RoomSheet());
+              onTap: () {
+                openBottomSheet(context, const RoomSheet());
               },
               child: Container(
                 height: 327.h,
                 width: 335.w,
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(251, 245, 232, 1),
+                  color: const Color.fromRGBO(251, 245, 232, 1),
                   borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Padding(
@@ -94,15 +108,13 @@ class _RoomContentState extends State<RoomContent> {
                           Text(
                             'Upcoming',
                             style: TextStyle(
-                                color: Colors.grey,
+                                color: const Color.fromRGBO(36, 36, 36, 0.5),
                                 fontWeight: FontWeight.w500,
-                                fontSize: 14.sp),
+                                fontSize: 14.sp,
+                                fontFamily: 'Poppins'),
                           ),
-                          Spacer(),
-                          Icon(
-                            Icons.notifications_outlined,
-                            color: Colors.black,
-                          ),
+                          const Spacer(),
+                          SvgPicture.asset('assets/icons/bill_n.svg'),
                         ],
                       ),
                       SizedBox(
@@ -111,9 +123,11 @@ class _RoomContentState extends State<RoomContent> {
                       Text(
                         'The importance of User Experien...',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w600),
+                          color: const Color.fromRGBO(36, 36, 36, 1),
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Poppins',
+                        ),
                       ),
                       SizedBox(
                         height: 6.h,
@@ -129,19 +143,22 @@ class _RoomContentState extends State<RoomContent> {
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 14.sp,
-                                  color: Colors.grey),
+                                  color: const Color.fromRGBO(36, 36, 36, 0.5),
+                                  fontFamily: 'Poppins'),
                               children: [
-                                TextSpan(
+                                const TextSpan(
                                   text: 'Host:',
                                 ),
                                 TextSpan(
                                   text: ' Ahmad Ali',
                                   style: TextStyle(
-                                      color: Colors.black,
+                                      color:
+                                          const Color.fromRGBO(36, 36, 36, 1),
                                       fontWeight: FontWeight.w600,
                                       fontSize: 14,
                                       wordSpacing: 2,
-                                      height: 1.4.h),
+                                      height: 1.4.h,
+                                      fontFamily: 'Poppins'),
                                 ),
                               ],
                             ),
@@ -151,7 +168,10 @@ class _RoomContentState extends State<RoomContent> {
                       SizedBox(
                         height: 12.65.h,
                       ),
-                      DottedLine(dashColor: Colors.grey),
+                      const DottedLine(
+                        dashColor: Color.fromRGBO(36, 36, 36, 0.5),
+                        dashGapLength: 6,
+                      ),
                       SizedBox(
                         height: 9.5.h,
                       ),
@@ -175,17 +195,21 @@ class _RoomContentState extends State<RoomContent> {
                       Text(
                         'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et doloreLorem ipsum dolor sit amet, consectetur adipisicing 💬',
                         style: TextStyle(
-                            fontWeight: FontWeight.w400, fontSize: 14.sp),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14.sp,
+                            height: 1.57,
+                            color: const Color.fromRGBO(36, 36, 36, 1),
+                            fontFamily: 'Poppins'),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            RoomCard(),
+            const RoomCard(),
           ],
         ),
       ),

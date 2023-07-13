@@ -1,18 +1,21 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/model/comments.dart';
+import 'package:graduation/provider/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 class CommentWidget extends StatelessWidget {
   Comments comment;
-   CommentWidget({
+
+  CommentWidget({
     required this.comment,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    final provider = context.read<AuthProvider>();
     return SizedBox(
       width: 335.w,
       height: 107.h,
@@ -39,21 +42,21 @@ class CommentWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Ahmed Ali',
+                      provider.nameController.text,
                       style: TextStyle(
-                        color: Colors.black,
+                        color: const Color.fromRGBO(36, 36, 36, 1),
                         fontWeight: FontWeight.w500,
                         fontSize: 16.sp,
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       comment.date,
                       style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 12.sp,
-                        height: 1.4,
+                          color: const Color.fromRGBO(36, 36, 36, 0.5),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins'
                       ),
                     ),
                   ],
@@ -62,9 +65,11 @@ class CommentWidget extends StatelessWidget {
                 Text(
                   comment.answer,
                   style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12.sp,
+                      color: const Color.fromRGBO(36, 36, 36, 0.5),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12.sp,
+                      fontFamily: 'Poppins',
+                      height:1.5,
                   ),
                 ),
                 SizedBox(
@@ -76,12 +81,13 @@ class CommentWidget extends StatelessWidget {
                     Text(
                       '28 likes. 15 reply',
                       style: TextStyle(
-                        color: Colors.grey,
+                        fontFamily: 'Poppins',
+                        color: const Color.fromRGBO(142, 142, 149, 1),
                         fontWeight: FontWeight.w400,
                         fontSize: 12.sp,
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     SvgPicture.asset('assets/icons/comment_like.svg'),
                     SizedBox(
                       width: 4.w,

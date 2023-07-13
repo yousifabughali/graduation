@@ -14,19 +14,41 @@ class _AllDoneState extends State<AllDone> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 3),() => AppRouter.popRouter(),);
+    Future.delayed(
+      Duration(seconds: 3),
+      () => AppRouter.popRouter(),
+    );
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Padding(
-          padding:  EdgeInsets.only(top: 41.h,left:42.w,right: 43.w,bottom: 14.h),
+          padding:
+              EdgeInsets.only(top: 41.h, left: 42.w, right: 43.w, bottom: 14.h),
           child: Image.asset('assets/images/done.png'),
         ),
-        Text('You\'re all done!',style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600,color: Colors.black),),
-        SizedBox(height: 3.h,),
-        Text('Creating your personalised feed..',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,color: Colors.grey),),
+        Text(
+          'You\'re all done!',
+          style: TextStyle(
+            fontSize: 24.sp,
+            fontWeight: FontWeight.w600,
+            color: Color.fromRGBO(36, 36, 36, 1),
+            fontFamily: 'Poppins'
+          ),
+        ),
+        SizedBox(
+          height: 3.h,
+        ),
+        Text(
+          'Creating your personalised feed..',
+          style: TextStyle(
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Poppins',
+              color: Color.fromRGBO(147, 147, 147, 1)),
+        ),
       ],
     );
   }

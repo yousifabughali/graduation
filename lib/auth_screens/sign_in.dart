@@ -42,8 +42,12 @@ class _SignInState extends State<SignIn> {
                   ),
                   child: Text(
                     'Login',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
-                  ),
+                    style: TextStyle(
+                      color: const Color.fromRGBO(0, 0, 0, 1),
+                      fontFamily: 'Poppins',
+                      fontSize: 32.sp,
+                      fontWeight: FontWeight.w600,
+                    ),                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(
@@ -53,9 +57,11 @@ class _SignInState extends State<SignIn> {
                   child: Text(
                     'Login To Your CODNET account',
                     style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: Colors.grey),
+                      color: const Color.fromRGBO(142, 142, 149, 1),
+                      fontFamily: 'Poppins',
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
                 Form(

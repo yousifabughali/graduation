@@ -41,19 +41,24 @@ class _SuccessfulRegistrationState extends State<SuccessfulRegistration> {
           Padding(
             padding: EdgeInsets.only(left: 24.w, right: 24.w, bottom: 12.h),
             child: Text(
-              'Welcome To The Club Of technicians',
+              'Welcome To The Club Of tTechnicians',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
-                height: 1.6.h,
-                fontSize: 24,
+                height: 1.8.h,
+                fontSize: 26.sp,
+                fontFamily: 'Poppins',
+                color: Color.fromRGBO(16, 16, 16, 1),
               ),
             ),
           ),
-          const Text(
+           Text(
             'Enjoy your technical trip ! Let\'s start!',
             style: TextStyle(
-                fontWeight: FontWeight.w400, fontSize: 12, color: Colors.grey),
+              fontWeight: FontWeight.w400,
+              fontSize: 12.sp,
+              color: Color.fromRGBO(147, 147, 147, 1),
+            ),
           ),
           SizedBox(
             height: 32.h,
@@ -62,21 +67,24 @@ class _SuccessfulRegistrationState extends State<SuccessfulRegistration> {
             padding: const EdgeInsets.only(left: 25, right: 25, bottom: 205),
             child: ElevatedButton(
               onPressed: () async {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => HomeScreen()));
-                        openBottomSheet(context, SelectYourIntrest());
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()));
+                openBottomSheet(context, SelectYourIntrest());
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r)),
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
                 backgroundColor: Colors.black,
                 minimumSize: Size(325.w, 56.h),
               ),
-              child: const Text(
+              child: Text(
                 'Continue',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16.sp),
               ),
             ),
           ),
