@@ -98,6 +98,7 @@ class AuthProvider extends ChangeNotifier {
       userNameController.text = appUser.userName;
       nameController.text = appUser.name;
       await AppRouter.NavigateWithReplacemtnToWidget(HomeScreen());
+      return appUser;
     }
   }
 

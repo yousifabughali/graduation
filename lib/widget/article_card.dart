@@ -7,7 +7,7 @@ import 'package:graduation/model/article.dart';
 import 'package:graduation/sub_pages/article_page.dart';
 
 class ArticleCard extends StatelessWidget {
-  Article? article;
+  Article article;
    ArticleCard({
     required this.article,
     super.key,
@@ -64,7 +64,7 @@ class ArticleCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '@username',
+                      article!.name!,
                       style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.w500,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
+import 'package:graduation/provider/auth_provider.dart';
 import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/widget/posted.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,7 @@ class _PublishQuesionState extends State<PublishQuesion> {
   @override
   Widget build(BuildContext context) {
     final provider= context.read<FireStoreProvider>();
+    final provider2= context.read<AuthProvider>();
     return Padding(
       padding: EdgeInsets.only(top: 30.h,right: 20.w,left: 20.w),
       child: Form(
@@ -61,7 +63,8 @@ class _PublishQuesionState extends State<PublishQuesion> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.r))),
                   onPressed: () async {
-                    await provider.addNewPosts();
+                    await provider.addNewPosts(provider2.nameController.text,provider2.userNameController.text);
+                    openBottomSheet(context, Posted());
                   },
                   child: const Text(
                     'Post',

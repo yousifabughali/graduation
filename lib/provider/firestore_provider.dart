@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation/app_router/router.dart';
 import 'package:graduation/helper/firestore_helper.dart';
@@ -9,6 +10,7 @@ import 'package:graduation/model/article.dart';
 import 'package:graduation/model/comments.dart';
 import 'package:graduation/model/post.dart';
 import 'package:graduation/model/user.dart';
+import 'package:graduation/provider/auth_provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +33,7 @@ class FireStoreProvider extends ChangeNotifier {
   List<Post> posts = [];
   List<Comments> comments=[];
 
+
   // List<Product> products = [];
 
   FireStoreProvider() {
@@ -51,7 +54,7 @@ class FireStoreProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> addNewArticle() async {
+  Future<void> addNewArticle(String text) async {
     // if(addNewCategoryKey.currentState!.validate()){
 
     if (selectedImage != null) {
@@ -60,6 +63,7 @@ class FireStoreProvider extends ChangeNotifier {
       Article article = Article(
         question: articleNameController.text,
         image: imageUrl,
+        name:text,
         description: articleDescriptionController.text,
         date: DateFormat('yyyy-MM-dd').format(DateTime.now()),
         hashtags: articleTagsController.text,
@@ -78,14 +82,14 @@ class FireStoreProvider extends ChangeNotifier {
   }
 
   /// posts
-  Future<void> addNewPosts() async {
+  Future<void> addNewPosts(String name,String userName) async {
 
     // if(addNewCategoryKey.currentState!.validate()){
     Post post = Post(
       question: postNameController.text,
       description: postDescriptionController.text,
-      name: '',
-      username: '',
+      name: name,
+      username: userName,
       image: 'assets/icons/a1.png',
       date: DateFormat('dd-MM-yyyy').format(DateTime.now()),
     );
@@ -103,13 +107,14 @@ class FireStoreProvider extends ChangeNotifier {
   }
 
   ///comments
-  addNewComment(String postId) async {
+  addNewComment(String postId,String name,String userName) async {
+
     // if(addNewProductKey.currentState!.validate()){
         Comments comment = Comments(
-          name: '',
+          name: name,
           answer: commentController.text,
-          userName: '',
-          image: 'assests/icons/1.png',
+          userName: userName,
+          image: 'assets/icons/1.png',
           date: DateFormat('dd-MM-yyyy').format(DateTime.now()),
         );
         Comments newComment =

@@ -6,6 +6,7 @@ import 'package:graduation/widget/account_room_card.dart';
 import 'package:graduation/widget/article_card.dart';
 import 'package:graduation/widget/home_content_follow_card.dart';
 import 'package:graduation/widget/raise_hand.dart';
+import 'package:graduation/widget/room_sheet.dart';
 import 'package:graduation/widget/see_more.dart';
 
 class MentorPublicProfile extends StatefulWidget {
@@ -132,7 +133,7 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                     Spacer(),
                     TextButton(
                       onPressed: () {
-                        openBottomSheet(context, AccountRoomCard());
+                        openBottomSheet(context, SeeMore());
                       },
                       child: Text(
                         'see more',
@@ -284,6 +285,7 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
       isScrollControlled: true,
       backgroundColor: Colors.white,
       showDragHandle: true,
+      useSafeArea: false,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40.0.r),
@@ -291,7 +293,7 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
       ),
       builder: (BuildContext context) {
         return SizedBox(
-          height: 401.h,
+          height: 599.h,
           width: 375.w,
           child: widget,
         );

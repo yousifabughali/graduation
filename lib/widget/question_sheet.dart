@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/auth_screens/sign_in.dart';
 import 'package:graduation/model/post.dart';
+import 'package:graduation/model/user.dart';
+import 'package:graduation/provider/auth_provider.dart';
 import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/sub_pages/question_screen.dart';
 import 'package:graduation/widget/comment_widget.dart';
@@ -19,6 +21,7 @@ class QuestionSheet extends StatefulWidget {
 }
 
 class _QuestionSheetState extends State<QuestionSheet> {
+
   @override
   Widget build(BuildContext context) {
     final provider = context.read<FireStoreProvider>();
@@ -42,7 +45,7 @@ class _QuestionSheetState extends State<QuestionSheet> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'usermame',
+                    widget.post.name,
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 16,
@@ -52,7 +55,7 @@ class _QuestionSheetState extends State<QuestionSheet> {
                     height: 2.h,
                   ),
                   Text(
-                    'Text',
+                    widget.post.username,
                     style: TextStyle(
                         color: Colors.grey,
                         fontSize: 14,

@@ -4,6 +4,7 @@ class Article {
   late String description;
   late String image;
   String? hashtags;
+  String? name;
   // Set<String>? hashtags;
   String? date;
 
@@ -13,6 +14,7 @@ class Article {
     required this.description,
     required this.image,
     this.hashtags,
+    required this.name,
     this.date
   });
 
@@ -22,6 +24,8 @@ class Article {
     description= map['description'];
     image=map['image'];
     hashtags=map['hashtags'];
+    name=map['name'];
+
     // hashtags = set.map((e) => e.toString()).toSet();
     date=map['date'];
   }
@@ -32,6 +36,7 @@ class Article {
       'description': description,
       'image':image,
       'hashtags':hashtags,
+      'name':name,
       'date':date
     };
   }

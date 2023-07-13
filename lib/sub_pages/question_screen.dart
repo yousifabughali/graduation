@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
 import 'package:graduation/mentor/public_mentor_profile.dart';
 import 'package:graduation/model/post.dart';
+import 'package:graduation/provider/auth_provider.dart';
 import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/widget/comment_widget.dart';
 import 'package:provider/provider.dart';
@@ -26,6 +27,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = context.read<FireStoreProvider>();
+    final provider2 = context.read<AuthProvider>();
 
     return SafeArea(
       child: Scaffold(
@@ -74,7 +76,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
               ),
               InkWell(
                 onTap: () async{
-                  await provider.addNewComment(widget.postId);
+                  await provider.addNewComment(widget.postId,provider2.nameController.text,provider2.userNameController.text,);
                 },
                 child: SvgPicture.asset('assets/icons/comment_sent.svg'),
               ),
@@ -106,7 +108,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'usermame',
+                          widget.post.name,
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 16,
@@ -116,7 +118,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           height: 2.h,
                         ),
                         Text(
-                          'Text',
+                          widget.post.username,
                           style: TextStyle(
                               color: Colors.grey,
                               fontSize: 14,

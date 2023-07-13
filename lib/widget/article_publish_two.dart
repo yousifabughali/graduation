@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation/app_router/router.dart';
+import 'package:graduation/provider/auth_provider.dart';
 import 'package:graduation/provider/firestore_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +15,7 @@ class ArticlePublish2 extends StatefulWidget {
 class _ArticlePublish2State extends State<ArticlePublish2> {
   @override
   Widget build(BuildContext context) {
+    final provider = context.read<AuthProvider>();
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
       child: Column(
@@ -26,7 +28,9 @@ class _ArticlePublish2State extends State<ArticlePublish2> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r))),
             onPressed: () async{
-              await context.read<FireStoreProvider>().addNewArticle();
+              print('ccc');
+              await context.read<FireStoreProvider>().addNewArticle(provider.nameController.text,);
+              print(provider.nameController.text);
             },
             child: const Text(
               'Done',
@@ -43,6 +47,7 @@ class _ArticlePublish2State extends State<ArticlePublish2> {
           Form(
             key: context.read<FireStoreProvider>().addNewArticleKey2,
             child: TextFormField(
+
               controller: context.read<FireStoreProvider>().articleDescriptionController,
               validator: context.read<FireStoreProvider>().requiredValidator,
               autofocus: true,

@@ -52,7 +52,7 @@ class HomeFollowCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Name',
+                          post.name,
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 16,
@@ -62,7 +62,7 @@ class HomeFollowCard extends StatelessWidget {
                           height: 2.h,
                         ),
                         Text(
-                          'UserName',
+                          post.username,
                           style: TextStyle(
                               color: Colors.grey,
                               fontSize: 14,

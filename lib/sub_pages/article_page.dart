@@ -112,7 +112,7 @@ class _ArticlePageState extends State<ArticlePage> {
                                         fontWeight: FontWeight.w400),
                                   ),
                                   Text(
-                                    'Ahmad Ali',
+                                    widget.article.name!,
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
@@ -166,24 +166,6 @@ class _ArticlePageState extends State<ArticlePage> {
                                 child: Center(
                                   child: Text(
                                     widget.article.hashtags??'',
-
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: 9.w,),
-                              Container(
-                                height: 29.h,
-                                width: 93.w,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12.r),
-                                    color: Colors.grey),
-                                child: Center(
-                                  child: Text(
-                                    '#Uxdesign',
 
                                     style: TextStyle(
                                         color: Colors.black,

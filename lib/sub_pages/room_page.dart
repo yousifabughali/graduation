@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
+import 'package:graduation/widget/raise_hand.dart';
 import 'package:graduation/widget/speaking_room_item.dart';
 
 class RoomScreen extends StatefulWidget {
@@ -57,11 +58,18 @@ class _RoomScreenState extends State<RoomScreen> {
                 SizedBox(
                   width: 16.w,
                 ),
-                SvgPicture.asset('assets/icons/muted.svg'),
+                InkWell(
+                  child: SvgPicture.asset('assets/icons/muted.svg'),
+                ),
                 SizedBox(
                   width: 6.w,
                 ),
-                SvgPicture.asset('assets/icons/raise.svg'),
+                InkWell(
+                  onTap: (){
+                    openBottomSheet(context, RaiseHand());
+                  },
+                  child: SvgPicture.asset('assets/icons/raise.svg'),
+                ),
               ],
             ),
           ),
@@ -429,6 +437,27 @@ class _RoomScreenState extends State<RoomScreen> {
           ),
         ),
       ),
+    );
+  }
+  openBottomSheet(BuildContext context, Widget widget) {
+    return showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      showDragHandle: true,
+      useSafeArea: false,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40.0.r),
+            topRight: Radius.circular(40.0.r)),
+      ),
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: 411.h,
+          width: 375.w,
+          child: widget,
+        );
+      },
     );
   }
 }
