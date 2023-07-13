@@ -41,7 +41,7 @@ class _SuccessfulRegistrationState extends State<SuccessfulRegistration> {
           Padding(
             padding: EdgeInsets.only(left: 24.w, right: 24.w, bottom: 12.h),
             child: Text(
-              'Welcome To The Club Of tTechnicians',
+              'Welcome To The Club Of Technicians',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.w600,

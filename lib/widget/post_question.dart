@@ -60,7 +60,8 @@ class _PublishQuesionState extends State<PublishQuesion> {
 
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orange,
+                    elevation: 0,
+                      backgroundColor: Color.fromRGBO(242, 179, 37, 1),
                       fixedSize: Size(150.w, 56.h),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.r))),

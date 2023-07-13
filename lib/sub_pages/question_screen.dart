@@ -26,242 +26,242 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
-    final provider = context.read<FireStoreProvider>();
-    final provider2 = context.read<AuthProvider>();
 
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: Padding(
-            padding: EdgeInsets.only(left: 10.w, top: 10.h),
-            child: IconButton(
-              onPressed: () {
-                AppRouter.popRouter();
-              },
-              icon: SvgPicture.asset(
-                'assets/icons/arrow_back.svg',
-                height: 50.h,
-                width: 50.w,
-              ),
-            ),
-          ),
-        ),
-        bottomNavigationBar: Container(
-          height: 90.h,
-          width: 395.w,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40.r),
-              topRight: Radius.circular(40.r),
-            ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(
-                height: 53.h,
-                width: 273.w,
-                child: TextFormField(
-                  controller: provider.commentController,
-                  validator: provider.requiredValidator,
-                  decoration: InputDecoration(
-                    hintText: 'Write your comment',
-                    hintStyle: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: const Color.fromRGBO(36, 36, 36, 0.5),
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14.sp,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
+    return Consumer2<AuthProvider,FireStoreProvider>(
+      builder: (context,authProvider,fireStoreProvider,child) {
+        return SafeArea(
+          child: Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: Padding(
+                padding: EdgeInsets.only(left: 10.w, top: 10.h),
+                child: IconButton(
+                  onPressed: () {
+                    AppRouter.popRouter();
+                  },
+                  icon: SvgPicture.asset(
+                    'assets/icons/arrow_back.svg',
+                    height: 50.h,
+                    width: 50.w,
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () async {
-                  await provider.addNewComment(
-                    widget.postId,
-                    provider2.nameController.text,
-                    provider2.userNameController.text,
-                  );
-                },
-                child: SvgPicture.asset('assets/icons/comment_sent.svg'),
+            ),
+            bottomNavigationBar: Container(
+              height: 90.h,
+              width: 395.w,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40.r),
+                  topRight: Radius.circular(40.r),
+                ),
               ),
-            ],
-          ),
-        ),
-        body: Padding(
-          padding: EdgeInsets.only(left: 25.w, right: 25.h, top: 10.h),
-          child: ListView(
-            shrinkWrap: true,
-            // crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              InkWell(
-                onTap: () {
-                  AppRouter.NavigateToWidget(const MentorPublicProfile());
-                },
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/icons/a1.png',
-                      height: 64.h,
-                      width: 64.w,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: 53.h,
+                    width: 273.w,
+                    child: TextFormField(
+                      controller: fireStoreProvider.commentController,
+                      decoration: InputDecoration(
+                        hintText: 'Write your comment',
+                        hintStyle: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: const Color.fromRGBO(36, 36, 36, 0.5),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14.sp,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12.r),
+                        ),
+                      ),
                     ),
-                    SizedBox(
-                      width: 12.w,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      await fireStoreProvider.addNewComment(
+                        widget.postId,
+                        authProvider.nameController.text,
+                      );
+                    },
+                    child: SvgPicture.asset('assets/icons/comment_sent.svg'),
+                  ),
+                ],
+              ),
+            ),
+            body: Padding(
+              padding: EdgeInsets.only(left: 25.w, right: 25.h, top: 10.h),
+              child: ListView(
+                shrinkWrap: true,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      AppRouter.NavigateToWidget(const MentorPublicProfile());
+                    },
+                    child: Row(
                       children: [
-                        Text(
-                          widget.post.name,
-                          style: TextStyle(
-                            color: const Color.fromRGBO(36, 36, 36, 1),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16.sp,
-                            fontFamily: 'Poppins',
-                          ),
+                        Image.asset(
+                          'assets/icons/a1.png',
+                          height: 64.h,
+                          width: 64.w,
                         ),
                         SizedBox(
-                          height: 2.h,
+                          width: 12.w,
                         ),
-                        Text(
-                          widget.post.username,
-                          style: TextStyle(
-                            color: const Color.fromRGBO(36, 36, 36, 0.5),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14.sp,
-                            fontFamily: 'Poppins',
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.post.name,
+                              style: TextStyle(
+                                color: const Color.fromRGBO(36, 36, 36, 1),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16.sp,
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            Text(
+                              widget.post.username,
+                              style: TextStyle(
+                                color: const Color.fromRGBO(36, 36, 36, 0.5),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.black,
+                            fixedSize: Size(72.w, 32.h),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.r),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'Follow',
+                            style: TextStyle(
+                                color: const Color.fromRGBO(255, 255, 255, 1),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                                fontFamily: 'Poppins'),
                           ),
                         ),
                       ],
                     ),
-                    const Spacer(),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        fixedSize: Size(72.w, 32.h),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12.r),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        'Follow',
-                        style: TextStyle(
-                            color: const Color.fromRGBO(255, 255, 255, 1),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14.sp,
-                            fontFamily: 'Poppins'),
+                  ),
+                  SizedBox(
+                    height: 24.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 5.0.w),
+                    child: Text(
+                      widget.post.question,
+                      style: TextStyle(
+                        color: const Color.fromRGBO(36, 36, 36, 1),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.sp,
+                        fontFamily: 'Poppins',
                       ),
                     ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 24.h,
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 5.0.w),
-                child: Text(
-                  widget.post.question,
-                  style: TextStyle(
-                    color: const Color.fromRGBO(36, 36, 36, 1),
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.sp,
-                    fontFamily: 'Poppins',
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 4.h,
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 5.w),
-                child: Text(
-                  widget.post.description,
-                  style: TextStyle(
-                    color: const Color.fromRGBO(36, 36, 36, 1),
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12.sp,
-                    height: 1.5,
-                    overflow: TextOverflow.ellipsis,
-                    fontFamily: 'Poppins',
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 12.h,
-              ),
-              Text(
-                '28 views. 155 likes',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  color: const Color.fromRGBO(142, 142, 149, 1),
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12.sp,
-                ),
-              ),
-              SizedBox(
-                height: 14.h,
-              ),
-              Row(
-                children: [
-                  SvgPicture.asset('assets/icons/like.svg'),
                   SizedBox(
-                    width: 10.w,
+                    height: 4.h,
                   ),
-                  SvgPicture.asset('assets/icons/share.svg'),
-                  const Spacer(),
+                  Padding(
+                    padding: EdgeInsets.only(left: 5.w),
+                    child: Text(
+                      widget.post.description,
+                      style: TextStyle(
+                        color: const Color.fromRGBO(36, 36, 36, 1),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12.sp,
+                        height: 1.5,
+                        overflow: TextOverflow.ellipsis,
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12.h,
+                  ),
                   Text(
-                    widget.post.date!,
+                    '28 views. 155 likes',
                     style: TextStyle(
+                      fontFamily: 'Poppins',
                       color: const Color.fromRGBO(142, 142, 149, 1),
                       fontWeight: FontWeight.w400,
                       fontSize: 12.sp,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 14.h,
+                  ),
+                  Row(
+                    children: [
+                      SvgPicture.asset('assets/icons/like.svg'),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      SvgPicture.asset('assets/icons/share.svg'),
+                      const Spacer(),
+                      Text(
+                        widget.post.date!,
+                        style: TextStyle(
+                          color: const Color.fromRGBO(142, 142, 149, 1),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12.sp,
+                          fontFamily: 'Poppins',
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 18.h,
+                  ),
+                  const DottedLine(dashColor: Colors.grey),
+                  //////////////////////////////////
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  Text(
+                    'see all comments',
+                    style: TextStyle(
+                      color: const Color.fromRGBO(142, 142, 149, 1),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14.sp,
                       fontFamily: 'Poppins',
                     ),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    itemCount: fireStoreProvider.comments.length,
+                    itemBuilder: (context, index) {
+                      return CommentWidget(comment: fireStoreProvider.comments[index]);
+                    },
+                  ),
+
                 ],
               ),
-              SizedBox(
-                height: 18.h,
-              ),
-              const DottedLine(dashColor: Colors.grey),
-              //////////////////////////////////
-              SizedBox(
-                height: 15.h,
-              ),
-              Text(
-                'see all comments',
-                style: TextStyle(
-                  color: const Color.fromRGBO(142, 142, 149, 1),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14.sp,
-                  fontFamily: 'Poppins',
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                itemCount: provider.comments.length,
-                itemBuilder: (context, index) {
-                  return CommentWidget(comment: provider.comments[index]);
-                },
-              ),
-
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      }
     );
   }
 }

@@ -17,52 +17,55 @@ class ArticleContent extends StatefulWidget {
 class _ArticleContentState extends State<ArticleContent> {
   @override
   Widget build(BuildContext context) {
-    final provider = context.read<FireStoreProvider>();
-    return ListView(
-      children: [
-        Row(
+    return Consumer<FireStoreProvider>(
+        builder: (context,fireStoreProvider,child) {
+        return ListView(
           children: [
-            Text(
-              'Articles',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600),
-            ),
-            Spacer(),
-            InkWell(
-              onTap: (){
-                openBottomSheet(context, ArticlePublish());
-              },
-              child: SvgPicture.asset('assets/icons/plus.svg'),
+            Row(
+              children: [
+                Text(
+                  'Articles',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600),
+                ),
+                Spacer(),
+                InkWell(
+                  onTap: (){
+                    openBottomSheet(context, ArticlePublish());
+                  },
+                  child: SvgPicture.asset('assets/icons/plus.svg'),
+                ),
+                SizedBox(
+                  width: 6.w,
+                ),
+                SvgPicture.asset('assets/icons/search.svg'),
+              ],
             ),
             SizedBox(
-              width: 6.w,
+              height: 14.h,
             ),
-            SvgPicture.asset('assets/icons/search.svg'),
-          ],
-        ),
-        SizedBox(
-          height: 14.h,
-        ),
-        ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: provider.articles.length,
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ArticlePage(article: provider.articles[index],)));
-                // AppRouter.NavigateToWidget(ProductsScreen(
-                //     fireStoreProvider.categories[index].id!));
+            ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: fireStoreProvider.articles.length,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ArticlePage(article: fireStoreProvider.articles[index],)));
+                    // AppRouter.NavigateToWidget(ProductsScreen(
+                    //     fireStoreProvider.categories[index].id!));
+                  },
+                  child: ArticleCard(
+                      article: fireStoreProvider.articles[index]),
+                );
               },
-              child: ArticleCard(
-                  article: provider.articles[index]),
-            );
-          },
-        ),
-      ],
+            ),
+          ],
+        );
+      }
     );
   }
   openBottomSheet(BuildContext context, Widget widget)  {
@@ -81,7 +84,7 @@ class _ArticleContentState extends State<ArticleContent> {
           padding:EdgeInsets.only(
               bottom: MediaQuery.of(context).viewInsets.bottom),
           child: SizedBox(
-            height: 313.h,
+            height: 361.h,
             width: 375.w,
             child: widget,
           ),

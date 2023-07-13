@@ -42,7 +42,7 @@ class CommentWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      provider.nameController.text,
+                      comment.name,
                       style: TextStyle(
                         color: const Color.fromRGBO(36, 36, 36, 1),
                         fontWeight: FontWeight.w500,

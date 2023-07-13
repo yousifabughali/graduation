@@ -23,6 +23,8 @@ class ConversationSearchCard extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 14.w),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+
               children: [
                 Text(
                   str1,
@@ -60,6 +62,7 @@ class ConversationSearchCard extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 14.w),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   str2,

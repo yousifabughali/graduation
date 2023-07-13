@@ -107,13 +107,12 @@ class FireStoreProvider extends ChangeNotifier {
   }
 
   ///comments
-  addNewComment(String postId,String name,String userName) async {
+  addNewComment(String postId,String name,) async {
 
     // if(addNewProductKey.currentState!.validate()){
         Comments comment = Comments(
           name: name,
           answer: commentController.text,
-          userName: userName,
           image: 'assets/icons/1.png',
           date: DateFormat('dd-MM-yyyy').format(DateTime.now()),
         );

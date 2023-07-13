@@ -99,7 +99,7 @@ class RoomCard extends StatelessWidget {
               SizedBox(
                 height: 9.5.h,
               ),
-              Image.asset('assets/images/room_card_bottom.png'),
+              Center(child: Image.asset('assets/images/room_card_bottom.png')),
               // SizedBox(
               //   height: 31.h,
               //   width: 291.w,

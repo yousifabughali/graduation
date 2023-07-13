@@ -17,97 +17,122 @@ class ArticlePublish extends StatefulWidget {
 class _ArticlePublishState extends State<ArticlePublish> {
   @override
   Widget build(BuildContext context) {
-    final provider=context.read<FireStoreProvider>();
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
-      child: Form(
-        key: provider.addNewArticleKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  fixedSize: Size(72.w, 32.h),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.r))),
-              onPressed: () {
-                AppRouter.popRouter();
-                openBottomSheet(context, ArticlePublish2());
-              },
-              child: const Text(
-                'Next',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            SizedBox(
-              height: 53.h,
-              width: 335.w,
-              child: TextFormField(
-                controller: provider.articleNameController,
-                validator: provider.requiredValidator,
-                autofocus: true,
-                decoration: InputDecoration(
-                  label: Text('Article Name'),
-                  hintText: 'Article name goes here..',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                    borderSide: BorderSide(style: BorderStyle.solid, width: 1.w),
+    return Consumer<FireStoreProvider>(
+      builder: (context,fireStoreProvider,child) {
+        return Padding(
+          padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
+          child: Form(
+            key: fireStoreProvider.addNewArticleKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: Alignment.topRight,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        fixedSize: Size(72.w, 32.h),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.r))),
+                    onPressed: () {
+                      AppRouter.popRouter();
+                      openBottomSheet(context, ArticlePublish2());
+                    },
+                    child: const Text(
+                      'Next',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                          fontFamily: 'Poppins'),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            SizedBox(
-              height: 53.h,
-              width: 335.w,
-              child: TextFormField(
-                  decoration: InputDecoration(
-                  label: Text('Add Photo'),
-                  hintText: 'Add photo for your article',
-                  suffixIcon: IconButton(icon: Icon(Icons.image),onPressed: (){
-                    provider.selectImage();
-                  }),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                    borderSide: BorderSide(style: BorderStyle.solid, width: 1.w),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Text(
+                  'Add Photo For Your Article',
+                  style: TextStyle(
+                      color: Color.fromRGBO(36, 36, 36, 0.5),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                      fontFamily: 'Poppins'),
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                InkWell(
+                  onTap: () {
+                    fireStoreProvider.selectImage();
+                  },
+                  child: fireStoreProvider.selectedImage == null
+                      ? Container(
+                    height: 60.h,
+                    width: 60.h,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(217, 217, 217, 0.2),
+                    ),
+                    child: Center(child: SvgPicture.asset('assets/icons/addPhoto.svg')),
+                  ):
+                  Container(
+                    height: 60.h,
+                    width: 60.h,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(217, 217, 217, 0.2),
+                    ),
+                    child: Image(image: FileImage(fireStoreProvider.selectedImage!,),fit: BoxFit.cover,),
                   ),
                 ),
-
-              ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            SizedBox(
-              height: 53.h,
-              width: 335.w,
-              child: TextFormField(
-                controller: provider.articleTagsController,
-                validator: provider.requiredValidator,
-                decoration: InputDecoration(
-                  label: Text('Add Tags '),
-                  hintText: 'Ex: User flow',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                    borderSide: BorderSide(
-                        style: BorderStyle.solid, width: 1.w, color: Colors.grey),
+                SizedBox(height: 26.h,),
+                SizedBox(
+                  height: 53.h,
+                  width: 335.w,
+                  child: TextFormField(
+                    controller: fireStoreProvider.articleNameController,
+                    validator: fireStoreProvider.requiredValidator,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      label: Text('Article Name'),
+                      hintText: 'Article name goes here..',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                        borderSide:
+                            BorderSide(style: BorderStyle.solid, width: 1.w),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                SizedBox(
+                  height: 53.h,
+                  width: 335.w,
+                  child: TextFormField(
+                    controller: fireStoreProvider.articleTagsController,
+                    validator: fireStoreProvider.requiredValidator,
+                    decoration: InputDecoration(
+                      label: Text('Add Tags '),
+                      hintText: 'Ex: User flow',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                        borderSide: BorderSide(
+                            style: BorderStyle.solid,
+                            width: 1.w,
+                            color: Colors.grey),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      }
     );
   }
 
@@ -123,7 +148,8 @@ class _ArticlePublishState extends State<ArticlePublish> {
       ),
       builder: (context) {
         return Padding(
-          padding:  EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: SizedBox(
             height: 257.h,
             width: 375.w,
