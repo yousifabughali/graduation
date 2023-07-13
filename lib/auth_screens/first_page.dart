@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -33,33 +32,49 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: SvgPicture.asset('assets/icons/logo.svg'),
               ),
             ),
-            const Text(
+            Text(
               'CODNET',
-              style: TextStyle(color: Colors.black, fontSize: 32),
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 32.sp,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
+                height: 1.5,
+              ),
             ),
             SizedBox(
               height: 6.h,
             ),
             Text(
-              'Join Our Community',
-              style: TextStyle(color: Colors.grey, fontSize: 14),
+              'Tech Together, Community Powered!',
+              style: TextStyle(
+                  color: const Color.fromRGBO(142, 142, 149, 1),
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Poppins'),
             ),
             SizedBox(
               height: 134.h,
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => const SignUp()));
               },
-              child: Text(
-                'Sign Up',
-                style: TextStyle(color: Colors.white),
-              ),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r)),
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
                 backgroundColor: Colors.black,
                 minimumSize: Size(325.w, 56.h),
+              ),
+              child: Text(
+                'Signup',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16.sp),
               ),
             ),
             SizedBox(
@@ -67,18 +82,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => const SignIn()));
               },
-              child:  Text(
-                'Sign In',
-                style: TextStyle(color: Colors.black),
-              ),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),
-                    side: BorderSide(color: Colors.black)),
+                    side: BorderSide(color: const Color.fromRGBO(36, 36, 36,1),width: 0.6.w)),
                 backgroundColor: Colors.white,
                 minimumSize: Size(325.w, 56.h),
+              ),
+              child: Text(
+                'Login',
+                style: TextStyle(
+                    color: const Color.fromRGBO(36, 36, 36, 1),
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16.sp),
               ),
             ),
             SizedBox(
@@ -86,54 +106,72 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Flexible(
+              children: [
+                const Flexible(
                     child: Divider(
-                  thickness: 0.5,
-                  indent: 30,
+                  thickness: 0.6,
+                  indent: 25,
                   endIndent: 10,
-                  color: Colors.grey,
+                  color: Color.fromRGBO(36, 36, 36, 0.5),
                 )),
-                Text('or',style: TextStyle(color: Colors.grey),),
-                Flexible(
-                    child: Divider(
-                  thickness: 0.5,
-                  indent: 10,
-                  endIndent: 30,
-                  color: Colors.grey,
-                )),
+                Text(
+                  'or',
+                  style: TextStyle(
+                    color: const Color.fromRGBO(36, 36, 36, 0.5),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 10.sp,
+                    fontFamily: 'Poppins',
+                  ),
+                ),
+                const Flexible(
+                  child: Divider(
+                    thickness: 0.6,
+                    indent: 10,
+                    endIndent: 25,
+                    color: Color.fromRGBO(36, 36, 36, 0.5),
+                  ),
+                ),
               ],
             ),
             SizedBox(
               height: 12.h,
             ),
             Padding(
-              padding:  EdgeInsets.only(bottom: 68.h),
+              padding: EdgeInsets.only(bottom: 68.h),
               child: ElevatedButton(
                 onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(13.r),
+                    side: BorderSide(
+                      color: const Color.fromRGBO(36, 36, 36, 0.5),
+                      width: 0.6.w,
+                    ),
+                  ),
+                  backgroundColor: Colors.white,
+                  minimumSize: Size(325.w, 44.h),
+                ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
-                      child: Image.asset('assets/images/google.png'),
+                    SizedBox(
                       height: 17.h,
                       width: 16.w,
+                      child: SvgPicture.asset('assets/icons/google.svg'),
                     ),
                     SizedBox(
                       width: 10.w,
                     ),
                     Text(
                       'Continue with google',
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: const Color.fromRGBO(36, 36, 36, 1),
+                        fontFamily: 'Poppins',
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ],
-                ),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(13),
-                      side: BorderSide(color: Colors.black)),
-                  backgroundColor: Colors.white,
-                  minimumSize: Size(325.w, 44.h),
                 ),
               ),
             ),
