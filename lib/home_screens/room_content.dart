@@ -188,7 +188,58 @@ class _RoomContentState extends State<RoomContent> {
                       SizedBox(
                         height: 17.h,
                       ),
-                      Image.asset('assets/images/room_date.png'),
+                      Row(
+                        children: [
+                          Container(
+                            width: 86.w,
+                            height: 31.h,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12.r),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                SvgPicture.asset('assets/icons/day.svg'),
+                                Text(
+                                  'Today',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: Color.fromRGBO(36, 36, 36, 1),
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(width: 6.w,),
+                          Container(
+                            width: 102.w,
+                            height: 31.h,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12.r),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                SvgPicture.asset('assets/icons/time.svg'),
+                                Text(
+                                  '08:00 AM',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: Color.fromRGBO(36, 36, 36, 1),
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                        ],
+                      ),
                       SizedBox(
                         height: 14.h,
                       ),

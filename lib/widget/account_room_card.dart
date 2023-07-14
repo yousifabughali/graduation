@@ -17,9 +17,9 @@ class AccountRoomCard extends StatelessWidget {
             height: 120.h,
             width: 375.w,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image.asset('assets/icons/a1.png'),
+                SizedBox(width: 13.w,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -42,9 +42,11 @@ class AccountRoomCard extends StatelessWidget {
                     ),
                   ],
                 ),
+                Spacer(),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+                    elevation: 0,
+                    backgroundColor: Color.fromRGBO(36, 36, 36, 1),
                     fixedSize: Size(72.w, 32.h),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.r),

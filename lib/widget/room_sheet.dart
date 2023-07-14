@@ -32,7 +32,7 @@ class _RoomSheetState extends State<RoomSheet> {
                     Text(
                       'Now',
                       style: TextStyle(
-                          color: Colors.grey,
+                          color: Color.fromRGBO(36, 36, 36, 0.5),
                           fontWeight: FontWeight.w500,
                           fontSize: 14.sp),
                     ),
@@ -61,185 +61,191 @@ class _RoomSheetState extends State<RoomSheet> {
           ),
           SizedBox(
             height: 225.h,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
-                      children: [
-                        Image.asset(
-                          'assets/icons/a1.png',
-                          height: 70.h,
-                          width: 70.w,
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          'Name',
-                          style: TextStyle(
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          Image.asset(
+                            'assets/icons/a1.png',
+                            height: 70.h,
+                            width: 70.w,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Text(
+                            'Name',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                                color: Colors.black,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Image.asset(
+                            'assets/icons/a1.png',
+                            height: 70.h,
+                            width: 70.w,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Text(
+                            'Name',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                                color: Colors.black,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Image.asset(
+                            'assets/icons/a1.png',
+                            height: 70.h,
+                            width: 70.w,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Text(
+                            'Name',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                                color: Colors.black,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Image.asset(
+                            'assets/icons/a1.png',
+                            height: 70.h,
+                            width: 70.w,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Text(
+                            'Name',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                                color: Colors.black,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          Image.asset(
+                            'assets/icons/a1.png',
+                            height: 70.h,
+                            width: 70.w,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Text(
+                            'Name',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                                color: Colors.black,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Image.asset(
+                            'assets/icons/a1.png',
+                            height: 70.h,
+                            width: 70.w,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Text(
+                            'Name',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                                color: Colors.black,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Image.asset(
+                            'assets/icons/a1.png',
+                            height: 70.h,
+                            width: 70.w,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Text(
+                            'Name',
+                            style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 14.sp,
                               color: Colors.black,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Image.asset(
-                          'assets/icons/a1.png',
-                          height: 70.h,
-                          width: 70.w,
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          'Name',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.sp,
-                              color: Colors.black,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Image.asset(
-                          'assets/icons/a1.png',
-                          height: 70.h,
-                          width: 70.w,
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          'Name',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.sp,
-                              color: Colors.black,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Image.asset(
-                          'assets/icons/a1.png',
-                          height: 70.h,
-                          width: 70.w,
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          'Name',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.sp,
-                              color: Colors.black,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
-                      children: [
-                        Image.asset(
-                          'assets/icons/a1.png',
-                          height: 70.h,
-                          width: 70.w,
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          'Name',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.sp,
-                              color: Colors.black,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Image.asset(
-                          'assets/icons/a1.png',
-                          height: 70.h,
-                          width: 70.w,
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          'Name',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.sp,
-                              color: Colors.black,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Image.asset(
-                          'assets/icons/a1.png',
-                          height: 70.h,
-                          width: 70.w,
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          'Name',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.sp,
-                              color: Colors.black,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Image.asset(
-                          'assets/icons/a1.png',
-                          height: 70.h,
-                          width: 70.w,
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          'Name',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.sp,
-                              color: Colors.black,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+                              fontFamily: 'Poppins',
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Image.asset(
+                            'assets/icons/a1.png',
+                            height: 70.h,
+                            width: 70.w,
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Text(
+                            'Name',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                                color: Colors.black,
+                                fontFamily: 'Poppins'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(
             height: 18.h,
           ),
+          //TODO: Take this
           Row(
             children: [
               Container(
@@ -317,7 +323,7 @@ class _RoomSheetState extends State<RoomSheet> {
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           wordSpacing: 2,
                           height: 1.4.h),
                     ),
@@ -330,7 +336,7 @@ class _RoomSheetState extends State<RoomSheet> {
             height: 18.h,
           ),
           SizedBox(
-            height: 161,
+            height: 151.h,
             child: Text(
               'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et doloreLorem ipsum dolor sit amet, consectetur adipisicing  sed do eiusmod tempor incididunt et doloreLorem ipsum dolor sit amet, consectetur adipisicing consectetur adipisicing  💬',
               style: TextStyle(
@@ -338,7 +344,7 @@ class _RoomSheetState extends State<RoomSheet> {
                 fontFamily: 'Poppins',
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
-                height: 1.8.h,
+                height: 1.57.h,
               ),
             ),
           ),
@@ -352,20 +358,22 @@ class _RoomSheetState extends State<RoomSheet> {
             child: Text(
               'Join the room in progress',
               style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 16.sp,
-                fontFamily: 'Poppins'
-              ),
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16.sp,
+                  fontFamily: 'Poppins'),
             ),
             style: ElevatedButton.styleFrom(
+              elevation: 0,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.r)),
-              backgroundColor: Colors.black,
+              backgroundColor: Color.fromRGBO(36, 36, 36, 1),
               minimumSize: Size(325.w, 56.h),
             ),
           ),
-          SizedBox(height: 27.h,),
+          SizedBox(
+            height: 26.h,
+          ),
         ],
       ),
     );

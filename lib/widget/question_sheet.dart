@@ -179,7 +179,12 @@ class _QuestionSheetState extends State<QuestionSheet> {
               ),
               fireStoreProvider.comments.length == 0
                   ? const Spacer()
-                  : CommentWidget(comment: fireStoreProvider.comments[0]),
+                  : Column(
+                    children: [
+                      CommentWidget(comment: fireStoreProvider.comments[0]),
+                      SizedBox(height: 31.h,),
+                    ],
+                  ),
 
               // const SizedBox(
               //   height: 16,

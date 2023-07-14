@@ -99,24 +99,64 @@ class RoomCard extends StatelessWidget {
               SizedBox(
                 height: 9.5.h,
               ),
-              Center(child: Image.asset('assets/images/room_card_bottom.png')),
-              // SizedBox(
-              //   height: 31.h,
-              //   width: 291.w,
-              //   child: Stack(
-              //     children: [
-              //       Image.asset('assets/images/ahmad_ali_room.png'),
-              //       Padding(
-              //         padding:  EdgeInsets.only(left: 24.0.w),
-              //         child: Image.asset('assets/images/noor.png'),
-              //       ),
-              //       Padding(
-              //         padding:  EdgeInsets.only(left: 50.0.w),
-              //         child: Image.asset('assets/images/fatena.png'),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+             SizedBox(
+               width: 291.w,
+               child: Row(
+                 children: [
+                   Image.asset('assets/icons/group.png',height: 31.14,width: 128.w,),
+                   Spacer(),
+                   Container(
+                     width: 65.w,
+                     height: 30.17.h,
+                     decoration: BoxDecoration(
+                       color: Colors.white,
+                       borderRadius: BorderRadius.circular(12.r),
+                     ),
+                     child: Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                       children: [
+                         SvgPicture.asset('assets/icons/person_avatar.svg'),
+                         Text(
+                           '155',
+                           style: TextStyle(
+                             fontFamily: 'Poppins',
+                             color: Color.fromRGBO(36, 36, 36, 1),
+                             fontSize: 14.sp,
+                             fontWeight: FontWeight.w400,
+                           ),
+                         ),
+                       ],
+                     ),
+                   ),
+                   SizedBox(
+                     width: 6.w,
+                   ),
+                   Container(
+                     width: 65.w,
+                     height: 30.17.h,
+                     decoration: BoxDecoration(
+                       color: Colors.white,
+                       borderRadius: BorderRadius.circular(12.r),
+                     ),
+                     child: Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                       children: [
+                         SvgPicture.asset('assets/icons/microphone1.svg'),
+                         Text(
+                           '5',
+                           style: TextStyle(
+                             fontFamily: 'Poppins',
+                             color: Color.fromRGBO(36, 36, 36, 1),
+                             fontSize: 14.sp,
+                             fontWeight: FontWeight.w400,
+                           ),
+                         ),
+                       ],
+                     ),
+                   ),
+                 ],
+               ),
+             ),
             ],
           ),
         ),
