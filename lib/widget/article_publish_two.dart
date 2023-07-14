@@ -63,6 +63,20 @@ class _ArticlePublish2State extends State<ArticlePublish2> {
               ),
             ),
           ),
+          SizedBox(height: 43.h,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Icon(Icons.format_bold_outlined,size: 15.sp,),
+              Icon(Icons.format_italic_outlined,size: 15.sp,),
+              Icon(Icons.format_underline_outlined,size: 15.sp,),
+              Icon(Icons.format_align_left_outlined,size: 15.sp,),
+              Icon(Icons.format_align_justify_outlined,size: 15.sp,),
+              Icon(Icons.format_align_right_outlined,size: 15.sp,),
+              Icon(Icons.attachment_outlined,size: 15.sp,),
+              Icon(Icons.image_outlined,size: 15.sp,),
+            ],
+          ),
         ],
       ),
     );
