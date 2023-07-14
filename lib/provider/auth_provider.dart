@@ -48,6 +48,10 @@ class AuthProvider extends ChangeNotifier {
         if (credential != null) {
           AppUser appUser = await FireStoreHelper.fireStoreHelper
               .getUserFromFireStore(credential.user!.uid);
+          nameController.text=appUser.name;
+          userNameController.text=appUser.userName;
+
+
           await AppRouter.NavigateWithReplacemtnToWidget(HomeScreen());
         }
       }

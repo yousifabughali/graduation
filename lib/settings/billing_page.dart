@@ -27,13 +27,18 @@ class _BillingPageState extends State<BillingPage> {
         title: Text(
           'Billing',
           style: TextStyle(
-              color: Colors.black,
+              color: const Color.fromRGBO(36, 36, 36, 1),
               fontSize: 16.sp,
-              fontWeight: FontWeight.w600),
+              fontWeight: FontWeight.w600,
+            fontFamily: 'Poppins',
+          ),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(left: 20.w, right: 20.w,),
+        padding: EdgeInsets.only(
+          left: 20.w,
+          right: 20.w,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,7 +46,7 @@ class _BillingPageState extends State<BillingPage> {
               height: 218.h,
               width: 335.w,
               decoration: BoxDecoration(
-                color: Color.fromRGBO(252, 252, 252, 1),
+                color: const Color.fromRGBO(252, 252, 252, 1),
                 borderRadius: BorderRadius.circular(12.r),
               ),
               child: Column(
@@ -53,15 +58,18 @@ class _BillingPageState extends State<BillingPage> {
                   RichText(
                     text: TextSpan(
                       style: TextStyle(
-                        color: Colors.black,
+                        color: const Color.fromRGBO(36, 36, 36, 1),
                         fontWeight: FontWeight.w600,
                         fontSize: 16.sp,
+                        fontFamily: 'Poppins',
                       ),
-                      children: [
+                      children: const [
                         TextSpan(text: 'Premium account :'),
                         TextSpan(
                           text: 'Active',
-                          style: TextStyle(color: Colors.green),
+                          style: TextStyle(
+                            color: Color.fromRGBO(142, 186, 67, 1),
+                          ),
                         ),
                       ],
                     ),
@@ -73,8 +81,9 @@ class _BillingPageState extends State<BillingPage> {
                     'Next Payment on 20.04.2023 for 8\$',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: const Color.fromRGBO(36, 36, 36, 0.5),
                       fontSize: 14.sp,
+                      fontFamily: 'Poppins',
                     ),
                   ),
                   SizedBox(
@@ -82,17 +91,18 @@ class _BillingPageState extends State<BillingPage> {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
+                        elevation: 0,
+                        backgroundColor: const Color.fromRGBO(36, 36, 36, 1),
                         fixedSize: Size(319.w, 56.h),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.r))),
                     onPressed: () {},
-                    child: const Text(
+                    child: Text(
                       'Switch To Annual',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
-                        fontSize: 14,
+                        fontSize: 14.sp,
                       ),
                     ),
                   ),
@@ -104,9 +114,11 @@ class _BillingPageState extends State<BillingPage> {
                     child: Text(
                       'Cancel Subscription ',
                       style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w400),
+                        color: const Color.fromRGBO(249, 78, 61, 1),
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Poppins',
+                      ),
                     ),
                   ),
                 ],
@@ -120,22 +132,27 @@ class _BillingPageState extends State<BillingPage> {
                 Text(
                   'Subscription Record',
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600),
+                    color: const Color.fromRGBO(36, 36, 36, 1),
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Poppins',
+                  ),
                 ),
-                Spacer(),
+                const Spacer(),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FullRecordPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FullRecordPage()));
                   },
                   child: Text(
                     'see more',
                     style: TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14.sp,
-                    ),
+                        color: const Color.fromRGBO(36, 36, 36, 0.5),
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14.sp,
+                        fontFamily: 'Poppins'),
                   ),
                 ),
               ],
@@ -143,16 +160,19 @@ class _BillingPageState extends State<BillingPage> {
             SizedBox(
               height: 8.h,
             ),
-            Image.asset('assets/images/record_table.png',),
+            Image.asset(
+              'assets/images/record_table.png',
+            ),
             SizedBox(
               height: 15.h,
             ),
             Text(
               'Payment Method',
               style: TextStyle(
-                color: Colors.black,
+                color: const Color.fromRGBO(36, 36, 36, 1),
                 fontWeight: FontWeight.w600,
                 fontSize: 16.sp,
+                fontFamily: 'Poppins',
               ),
             ),
             SizedBox(
@@ -167,12 +187,13 @@ class _BillingPageState extends State<BillingPage> {
                 Text(
                   'Visa ending in 0578 expiring 11/2024',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: const Color.fromRGBO(36, 36, 36, 1),
                     fontWeight: FontWeight.w400,
                     fontSize: 12.sp,
+                    fontFamily: 'Poppins',
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 IconButton(
                   onPressed: () {},
                   icon: SvgPicture.asset('assets/icons/trash.svg'),
@@ -185,17 +206,19 @@ class _BillingPageState extends State<BillingPage> {
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+                    elevation: 0,
+                    backgroundColor: const Color.fromRGBO(36, 36, 36, 1),
                     fixedSize: Size(319.w, 52.h),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.r))),
                 onPressed: () {},
-                child: const Text(
+                child: Text(
                   'Add New Credit Card',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
-                    fontSize: 14,
+                    fontSize: 14.sp,
+                    fontFamily: 'Poppins',
                   ),
                 ),
               ),

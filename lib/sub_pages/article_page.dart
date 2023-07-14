@@ -5,17 +5,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
 import 'package:graduation/model/article.dart';
 
-
 class ArticlePage extends StatefulWidget {
   Article article;
-  ArticlePage({required this.article,Key? key}) : super(key: key);
+
+  ArticlePage({required this.article, Key? key}) : super(key: key);
 
   @override
   State<ArticlePage> createState() => _ArticlePageState();
 }
 
 class _ArticlePageState extends State<ArticlePage> {
-  double bannerheight = 610;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class _ArticlePageState extends State<ArticlePage> {
           leading: Padding(
             padding: EdgeInsets.only(left: 20.w, top: 10.h),
             child: InkWell(
-              onTap: (){
+              onTap: () {
                 AppRouter.popRouter();
               },
               child: SvgPicture.asset(
@@ -44,8 +43,7 @@ class _ArticlePageState extends State<ArticlePage> {
             SizedBox(
               height: 275.h,
               width: 375.w,
-              child: Image.network(widget.article.image,
-                  fit: BoxFit.cover),
+              child: Image.network(widget.article.image, fit: BoxFit.cover),
             ),
             Column(
               children: [
@@ -75,18 +73,21 @@ class _ArticlePageState extends State<ArticlePage> {
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.w600),
+                                  fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins',),
                             ),
                           ),
                           SizedBox(
                             height: 4.h,
                           ),
                           Text(
-                              widget.article.date.toString()??'',
+                            widget.article.date.toString() ?? '',
                             style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400),
+                                color: Color.fromRGBO(36, 36, 36, 0.5) ,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400,
+                              fontFamily: 'Poppins',
+                            ),
                           ),
                           SizedBox(
                             height: 17.h,
@@ -107,35 +108,40 @@ class _ArticlePageState extends State<ArticlePage> {
                                   Text(
                                     'Published by',
                                     style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
+                                      color: Color.fromRGBO(36, 36, 36, 0.5) ,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: 'Poppins',
+                                    ),
                                   ),
                                   Text(
                                     widget.article.name!,
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600),
+                                      color: Color.fromRGBO(36, 36, 36, 1),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: 'Poppins',
+                                    ),
                                   ),
                                 ],
                               ),
                               Spacer(),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.black,
+                                    backgroundColor: Color.fromRGBO(36, 36, 36, 1) ,
                                     fixedSize: Size(72.w, 32.h),
                                     elevation: 0,
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(12.r))),
                                 onPressed: () {},
-                                child: const Text(
+                                child:  Text(
                                   'Follow',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600,
-                                    fontSize: 14,
+                                    fontSize: 14.sp,
+                                    fontFamily: 'Poppins',
                                   ),
                                 ),
                               ),
@@ -147,9 +153,10 @@ class _ArticlePageState extends State<ArticlePage> {
                           Text(
                             widget.article.description,
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Color.fromRGBO(36, 36, 36, 1) ,
                               fontWeight: FontWeight.w500,
-                              fontSize: 15,
+                              fontSize: 15.sp,
+                              fontFamily: 'Poppins',
                             ),
                           ),
                           SizedBox(
@@ -161,23 +168,23 @@ class _ArticlePageState extends State<ArticlePage> {
                                 height: 29.h,
                                 width: 93.w,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12.r),
-                                    color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(12.r),
+                                  color: Color.fromRGBO(36, 36, 36,0.5) ,
+                                ),
                                 child: Center(
                                   child: Text(
-                                    widget.article.hashtags??'',
-
+                                    widget.article.hashtags ?? '',
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500),
+                                      color: Color.fromRGBO(36, 36, 36, 1),
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'Poppins',
+                                    ),
                                   ),
                                 ),
                               ),
-
                             ],
                           ),
-
                         ],
                       ),
                     ),

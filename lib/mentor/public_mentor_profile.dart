@@ -263,9 +263,11 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                 SizedBox(height: 17.h,),
                 Text('Activites',
                   style: TextStyle(
-                    color: Colors.orange,
+                    color: Color.fromRGBO(242, 179, 37, 1),
                     fontWeight: FontWeight.w600,
                     fontSize: 16.sp,
+                    fontFamily: 'Poppins',
+
                   ),
                 ),
                 SizedBox(height: 10.h,),

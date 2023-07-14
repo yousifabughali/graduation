@@ -28,7 +28,7 @@ class PaymentPage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(left: 20.w, right: 20.w,top: 20.h),
+        padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,6 +39,7 @@ class PaymentPage extends StatelessWidget {
                 height: 1.4.h,
                 fontWeight: FontWeight.w400,
                 fontSize: 14.sp,
+                fontFamily: 'Poppins',
               ),
             ),
             SizedBox(
@@ -48,7 +49,13 @@ class PaymentPage extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 'Learn more',
-                style: TextStyle(color: Colors.orange),
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontFamily: 'Poppins',
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromRGBO(242, 179, 37, 1),
+                ),
               ),
             ),
             SizedBox(
@@ -57,10 +64,10 @@ class PaymentPage extends StatelessWidget {
             Text(
               'Choose your plan',
               style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 16.sp,
-                color: Colors.black,
-              ),
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16.sp,
+                  color: Color.fromRGBO(36, 36, 36, 1),
+                  fontFamily: 'Poppins'),
             ),
             SizedBox(
               height: 8.h,
@@ -80,21 +87,24 @@ class PaymentPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w500,
-                          color: Colors.grey
+                          color: Color.fromRGBO(36, 36, 36, 0.5),
+                          fontFamily: 'Poppins'
                         ),
                         children: [
                           TextSpan(text: 'MONTHLY'),
                           TextSpan(
-                              text: '\n8\$',
-                              style: TextStyle(
-                                  color: Colors.orange,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 24.sp)),
+                            text: '\n8\$',
+                            style: TextStyle(
+                                color: const Color.fromRGBO(242, 179, 37, 1),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 24.sp),
+                          ),
                           TextSpan(
                             text: '  Per Month',
                             style: TextStyle(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
+
                             ),
                           ),
                         ],
@@ -118,14 +128,14 @@ class PaymentPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w500,
-                          color: Colors.grey,
+                          color: Color.fromRGBO(36, 36, 36, 0.5),
                         ),
                         children: [
                           TextSpan(text: 'ANNUALY'),
                           TextSpan(
                             text: '\n80\$',
                             style: TextStyle(
-                                color: Colors.orange,
+                                color: Color.fromRGBO(242, 179, 37, 1),
                                 fontWeight: FontWeight.w600,
                                 fontSize: 24.sp),
                           ),
@@ -151,7 +161,7 @@ class PaymentPage extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 16.sp,
-                color: Colors.black,
+                color: Color.fromRGBO(36, 36, 36, 1),
               ),
             ),
             SizedBox(
@@ -166,7 +176,7 @@ class PaymentPage extends StatelessWidget {
                     color: Color.fromRGBO(252, 252, 252, 1),
                     borderRadius: BorderRadius.circular(12.r),
                   ),
-                  child: Center( 
+                  child: Center(
                     child: Image.asset('assets/images/visa.png'),
                     // child: SvgPicture.asset('assets/icons/visa.svg',height: 40.h,width: 100.h,color: Colors.black,),
                   ),
@@ -187,23 +197,26 @@ class PaymentPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 30.h,),
+            SizedBox(
+              height: 30.h,
+            ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
+                elevation: 0,
+                  backgroundColor: Color.fromRGBO(36, 36, 36, 1),
                   fixedSize: Size(325.w, 56.h),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.r))),
               onPressed: () {
                 openBottomSheet(context, CardDateEntry());
-
               },
-              child: const Text(
+              child: Text(
                 'Next',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
-                  fontSize: 14,
+                  fontSize: 14.sp,
+                  fontFamily: 'Poppins'
                 ),
               ),
             ),
@@ -212,6 +225,7 @@ class PaymentPage extends StatelessWidget {
       ),
     );
   }
+
   openBottomSheet(BuildContext context, Widget widget) {
     return showModalBottomSheet<void>(
       context: context,
@@ -224,7 +238,7 @@ class PaymentPage extends StatelessWidget {
       ),
       builder: (BuildContext context) {
         return SizedBox(
-          height:503.h,
+          height: 503.h,
           width: 375.w,
           child: widget,
         );

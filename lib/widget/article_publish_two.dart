@@ -23,22 +23,25 @@ class _ArticlePublish2State extends State<ArticlePublish2> {
         children: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                fixedSize: Size(72.w, 32.h),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r))),
-            onPressed: () async{
-              print('ccc');
-              await context.read<FireStoreProvider>().addNewArticle(provider.nameController.text,);
-              print(provider.nameController.text);
+              elevation: 0,
+              backgroundColor: const Color.fromRGBO(36, 36, 36, 1),
+              fixedSize: Size(72.w, 32.h),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.r),
+              ),
+            ),
+            onPressed: () async {
+              await context.read<FireStoreProvider>().addNewArticle(
+                    provider.nameController.text,
+                  );
             },
-            child: const Text(
+            child: Text(
               'Done',
               style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 14,
-              ),
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14.sp,
+                  fontFamily: 'Poppins'),
             ),
           ),
           SizedBox(
@@ -47,10 +50,12 @@ class _ArticlePublish2State extends State<ArticlePublish2> {
           Form(
             key: context.read<FireStoreProvider>().addNewArticleKey2,
             child: TextFormField(
-
-              controller: context.read<FireStoreProvider>().articleDescriptionController,
+              controller: context
+                  .read<FireStoreProvider>()
+                  .articleDescriptionController,
               validator: context.read<FireStoreProvider>().requiredValidator,
               autofocus: true,
+              maxLines: 5,
               decoration: InputDecoration(
                 hintText: 'Start typing...',
                 enabledBorder: InputBorder.none,
@@ -58,7 +63,6 @@ class _ArticlePublish2State extends State<ArticlePublish2> {
               ),
             ),
           ),
-
         ],
       ),
     );

@@ -27,9 +27,10 @@ class _ProfileSettingsState extends State<ProfileSettings> {
         title: Text(
           'Edit Profile',
           style: TextStyle(
-            color: Colors.black,
+            color: Color.fromRGBO(36, 36, 36, 1),
             fontSize: 16.sp,
             fontWeight: FontWeight.w600,
+            fontFamily: 'Poppins',
           ),
         ),
       ),
@@ -71,17 +72,19 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                       Text(
                         'Ahmad Ali',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Color.fromRGBO(36, 36, 36, 1),
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
+                          fontFamily: 'Poppins',
                         ),
                       ),
                       Text(
                         '@ahmadali',
                         style: TextStyle(
-                          color: Colors.grey,
+                          color: Color.fromRGBO(36, 36, 36, 0.5),
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
+                          fontFamily: 'Poppins',
                         ),
                       ),
                     ],
@@ -95,47 +98,80 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextFieldInSetting(title: 'Name',),
+                    TextFieldInSetting(
+                      title: 'Name',
+                    ),
                     SizedBox(
                       height: 16.h,
                     ),
-                    TextFieldInSetting(title: 'Bio',),
+                    TextFieldInSetting(
+                      title: 'Bio',
+                    ),
                     SizedBox(
                       height: 20.h,
                     ),
                     Text(
                       'Personal info',
                       style: TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 16.sp),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16.sp,
+                          color: Color.fromRGBO(36, 36, 36, 1),
+                          fontFamily: 'Poppins'),
                     ),
-                    SizedBox(height: 12.h,),
-                    TextFieldInSetting(title: 'Email',),
-                    SizedBox(height: 16.h,),
-                    TextFieldInSetting(title: 'Phone Number',),
-                    SizedBox(height: 16.h,),
-                    TextFieldInSetting(title: 'Job Title',),
-                    SizedBox(height: 16.h,),
-                    TextFieldInSetting(title: 'Location',),
-                    SizedBox(height: 16.h,),
-                    TextFieldInSetting(title: 'Personal Website',),
-                    SizedBox(height: 16.h,),
+                    SizedBox(
+                      height: 12.h,
+                    ),
+                    TextFieldInSetting(
+                      title: 'Email',
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    TextFieldInSetting(
+                      title: 'Phone Number',
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    TextFieldInSetting(
+                      title: 'Job Title',
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    TextFieldInSetting(
+                      title: 'Location',
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    TextFieldInSetting(
+                      title: 'Personal Website',
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
                     ElevatedButton(
                       onPressed: () {},
                       child: Text(
                         'Save',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600),
                       ),
                       style: ElevatedButton.styleFrom(
+                        elevation: 0,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.r)),
-                        backgroundColor: Colors.black,
+                        backgroundColor: Color.fromRGBO(36, 36, 36, 1),
                         minimumSize: Size(325.w, 56.h),
                       ),
                     ),
-                    SizedBox(height: 50.h,),
-
-
-
+                    SizedBox(
+                      height: 50.h,
+                    ),
                   ],
                 ),
               ),

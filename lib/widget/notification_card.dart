@@ -37,7 +37,7 @@ class NotificationCard extends StatelessWidget {
                     str1,
                     maxLines: 2,
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Color.fromRGBO(36, 36, 36, 1),
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                       wordSpacing: 2,
@@ -49,7 +49,7 @@ class NotificationCard extends StatelessWidget {
                   Text(
                     date,
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: Color.fromRGBO(36, 36, 36, 0.5),
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),

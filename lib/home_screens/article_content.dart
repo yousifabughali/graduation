@@ -18,62 +18,67 @@ class _ArticleContentState extends State<ArticleContent> {
   @override
   Widget build(BuildContext context) {
     return Consumer<FireStoreProvider>(
-        builder: (context,fireStoreProvider,child) {
-        return ListView(
-          children: [
-            Row(
-              children: [
-                Text(
-                  'Articles',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
+        builder: (context, fireStoreProvider, child) {
+      return ListView(
+        children: [
+          Row(
+            children: [
+              Text(
+                'Articles',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Poppins',
                 ),
-                Spacer(),
-                InkWell(
-                  onTap: (){
-                    openBottomSheet(context, ArticlePublish());
-                  },
-                  child: SvgPicture.asset('assets/icons/plus.svg'),
-                ),
-                SizedBox(
-                  width: 6.w,
-                ),
-                SvgPicture.asset('assets/icons/search.svg'),
-              ],
-            ),
-            SizedBox(
-              height: 14.h,
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: fireStoreProvider.articles.length,
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ArticlePage(article: fireStoreProvider.articles[index],)));
-                    // AppRouter.NavigateToWidget(ProductsScreen(
-                    //     fireStoreProvider.categories[index].id!));
-                  },
-                  child: ArticleCard(
-                      article: fireStoreProvider.articles[index]),
-                );
-              },
-            ),
-          ],
-        );
-      }
-    );
+              ),
+              Spacer(),
+              InkWell(
+                onTap: () {
+                  openBottomSheet(context, ArticlePublish());
+                },
+                child: SvgPicture.asset('assets/icons/plus.svg'),
+              ),
+              SizedBox(
+                width: 6.w,
+              ),
+              SvgPicture.asset('assets/icons/search.svg'),
+            ],
+          ),
+          SizedBox(
+            height: 14.h,
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: fireStoreProvider.articles.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ArticlePage(
+                                article: fireStoreProvider.articles[index],
+                              )));
+                  // AppRouter.NavigateToWidget(ProductsScreen(
+                  //     fireStoreProvider.categories[index].id!));
+                },
+                child: ArticleCard(article: fireStoreProvider.articles[index]),
+              );
+            },
+          ),
+        ],
+      );
+    });
   }
-  openBottomSheet(BuildContext context, Widget widget)  {
-    return  showModalBottomSheet<void>(
+
+  openBottomSheet(BuildContext context, Widget widget) {
+    return showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
-
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40.0.r),
@@ -81,8 +86,8 @@ class _ArticleContentState extends State<ArticleContent> {
       ),
       builder: (context) {
         return Padding(
-          padding:EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom),
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: SizedBox(
             height: 361.h,
             width: 375.w,

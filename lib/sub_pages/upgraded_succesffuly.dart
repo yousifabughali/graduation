@@ -21,9 +21,11 @@ class UpgradedToPremium extends StatelessWidget {
               Text(
                 'Upgrade successful!',
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Color.fromRGBO(36, 36, 36, 1),
                     fontSize: 16.sp,
-                    fontWeight: FontWeight.w600),
+                    fontWeight: FontWeight.w600,
+                  fontFamily: 'Poppins',
+                ),
               ),
               SizedBox(
                 height: 10.h,
@@ -31,9 +33,10 @@ class UpgradedToPremium extends StatelessWidget {
               Text(
                 'You now have access to premium\n content and features.',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Color.fromRGBO(36, 36, 36, 1) ,
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w400,
+                  fontFamily: 'Poppins',
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -42,7 +45,8 @@ class UpgradedToPremium extends StatelessWidget {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+                  elevation: 0,
+                    backgroundColor: Color.fromRGBO(36, 36, 36, 1) ,
                     fixedSize: Size(325.w, 56.h),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.r))),
@@ -50,12 +54,14 @@ class UpgradedToPremium extends StatelessWidget {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => HomeScreen()));
                 },
-                child: const Text(
+                child:  Text(
                   'Back To Home',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
-                    fontSize: 14,
+                    fontSize: 14.sp,
+                    fontFamily: 'Poppins',
+
                   ),
                 ),
               ),

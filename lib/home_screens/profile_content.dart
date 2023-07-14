@@ -41,6 +41,7 @@ class _ProfileContentState extends State<ProfileContent> {
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
                         fontSize: 18,
+                        fontFamily: 'Poppins',
                       ),
                     ),
                     Text(
@@ -48,7 +49,8 @@ class _ProfileContentState extends State<ProfileContent> {
                       style: TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeight.w400,
-                        fontSize: 14,
+                        fontSize: 14.sp,
+                        fontFamily: 'Poppins',
                       ),
                     ),
                   ],
@@ -56,7 +58,10 @@ class _ProfileContentState extends State<ProfileContent> {
                 Spacer(),
                 IconButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileSettings()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfileSettings()));
                   },
                   icon: SvgPicture.asset(
                     'assets/icons/settings.svg',
@@ -88,6 +93,7 @@ class _ProfileContentState extends State<ProfileContent> {
                     color: Colors.grey,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w600,
+                    fontFamily: 'Poppins',
                   ),
                 ),
                 Spacer(),
@@ -97,6 +103,7 @@ class _ProfileContentState extends State<ProfileContent> {
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
                     fontSize: 20.sp,
+                    fontFamily: 'Poppins',
                   ),
                 ),
               ],
@@ -109,6 +116,7 @@ class _ProfileContentState extends State<ProfileContent> {
                     color: Colors.grey,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w600,
+                    fontFamily: 'Poppins',
                   ),
                 ),
                 Spacer(),
@@ -118,6 +126,7 @@ class _ProfileContentState extends State<ProfileContent> {
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
                     fontSize: 20.sp,
+                    fontFamily: 'Poppins',
                   ),
                 ),
               ],
@@ -130,9 +139,10 @@ class _ProfileContentState extends State<ProfileContent> {
                 Text(
                   'About me',
                   style: TextStyle(
-                    color: Colors.orange,
+                    color: Color.fromRGBO(36, 36, 36, 1),
                     fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                    fontSize: 16.sp,
+                    fontFamily: 'Poppins',
                   ),
                 ),
                 Spacer(),
@@ -143,7 +153,8 @@ class _ProfileContentState extends State<ProfileContent> {
                     style: TextStyle(
                       color: Colors.grey,
                       fontWeight: FontWeight.w600,
-                      fontSize: 14,
+                      fontSize: 14.sp,
+                      fontFamily: 'Poppins',
                     ),
                   ),
                 ),
@@ -152,18 +163,19 @@ class _ProfileContentState extends State<ProfileContent> {
             SizedBox(
               height: 4.h,
             ),
-            Container(
+            SizedBox(
               height: 54.h,
               width: 335.w,
               child: Padding(
                 padding: EdgeInsets.only(right: 10.w),
                 child: Text(
-                  'Experienced UX mentor with a passion for helping\ndesigners and product teams create user-centered\nsolutions.',
+                  'Experienced UX mentor with a passion for helping designers and product teams create user-centered solutions.',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w400,
                     fontSize: 12.sp,
-                    height: 1.4.h,
+                    height: 1.5,
+                    fontFamily: 'Poppins',
                   ),
                 ),
               ),
@@ -175,11 +187,16 @@ class _ProfileContentState extends State<ProfileContent> {
               height: 62.h,
               width: 375.w,
               color: Color.fromRGBO(252, 252, 252, 1),
-              child: const TabBar(
-                labelColor: Colors.orange,
+              child:  TabBar(
+                labelColor: Color.fromRGBO(242, 179, 37, 1),
                 indicatorColor: Colors.transparent,
                 unselectedLabelColor: Colors.black,
-                tabs: [
+                labelStyle: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16.sp,
+                    fontFamily: 'Poppins',
+                ),
+                tabs: const [
                   Tab(
                     text: 'Activites',
                   ),
@@ -193,11 +210,23 @@ class _ProfileContentState extends State<ProfileContent> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height,
+              height: MediaQuery.of(context).size.height/1.1,
               child: TabBarView(
                 children: [
                   Activites(),
-                  Center(child: Text('There is Nothing here yet!')),
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Padding(
+                      padding:  EdgeInsets.only(top: 100.h),
+                      child: Text('There is Nothing here yet!',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                    ),
+                  ),
                   Settings(),
                 ],
               ),

@@ -31,8 +31,9 @@ class _SettingsState extends State<Settings> {
           'Account Settings',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: Colors.orange,
+            color: Color.fromRGBO(242, 179, 37, 1),
             fontSize: 16.sp,
+            fontFamily: 'Poppins',
           ),
         ),
         SizedBox(
@@ -55,8 +56,9 @@ class _SettingsState extends State<Settings> {
           'Privacy and security',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: Colors.orange,
+            color: Color.fromRGBO(242, 179, 37, 1),
             fontSize: 16.sp,
+            fontFamily: 'Poppins',
           ),
         ),
         SizedBox(
@@ -72,8 +74,9 @@ class _SettingsState extends State<Settings> {
           'login Setting',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: Colors.orange,
+            color: Color.fromRGBO(242, 179, 37, 1),
             fontSize: 16.sp,
+            fontFamily: 'Poppins',
           ),
         ),
         SizedBox(
@@ -87,8 +90,9 @@ class _SettingsState extends State<Settings> {
           'Deactivate my account',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: Colors.red,
+            color: Color.fromRGBO(249, 78, 61, 1),
             fontSize: 16.sp,
+            fontFamily: 'Poppins',
           ),
         ),
       ],

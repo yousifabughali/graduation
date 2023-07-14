@@ -94,20 +94,15 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                       height: 142.h,
                       width: 335.w,
                       decoration: BoxDecoration(
+                        image: DecorationImage(image: AssetImage('assets/icons/featured_card.png'),fit: BoxFit.cover),
                         borderRadius: BorderRadius.circular(20.r),
-                        gradient: const RadialGradient(
-                          colors: [
-                            Color.fromRGBO(255, 198, 70, 0.8),
-                            Color.fromRGBO(185, 152, 79, 0.8)
-                          ],
-                          radius: 3,
-                        ),
                       ),
                       child: Padding(
                         padding:
                             EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
                         child: Stack(
                           children: [
+                            // SvgPicture.asset('assets/icons/featured_card.svg',height: 142.h,width: 335.w,fit: BoxFit.cover),
                             SizedBox(
                               height: 81.h,
                               width: 295.w,
@@ -166,13 +161,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                       scrollDirection: Axis.vertical,
                       itemCount: fireStoreProvider.posts.length,
                       itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () async {
-                            await fireStoreProvider.getAllComments(fireStoreProvider.posts[index].postId!);
-                            openBottomSheet(context,QuestionSheet(post: fireStoreProvider.posts[index]));
-                          },
-                          child: HomeFollowCard(post: fireStoreProvider.posts[index]),
-                        );
+                        return HomeFollowCard(post: fireStoreProvider.posts[index]);
                       },
                     ),
                   ],
@@ -182,27 +171,6 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
           ),
         );
       }
-    );
-  }
-
-  openBottomSheet(BuildContext context, Widget widget) {
-    return showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.white,
-      showDragHandle: true,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40.0.r),
-            topRight: Radius.circular(40.0.r)),
-      ),
-      builder: (BuildContext context) {
-        return SizedBox(
-          height: 550.h,
-          width: 375.w,
-          child: widget,
-        );
-      },
     );
   }
 }

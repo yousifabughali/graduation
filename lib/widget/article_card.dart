@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,7 +7,8 @@ import 'package:graduation/sub_pages/article_page.dart';
 
 class ArticleCard extends StatelessWidget {
   Article article;
-   ArticleCard({
+
+  ArticleCard({
     required this.article,
     super.key,
   });
@@ -16,11 +16,13 @@ class ArticleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         AppRouter.NavigateToWidget(ArticlePage(article: article!));
       },
       child: Padding(
-        padding:  EdgeInsets.only(bottom: 16.h,),
+        padding: EdgeInsets.only(
+          bottom: 16.h,
+        ),
         child: Container(
           height: 196.h,
           width: 335.w,
@@ -29,7 +31,8 @@ class ArticleCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.r),
           ),
           child: Padding(
-            padding: EdgeInsets.only(left: 16.w,right: 7.w,top: 16.h,bottom: 16.h),
+            padding: EdgeInsets.only(
+                left: 16.w, right: 7.w, top: 16.h, bottom: 16.h),
             child: Row(
               children: [
                 Container(
@@ -39,7 +42,10 @@ class ArticleCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.r),
                   ),
-                  child: Image.network(article!.image,fit: BoxFit.cover,),
+                  child: Image.network(
+                    article!.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 SizedBox(
                   width: 7.w,
@@ -56,19 +62,23 @@ class ArticleCard extends StatelessWidget {
                           article!.question,
                           maxLines: 2,
                           style: TextStyle(
-                              overflow: TextOverflow.ellipsis,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16),
+                            overflow: TextOverflow.ellipsis,
+                            color: Color.fromRGBO(36, 36, 36, 1),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16.sp,
+                            fontFamily: 'Poppins',
+                          ),
                         ),
                       ),
                     ),
                     Text(
                       article!.name!,
                       style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14),
+                        color: Color.fromRGBO(36, 36, 36, 0.5),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.sp,
+                        fontFamily: 'Poppins',
+                      ),
                     ),
                     SizedBox(
                       height: 10.h,
@@ -81,10 +91,12 @@ class ArticleCard extends StatelessWidget {
                         maxLines: 3,
                         style: TextStyle(
                             overflow: TextOverflow.ellipsis,
-                            color: Colors.black,
+                            color: Color.fromRGBO(36, 36, 36, 1),
                             fontWeight: FontWeight.w600,
-                            fontSize: 10,
-                            height: 1.4),
+                            fontSize: 10.sp,
+                            height: 1.4,
+                          fontFamily: 'Poppins',
+                        ),
                       ),
                     ),
                     Spacer(),
@@ -97,9 +109,10 @@ class ArticleCard extends StatelessWidget {
                           Text(
                             article!.date!.toString(),
                             style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w400,
-                                color: Colors.grey
+                                color: Color.fromRGBO(36, 36, 36, 0.5),
+                              fontFamily: 'Poppins',
                             ),
                           )
                         ],

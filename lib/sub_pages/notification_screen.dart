@@ -29,7 +29,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
           style: TextStyle(
               color: Colors.black,
               fontSize: 16.sp,
-              fontWeight: FontWeight.w600),
+              fontWeight: FontWeight.w600,
+            fontFamily: 'Poppins',
+          ),
         ),
       ),
       body: Padding(
@@ -40,9 +42,11 @@ class _NotificationScreenState extends State<NotificationScreen> {
             Text(
               'New',
               style: TextStyle(
-                color: Colors.orange,
+                color: Color.fromRGBO(242, 179, 37, 1),
                 fontWeight: FontWeight.w500,
                 fontSize: 16.sp,
+                fontFamily: 'Poppins',
+
               ),
             ),
             NotificationCard(str1: 'Don’t miss the new space hosting by ahmed ali today at 8:00 PM',date: 'Today, 3:54 PM',),
@@ -50,9 +54,11 @@ class _NotificationScreenState extends State<NotificationScreen> {
             Text(
               'Earlier',
               style: TextStyle(
-                color: Colors.orange,
+                color: Color.fromRGBO(242, 179, 37, 1),
                 fontWeight: FontWeight.w500,
                 fontSize: 16.sp,
+                fontFamily: 'Poppins',
+
               ),
             ),
             NotificationCard(str1: 'New from ahmed ali : The importance of User Experience design in today\'s digital age',date: '20 March 2023',),

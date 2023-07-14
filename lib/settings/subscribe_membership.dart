@@ -35,14 +35,14 @@ class SubscripeMembership extends StatelessWidget {
             children: [
               Text(
                 'Welcome to our Premium Membership!',
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.sp),
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.sp,color: Colors.black,fontFamily: 'Poppins'),
               ),
               SizedBox(
                 height: 9.h,
               ),
               Text(
                 'As a Premium member, you\'ll gain access to exclusive content and resources that will help you reach your learning goals faster and more efficiently than ever before. Here are just a few of the benefits you\'ll receive:',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.black,fontFamily: 'Poppins',fontWeight: FontWeight.w400, fontSize: 16.sp),
               ),
               SizedBox(
                 height: 16.h,
@@ -50,14 +50,13 @@ class SubscripeMembership extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   style:
-                      TextStyle(fontWeight: FontWeight.w400, fontSize: 14.sp),
+                      TextStyle(fontWeight: FontWeight.w400, fontSize: 14.sp,fontFamily: 'Poppins',),
                   children: [
                     TextSpan(
                         text: '• Additional features on questions:',
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
-                          fontSize: 14,
                         )),
                     TextSpan(
                       text:
@@ -75,14 +74,13 @@ class SubscripeMembership extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   style:
-                      TextStyle(fontWeight: FontWeight.w400, fontSize: 14.sp),
+                      TextStyle(fontWeight: FontWeight.w400, fontSize: 14.sp,fontFamily: 'Poppins',),
                   children: [
                     TextSpan(
                         text: '• Articles:',
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
-                          fontSize: 14,
                         )),
                     TextSpan(
                       text:
@@ -90,7 +88,6 @@ class SubscripeMembership extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
                           wordSpacing: 2,
                           height: 1.4.h),
                     ),
@@ -100,14 +97,13 @@ class SubscripeMembership extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   style:
-                      TextStyle(fontWeight: FontWeight.w400, fontSize: 14.sp),
+                      TextStyle(fontWeight: FontWeight.w400, fontSize: 14.sp,fontFamily: 'Poppins',),
                   children: [
                     TextSpan(
                         text: '• Spaces:',
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
-                          fontSize: 14,
                         )),
                     TextSpan(
                       text:
@@ -115,7 +111,6 @@ class SubscripeMembership extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
                           wordSpacing: 2,
                           height: 1.4.h),
                     ),
@@ -132,6 +127,7 @@ class SubscripeMembership extends StatelessWidget {
                       height: 1.4.h,
                       wordSpacing: 2,
                       fontSize: 14.sp,
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.w400),
                   children: [
                     TextSpan(
@@ -168,12 +164,13 @@ class SubscripeMembership extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PaymentPage()));
                   },
-                  child: const Text(
+                  child:  Text(
                     'Upgrade Account',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
-                      fontSize: 14,
+                      fontSize: 14.sp,
+                      fontFamily: 'Poppins',
                     ),
                   ),
                 ),

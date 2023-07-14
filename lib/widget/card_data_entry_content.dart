@@ -15,7 +15,15 @@ class CardDateEntry extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text('Credit card details'),
+              Text(
+                'Credit card details',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16.sp,
+                  fontFamily: 'Poppins',
+                ),
+              ),
               Spacer(),
               SvgPicture.asset('assets/icons/close.svg'),
             ],
@@ -26,11 +34,13 @@ class CardDateEntry extends StatelessWidget {
           Text(
             'Please be careful when entering your credit card information',
             style: TextStyle(
-                wordSpacing: 2,
-                height: 1.2.h,
-                color: Colors.black,
-                fontWeight: FontWeight.w400,
-                fontSize: 12.sp),
+              wordSpacing: 2,
+              height: 1.2.h,
+              color: Colors.black,
+              fontWeight: FontWeight.w400,
+              fontSize: 12.sp,
+              fontFamily: 'Poppins',
+            ),
           ),
           SizedBox(
             height: 30.h,
@@ -48,6 +58,7 @@ class CardDateEntry extends StatelessWidget {
                 ),
               ),
               obscureText: true,
+              obscuringCharacter: '*',
             ),
           ),
           SizedBox(
@@ -84,7 +95,6 @@ class CardDateEntry extends StatelessWidget {
                           BorderSide(style: BorderStyle.solid, width: 1.w),
                     ),
                   ),
-                  obscureText: true,
                 ),
               ),
               SizedBox(
@@ -104,6 +114,7 @@ class CardDateEntry extends StatelessWidget {
                     ),
                   ),
                   obscureText: true,
+                  obscuringCharacter: '*',
                 ),
               ),
             ],
@@ -123,25 +134,33 @@ class CardDateEntry extends StatelessWidget {
               color: Colors.black,
               fontWeight: FontWeight.w600,
               fontSize: 20.sp,
+              fontFamily: 'Poppins',
             ),
           ),
-          SizedBox(height: 30.h,),
+          SizedBox(
+            height: 30.h,
+          ),
           Center(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
+                elevation: 0,
+                  backgroundColor: Color.fromRGBO(36, 36, 36, 1),
                   fixedSize: Size(325.w, 56.h),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.r))),
               onPressed: () {
-                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>UpgradedToPremium()));
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => UpgradedToPremium()));
               },
-              child: const Text(
+              child:  Text(
                 'Pay and upgrade account',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
-                  fontSize: 14,
+                  fontSize: 14.sp,
+
                 ),
               ),
             ),
