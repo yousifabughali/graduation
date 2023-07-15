@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                         },
                         child: MaterialApp(
                           navigatorKey: AppRouter.navKey,
-                          home: isDeviceConnected? SplashScreen() : CheckConnectivity(),
+                          home: SplashScreen(),
                         ),
                       );
 
