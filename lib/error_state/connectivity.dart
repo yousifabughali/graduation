@@ -1,11 +1,24 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
+import 'package:graduation/home_screens/home_screen.dart';
 import 'package:graduation/splashScreen.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
-class CheckConnectivity extends StatelessWidget {
+class CheckConnectivity extends StatefulWidget {
   const CheckConnectivity({Key? key}) : super(key: key);
+
+  @override
+  State<CheckConnectivity> createState() => _CheckConnectivityState();
+}
+
+class _CheckConnectivityState extends State<CheckConnectivity> {
+  late bool isDeviceConnected;
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +38,9 @@ class CheckConnectivity extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
-                  fontSize: 20,
+                  fontSize: 20.sp,
+                    fontFamily: 'Poppins'
+
                 ),
               ),
             ),
@@ -35,14 +50,16 @@ class CheckConnectivity extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 45.w, right: 43.w),
               child: Text(
-                'Something wrong with \nyour connection, Please \ntry again.\n',
+                'Something went wrong with your connection, Please try again.',
                 textAlign: TextAlign.center,
 
                 style: TextStyle(
-                    color: Colors.grey,
+                    color: Color.fromRGBO(36, 36, 36, 0.5),
                     fontWeight: FontWeight.w500,
-                    fontSize: 16,
-                    height: 1.5),
+                    fontSize: 16.sp,
+                    height: 1.5,
+                  fontFamily: 'Poppins'
+                ),
               ),
             ),
             SizedBox(
@@ -55,16 +72,20 @@ class CheckConnectivity extends StatelessWidget {
                   fixedSize: Size(176.w, 56.h),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(26.r))),
-              onPressed: () {
-                AppRouter.NavigateWithReplacemtnToWidget(SplashScreen());
+              onPressed: () async {
+                isDeviceConnected = await InternetConnectionChecker().hasConnection;
+                if(isDeviceConnected){
+                  AppRouter.NavigateWithReplacemtnToWidget(SplashScreen());
+                }
 
               },
-              child: const Text(
+              child: Text(
                 'Retry',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: 15,
+                  fontSize: 15.sp,
+                  fontFamily: 'Poppins'
                 ),
               ),
             ),

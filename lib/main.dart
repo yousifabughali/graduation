@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +11,7 @@ import 'package:graduation/provider/auth_provider.dart';
 import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/splashScreen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:provider/provider.dart';
 
 
@@ -28,48 +32,60 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
+
+  late StreamSubscription result;
+  late bool isDeviceConnected=false;
   @override
-  void initState() {
-    // TODO: implement initState
+  void initState()   {
     checkConnectivity();
-  }
-  void checkConnectivity() async{
-    var result = Connectivity().checkConnectivity();
-    print(result);
+    super.initState();
+    // TODO: implement initState
   }
 
+   void checkConnectivity() async {
+     result = Connectivity().onConnectivityChanged.listen((
+        ConnectivityResult result) async {
+        isDeviceConnected = await InternetConnectionChecker().hasConnection;
+      log(isDeviceConnected.toString());
+      if(!isDeviceConnected){
+        AppRouter.NavigateToWidget(CheckConnectivity());
+      }
+    });
+  }
+@override
+  void dispose() {
+    // TODO: implement dispose
+  result.cancel();
+  super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<AuthProvider>(create: (context)=>AuthProvider()),
-        ChangeNotifierProvider<FireStoreProvider>(create: (context)=>FireStoreProvider()),
-      ],
-      builder: (context,child) {
-        return ScreenUtilInit(
-            designSize: const Size(375, 812),
-            builder: (context, child) {
-              return  StreamBuilder<ConnectivityResult>(
-                stream: Connectivity().onConnectivityChanged,
-                builder: (context, snapshot) {
-                  return GestureDetector(
-                    onTap: () {
-                      FocusScopeNode currentFocus = FocusScope.of(context);
-                      if (!currentFocus.hasPrimaryFocus) {
-                        currentFocus.unfocus();
-                      }
-                    },
-                    child: MaterialApp(
-                      navigatorKey: AppRouter.navKey,
-                      home: snapshot.data == ConnectivityResult.none ? CheckConnectivity() :
-                      SplashScreen(),
-                    ),
-                  );
-                }
-              );
-            });
-      }
+        providers: [
+          ChangeNotifierProvider<AuthProvider>(
+              create: (context) => AuthProvider()),
+          ChangeNotifierProvider<FireStoreProvider>(
+              create: (context) => FireStoreProvider()),
+        ],
+        builder: (context, child) {
+          return ScreenUtilInit(
+              designSize: const Size(375, 812),
+              builder: (context, child) {
+                      return GestureDetector(
+                        onTap: () {
+                          FocusScopeNode currentFocus = FocusScope.of(context);
+                          if (!currentFocus.hasPrimaryFocus) {
+                            currentFocus.unfocus();
+                          }
+                        },
+                        child: MaterialApp(
+                          navigatorKey: AppRouter.navKey,
+                          home: isDeviceConnected? SplashScreen() : CheckConnectivity(),
+                        ),
+                      );
+
+              });
+        }
     );
   }
 

@@ -91,6 +91,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           widget.postId,
                           authProvider.nameController.text,
                         );
+                        FocusScopeNode currentFocus = FocusScope.of(context);
+                        currentFocus.unfocus();
+
 
                       },
                       child: SvgPicture.asset('assets/icons/comment_sent.svg'),
