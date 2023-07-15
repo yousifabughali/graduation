@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/app_router/router.dart';
+import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/widget/account_room_card.dart';
 import 'package:graduation/widget/article_card.dart';
 import 'package:graduation/widget/home_content_follow_card.dart';
 import 'package:graduation/widget/raise_hand.dart';
 import 'package:graduation/widget/room_sheet.dart';
 import 'package:graduation/widget/see_more.dart';
+import 'package:provider/provider.dart';
 
 class MentorPublicProfile extends StatefulWidget {
   const MentorPublicProfile({Key? key}) : super(key: key);
@@ -270,10 +272,13 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
 
                   ),
                 ),
-                SizedBox(height: 10.h,),
-                // ArticleCard(),
-                SizedBox(height: 16.h,),
-                // HomeFollowCard(),
+                Provider.of<FireStoreProvider>(context).articles.isEmpty?Container():
+                ArticleCard(
+                    article: Provider.of<FireStoreProvider>(context).articles[0]),
+                Provider.of<FireStoreProvider>(context).posts.isEmpty? Container():
+
+                HomeFollowCard(
+                    post: Provider.of<FireStoreProvider>(context).posts[0]),
               ],
             ),
           ),

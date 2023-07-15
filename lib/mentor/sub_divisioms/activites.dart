@@ -29,14 +29,19 @@ class _ActivitesState extends State<Activites> {
         Text(
           'Activites list',
           style: TextStyle(
-              color: Colors.black,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
+            color: Colors.black,
+            fontSize: 16.sp,
+            fontWeight: FontWeight.w600,
             fontFamily: 'Poppins',
           ),
         ),
-        ArticleCard(article: Provider.of<FireStoreProvider>(context).articles[0]),
-        HomeFollowCard(post: Provider.of<FireStoreProvider>(context).posts[0]),
+        Provider.of<FireStoreProvider>(context).articles.isEmpty?Container():
+        ArticleCard(
+            article: Provider.of<FireStoreProvider>(context).articles[0]),
+        Provider.of<FireStoreProvider>(context).posts.isEmpty? Container():
+
+        HomeFollowCard(
+            post: Provider.of<FireStoreProvider>(context).posts[0]),
       ],
     );
   }
