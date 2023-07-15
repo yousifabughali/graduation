@@ -2,8 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:graduation/app_router/router.dart';
+import 'package:graduation/error_state/connectivity.dart';
 import 'package:graduation/provider/auth_provider.dart';
 import 'package:graduation/provider/firestore_provider.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,10 +17,21 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late bool isDeviceConnected=false;
+
   @override
-  void initState() {
-    context.read<FireStoreProvider>();
-    navigationFun(context);
+  void initState()  {
+    connect();
+
+  }
+   connect() async {
+      isDeviceConnected = await InternetConnectionChecker().hasConnection;
+      if(isDeviceConnected){
+        context.read<FireStoreProvider>();
+        navigationFun(context);
+      }else{
+        AppRouter.NavigateWithReplacemtnToWidget(CheckConnectivity());
+      }
   }
 
   navigationFun(BuildContext context) async {
