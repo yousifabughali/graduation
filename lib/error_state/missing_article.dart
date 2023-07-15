@@ -48,7 +48,8 @@ class MissingArticle extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
+                  backgroundColor: Color.fromRGBO(36, 36, 36, 1),
+                  elevation: 0,
                   fixedSize: Size(176.w, 56.h),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(26.r))),

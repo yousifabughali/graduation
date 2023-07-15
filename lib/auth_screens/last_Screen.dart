@@ -67,15 +67,16 @@ class _SuccessfulRegistrationState extends State<SuccessfulRegistration> {
             padding: const EdgeInsets.only(left: 25, right: 25, bottom: 205),
             child: ElevatedButton(
               onPressed: () async {
-                Navigator.push(context,
+                Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => HomeScreen()));
                 openBottomSheet(context, SelectYourIntrest());
               },
               style: ElevatedButton.styleFrom(
+                elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.r),
                 ),
-                backgroundColor: Colors.black,
+                backgroundColor: Color.fromRGBO(36, 36, 36, 1),
                 minimumSize: Size(325.w, 56.h),
               ),
               child: Text(

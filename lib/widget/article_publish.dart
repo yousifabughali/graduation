@@ -30,7 +30,8 @@ class _ArticlePublishState extends State<ArticlePublish> {
                 alignment: Alignment.topRight,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
+                    elevation: 0,
+                      backgroundColor: Color.fromRGBO(36, 36, 36, 1),
                       fixedSize: Size(72.w, 32.h),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.r))),

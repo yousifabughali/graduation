@@ -48,47 +48,55 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 ),
               ),
             ),
-            bottomNavigationBar: Container(
-              height: 90.h,
-              width: 395.w,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(40.r),
-                  topRight: Radius.circular(40.r),
+            bottomNavigationBar: Padding(
+              padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+
+              child: Container(
+                height: 90.h,
+                width: 395.w,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40.r),
+                    topRight: Radius.circular(40.r),
+                  ),
                 ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    height: 53.h,
-                    width: 273.w,
-                    child: TextFormField(
-                      controller: fireStoreProvider.commentController,
-                      decoration: InputDecoration(
-                        hintText: 'Write your comment',
-                        hintStyle: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: const Color.fromRGBO(36, 36, 36, 0.5),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14.sp,
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12.r),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Form(
+                      key: fireStoreProvider.addNewCommentKey,
+                      child: SizedBox(
+                        width: 273.w,
+                        child: TextFormField(
+                          validator: fireStoreProvider.requiredValidator,
+                          controller: fireStoreProvider.commentController,
+                          decoration: InputDecoration(
+                            hintText: 'Write your comment',
+                            hintStyle: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: const Color.fromRGBO(36, 36, 36, 0.5),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14.sp,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12.r),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  InkWell(
-                    onTap: () async {
-                      await fireStoreProvider.addNewComment(
-                        widget.postId,
-                        authProvider.nameController.text,
-                      );
-                    },
-                    child: SvgPicture.asset('assets/icons/comment_sent.svg'),
-                  ),
-                ],
+                    InkWell(
+                      onTap: () async {
+                        await fireStoreProvider.addNewComment(
+                          widget.postId,
+                          authProvider.nameController.text,
+                        );
+
+                      },
+                      child: SvgPicture.asset('assets/icons/comment_sent.svg'),
+                    ),
+                  ],
+                ),
               ),
             ),
             body: Padding(

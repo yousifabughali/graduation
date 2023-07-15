@@ -72,7 +72,7 @@ class RaiseHand extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(26.r),
                 ),
-                backgroundColor: Colors.black,
+                backgroundColor: Color.fromRGBO(36, 36, 36, 1),
                 minimumSize: Size(176.w, 56.h),
               ),
             ),

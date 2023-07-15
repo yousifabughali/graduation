@@ -37,9 +37,10 @@ class Posted extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const HomeScreen()));
                 },
                 style: ElevatedButton.styleFrom(
+                  elevation: 0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.r)),
-                  backgroundColor: Colors.black,
+                  backgroundColor:Color.fromRGBO(36, 36, 36, 1),
                   minimumSize: Size(150.w, 56.h),
                 ),
                 child:  Text(
@@ -57,6 +58,7 @@ class Posted extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => const HomeScreen()));
                 },
                 style: ElevatedButton.styleFrom(
+                  elevation: 0,
                   shape: RoundedRectangleBorder(
                     side: const BorderSide(color: Color.fromRGBO(36, 36, 36, 1), width: 0.6),
                     borderRadius: BorderRadius.circular(12.r),

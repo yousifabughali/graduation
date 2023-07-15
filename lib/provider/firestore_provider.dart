@@ -26,6 +26,7 @@ class FireStoreProvider extends ChangeNotifier {
   TextEditingController articleDescriptionController = TextEditingController();
   TextEditingController articleTagsController = TextEditingController();
 
+  GlobalKey<FormState> addNewCommentKey = GlobalKey();
   TextEditingController commentController = TextEditingController();
 
   File? selectedImage;
@@ -72,6 +73,10 @@ class FireStoreProvider extends ChangeNotifier {
       articles.add(article);
       notifyListeners();
       AppRouter.popRouter();
+      articleNameController.text='';
+      articleDescriptionController.text='';
+      articleTagsController.text='';
+      selectedImage=null;
     }
     // }
   }
@@ -97,6 +102,9 @@ class FireStoreProvider extends ChangeNotifier {
     posts.add(post);
     notifyListeners();
     AppRouter.popRouter();
+    postNameController.text='';
+    postDescriptionController.text='';
+
 
     // }
   }
@@ -109,7 +117,7 @@ class FireStoreProvider extends ChangeNotifier {
   ///comments
   addNewComment(String postId,String name,) async {
 
-    // if(addNewProductKey.currentState!.validate()){
+    if(addNewCommentKey.currentState!.validate()){
         Comments comment = Comments(
           name: name,
           answer: commentController.text,
@@ -121,8 +129,9 @@ class FireStoreProvider extends ChangeNotifier {
         comments.add(newComment);
         print(comments.toString());
         notifyListeners();
+        commentController.text='';
 
-      // }
+      }
     }
 
 

@@ -157,7 +157,8 @@ class SubscripeMembership extends StatelessWidget {
               Center(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
+                    elevation: 0,
+                      backgroundColor: Color.fromRGBO(36, 36, 36, 1),
                       fixedSize: Size(325.w, 56.h),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.r))),

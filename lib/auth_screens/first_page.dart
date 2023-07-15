@@ -62,10 +62,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     context, MaterialPageRoute(builder: (context) => const SignUp()));
               },
               style: ElevatedButton.styleFrom(
+                elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.r),
                 ),
-                backgroundColor: Colors.black,
+                backgroundColor: Color.fromRGBO(36, 36, 36, 1),
                 minimumSize: Size(325.w, 56.h),
               ),
               child: Text(

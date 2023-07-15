@@ -131,6 +131,7 @@ class _SignUpState extends State<SignUp> {
                    await provider.signUp();
                   },
                   style: ElevatedButton.styleFrom(
+                    elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.r),
                     ),

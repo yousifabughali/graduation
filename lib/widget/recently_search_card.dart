@@ -52,7 +52,8 @@ class RecentlySearchCard extends StatelessWidget {
         SizedBox(width: 8.5.w,),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
+              elevation: 0,
+              backgroundColor: Color.fromRGBO(36, 36, 36, 1),
               fixedSize: Size(73.w, 29.h),
               shape: RoundedRectangleBorder(
                   borderRadius:

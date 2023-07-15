@@ -139,10 +139,11 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
               });
             },
             style: ElevatedButton.styleFrom(
+              elevation: 0,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.r),
-                  side: const BorderSide(color: Colors.black)),
-              backgroundColor: Colors.black,
+                  side: const BorderSide(color: Color.fromRGBO(36, 36, 36, 1),width: 0.6)),
+              backgroundColor: Color.fromRGBO(36, 36, 36, 1),
               minimumSize: Size(325.w, 56.h),
             ),
             child: Text(
