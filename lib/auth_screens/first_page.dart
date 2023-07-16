@@ -22,16 +22,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
           children: [
             Padding(
               padding: EdgeInsets.only(
-                  top: 177.h, left: 139.w, right: 140.w, bottom: 28.h),
+                  top: 171.h, left: 139.w, right: 140.w,),
               child: Container(
-                height: 115.h,
-                width: 98.w,
+                height: 110.h,
+                width: 94.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50.h),
                 ),
                 child: SvgPicture.asset('assets/icons/logo.svg'),
               ),
             ),
+            SizedBox(height: 21.h,),
             Text(
               'CODNET',
               style: TextStyle(
@@ -87,6 +88,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     context, MaterialPageRoute(builder: (context) => const SignIn()));
               },
               style: ElevatedButton.styleFrom(
+                elevation: 0,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),
                     side: BorderSide(color: const Color.fromRGBO(36, 36, 36,1),width: 0.6.w)),
@@ -142,6 +144,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
+                  elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(13.r),
                     side: BorderSide(

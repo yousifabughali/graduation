@@ -23,7 +23,7 @@ class _SuccessfulRegistrationState extends State<SuccessfulRegistration> {
         children: [
           Padding(
             padding: EdgeInsets.only(
-                top: 194.h, left: 100.w, right: 99.w, bottom: 27.h),
+                top: 182.h, left: 100.w, right: 99.w, bottom: 27.h),
             child: Container(
               height: 176.h,
               width: 176.w,
@@ -39,7 +39,7 @@ class _SuccessfulRegistrationState extends State<SuccessfulRegistration> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 24.w, right: 24.w, bottom: 12.h),
+            padding: EdgeInsets.only(left: 24.w, right: 24.w,),
             child: Text(
               'Welcome To The Club Of Technicians',
               textAlign: TextAlign.center,
@@ -52,6 +52,7 @@ class _SuccessfulRegistrationState extends State<SuccessfulRegistration> {
               ),
             ),
           ),
+           SizedBox(height: 12.h,),
            Text(
             'Enjoy your technical trip ! Let\'s start!',
             style: TextStyle(
@@ -99,7 +100,6 @@ class _SuccessfulRegistrationState extends State<SuccessfulRegistration> {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
-      showDragHandle: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40.0.r),

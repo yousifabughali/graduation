@@ -21,156 +21,158 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
   @override
   Widget build(BuildContext context) {
     return Consumer<FireStoreProvider>(
-      builder: (context,fireStoreProvider,child) {
-        return Padding(
-          padding: EdgeInsets.only(top: 12.h),
-          child: SingleChildScrollView(
-            physics: const AlwaysScrollableScrollPhysics(),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    // SvgPicture.asset('assets/icons/Path.svg',color: Colors.black,height: 40.h,width: 40.w,),
-                    Image.asset(
-                      'assets/icons/a1.png',
-                      height: 40.h,
-                      width: 40.w,
-                    ),
-                    SizedBox(
-                      width: 16.w,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-
-                      children: [
-                        Text(
-                          'Good Morning',
-                          style: TextStyle(
-                              color: const Color.fromRGBO(142, 142, 149, 1),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14.sp,
-                              fontFamily: 'Poppins'),
-                        ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        Text(
-                          Provider.of<AuthProvider>(context).nameController.text,
-                          style: TextStyle(
-                              color: const Color.fromRGBO(0, 0, 0, 1),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18.sp,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    InkWell(
-                      onTap: () {
-                        AppRouter.NavigateToWidget(const NotificationScreen());
-                      },
-                      child: SvgPicture.asset('assets/icons/not.svg'),
-                    ),
-
-                    SizedBox(
-                      width: 6.w,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        AppRouter.NavigateToWidget(const SearchPage());
-                      },
-                      child: SvgPicture.asset('assets/icons/search.svg'),
-                    ),
-                  ],
-                ),
-                ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    SizedBox(
-                      height: 29.h,
-                    ),
-                    Container(
-                      height: 142.h,
-                      width: 335.w,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(image: AssetImage('assets/icons/featured_card.png'),fit: BoxFit.cover),
-                        borderRadius: BorderRadius.circular(20.r),
+        builder: (context, fireStoreProvider, child) {
+      return Padding(
+        padding: EdgeInsets.only(top: 12.h),
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  // SvgPicture.asset('assets/icons/Path.svg',color: Colors.black,height: 40.h,width: 40.w,),
+                  Image.asset(
+                    'assets/icons/a1.png',
+                    height: 40.h,
+                    width: 40.w,
+                  ),
+                  SizedBox(
+                    width: 16.w,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Good Morning',
+                        style: TextStyle(
+                            color: const Color.fromRGBO(142, 142, 149, 1),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14.sp,
+                            fontFamily: 'Poppins'),
                       ),
-                      child: Padding(
-                        padding:
-                            EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
-                        child: Stack(
-                          children: [
-                            // SvgPicture.asset('assets/icons/featured_card.svg',height: 142.h,width: 335.w,fit: BoxFit.cover),
-                            SizedBox(
-                              height: 81.h,
-                              width: 295.w,
-                              child: Text(
-                                'If You Have Experience Of 5+ Years in Your Field, Become A Mentor With Us',
-                                style: TextStyle(
-                                  letterSpacing: 1,
-                                  color: const Color.fromRGBO(36, 36, 36, 1),
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 16.sp,
-                                  height: 1.8,
-                                ),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      Text(
+                        Provider.of<AuthProvider>(context).nameController.text,
+                        style: TextStyle(
+                            color: const Color.fromRGBO(0, 0, 0, 1),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18.sp,
+                            fontFamily: 'Poppins'),
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: () {
+                      AppRouter.NavigateToWidget(const NotificationScreen());
+                    },
+                    child: SvgPicture.asset('assets/icons/not.svg'),
+                  ),
+
+                  SizedBox(
+                    width: 6.w,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      AppRouter.NavigateToWidget(const SearchPage());
+                    },
+                    child: SvgPicture.asset('assets/icons/search.svg'),
+                  ),
+                ],
+              ),
+              ListView(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  SizedBox(
+                    height: 29.h,
+                  ),
+                  Container(
+                    height: 142.h,
+                    width: 335.w,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/icons/featured_card.png'),
+                          fit: BoxFit.cover),
+                      borderRadius: BorderRadius.circular(20.r),
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
+                      child: Stack(
+                        children: [
+                          // SvgPicture.asset('assets/icons/featured_card.svg',height: 142.h,width: 335.w,fit: BoxFit.cover),
+                          SizedBox(
+                            height: 81.h,
+                            width: 295.w,
+                            child: Text(
+                              'If You Have Experience Of 5+ Years in Your Field, Become A Mentor With Us',
+                              style: TextStyle(
+                                letterSpacing: 1,
+                                color: const Color.fromRGBO(36, 36, 36, 1),
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sp,
+                                height: 1.8.h,
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(bottom: 17.h),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Row(
-                                    children: [
-                                      const Spacer(),
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.black,
-                                            fixedSize: Size(108.w, 34.h),
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(12.r))),
-                                        onPressed: () {},
-                                        child: Text(
-                                          'Get Started',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 14.sp,
-                                              fontFamily: 'Poppins'),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 17.h),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Spacer(),
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.black,
+                                        fixedSize: Size(108.w, 34.h),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(12.r),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                      onPressed: () {},
+                                      child: Text(
+                                        'Get Started',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 13.sp,
+                                            fontFamily: 'Poppins'),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(
-                      height: 22.h,
-                    ),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      scrollDirection: Axis.vertical,
-                      itemCount: fireStoreProvider.posts.length,
-                      itemBuilder: (context, index) {
-                        return HomeFollowCard(post: fireStoreProvider.posts[index]);
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                  SizedBox(
+                    height: 22.h,
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    itemCount: fireStoreProvider.posts.length,
+                    itemBuilder: (context, index) {
+                      return HomeFollowCard(
+                          post: fireStoreProvider.posts[index]);
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
-        );
-      }
-    );
+        ),
+      );
+    });
   }
 }

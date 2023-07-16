@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Padding(
               padding: EdgeInsets.only(
-                  top: 299.h, left: 139.w, right: 140.w, bottom: 32.h),
+                  top: 299.h, left: 139.w, right: 140.w, bottom: 16.h),
               child: SvgPicture.asset('assets/icons/logo.svg'),
             ),
             Text(

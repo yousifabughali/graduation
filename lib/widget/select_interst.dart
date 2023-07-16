@@ -29,9 +29,8 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 21.w, right: 21.w, top: 24.h),
+          padding: EdgeInsets.only(left: 21.w, right: 21.w, top: 24.h,bottom: 12.h),
           child: SizedBox(
-            height: 68.h,
             width: 333.w,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,11 +49,12 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
                 Text(
                   flag
                       ? 'You are almost done. Select your level!'
-                      : 'You are almost done. Select your interest, so \n we can show what you might like.',
+                      : 'You are almost done. Select your interest, so we can show what you might like.',
                   style: TextStyle(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
                     fontFamily: 'Poppins',
+                    height: 1.5.h,
                     color: const Color.fromRGBO(147, 147, 147, 1),
                   ),
                 ),
@@ -74,7 +74,7 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
         Padding(
           padding: EdgeInsets.only(left: 19.w, right: 20.w),
           child: SizedBox(
-            height: 510.h,
+            height: 500.h,
             width: 336.w,
             child: !flag
                 ? SingleChildScrollView(
@@ -161,7 +161,6 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
-      showDragHandle: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(40.0.r),
