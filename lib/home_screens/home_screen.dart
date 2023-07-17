@@ -61,7 +61,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           bottomNavigationBar: Container(
             clipBehavior: Clip.antiAlias,
-            height: 90.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40.r),

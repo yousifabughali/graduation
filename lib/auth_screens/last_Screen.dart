@@ -19,12 +19,11 @@ class _SuccessfulRegistrationState extends State<SuccessfulRegistration> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(
-                top: 182.h, left: 100.w, right: 99.w, bottom: 27.h),
-            child: Container(
+      body: Padding(
+        padding: EdgeInsets.only(left: 24.w, right: 24.w, top: 188.h),
+        child: Column(
+          children: [
+            Container(
               height: 176.h,
               width: 176.w,
               decoration: BoxDecoration(
@@ -37,60 +36,64 @@ class _SuccessfulRegistrationState extends State<SuccessfulRegistration> {
                 size: 110.r,
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 24.w, right: 24.w,),
-            child: Text(
+            SizedBox(
+              height: 27.h,
+            ),
+            Text(
               'Welcome To The Club Of Technicians',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
-                height: 1.8.h,
+                height: 1.77.h,
                 fontSize: 26.sp,
                 fontFamily: 'Poppins',
                 color: Color.fromRGBO(16, 16, 16, 1),
               ),
             ),
-          ),
-           SizedBox(height: 12.h,),
-           Text(
-            'Enjoy your technical trip ! Let\'s start!',
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 12.sp,
-              color: Color.fromRGBO(147, 147, 147, 1),
+            SizedBox(
+              height: 12.h,
             ),
-          ),
-          SizedBox(
-            height: 32.h,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 25, right: 25, bottom: 205),
-            child: ElevatedButton(
-              onPressed: () async {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()));
-                openBottomSheet(context, SelectYourIntrest());
-              },
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                backgroundColor: Color.fromRGBO(36, 36, 36, 1),
-                minimumSize: Size(325.w, 56.h),
+            Text(
+              'Enjoy your technical trip ! Let\'s start!',
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 12.sp,
+                height: 1.5.h,
+                color: Color.fromRGBO(147, 147, 147, 1),
               ),
-              child: Text(
-                'Continue',
-                style: TextStyle(
+            ),
+            SizedBox(
+              height: 32.h,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 25, right: 25, bottom: 205),
+              child: ElevatedButton(
+                onPressed: () async {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                  openBottomSheet(context, SelectYourIntrest());
+                },
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
+                  backgroundColor: Color.fromRGBO(36, 36, 36, 1),
+                  minimumSize: Size(325.w, 56.h),
+                ),
+                child: Text(
+                  'Continue',
+                  style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
-                    fontSize: 16.sp),
+                    fontSize: 16.sp,
+                  ),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

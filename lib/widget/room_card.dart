@@ -28,6 +28,7 @@ class RoomCard extends StatelessWidget {
               top: 21.41.h, left: 20.w, right: 20.w, bottom: 30.17.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Row(
                 children: [
@@ -46,9 +47,7 @@ class RoomCard extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 1.h,
-              ),
+
               Text(
                 'The importance of User Experien...',
                 style: TextStyle(
@@ -56,9 +55,6 @@ class RoomCard extends StatelessWidget {
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w600,
                     fontFamily: 'Poppins'),
-              ),
-              SizedBox(
-                height: 6.h,
               ),
               Row(
                 children: [
@@ -92,13 +88,9 @@ class RoomCard extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 12.65.h,
-              ),
+
               DottedLine(dashColor: Colors.grey),
-              SizedBox(
-                height: 9.5.h,
-              ),
+
              SizedBox(
                width: 291.w,
                child: Row(

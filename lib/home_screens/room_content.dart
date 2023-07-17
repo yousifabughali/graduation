@@ -54,10 +54,12 @@ class _RoomContentState extends State<RoomContent> {
                     Text(
                       Provider.of<AuthProvider>(context).nameController.text,
                       style: TextStyle(
-                          color: const Color.fromRGBO(0, 0, 0, 1),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18.sp,
-                          fontFamily: 'Poppins'),
+                        color: const Color.fromRGBO(0, 0, 0, 1),
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18.sp,
+                        height: 1.5.h,
+                        fontFamily: 'Poppins',
+                      ),
                     ),
                   ],
                 ),
@@ -80,7 +82,7 @@ class _RoomContentState extends State<RoomContent> {
               ],
             ),
             SizedBox(
-              height: 37.h,
+              height: 22.h,
             ),
             const RoomCard(),
             SizedBox(
@@ -91,7 +93,6 @@ class _RoomContentState extends State<RoomContent> {
                 openBottomSheet(context, const RoomSheet());
               },
               child: Container(
-                height: 327.h,
                 width: 335.w,
                 decoration: BoxDecoration(
                   color: const Color.fromRGBO(251, 245, 232, 1),
@@ -213,7 +214,9 @@ class _RoomContentState extends State<RoomContent> {
                               ],
                             ),
                           ),
-                          SizedBox(width: 6.w,),
+                          SizedBox(
+                            width: 6.w,
+                          ),
                           Container(
                             width: 102.w,
                             height: 31.h,
@@ -237,7 +240,6 @@ class _RoomContentState extends State<RoomContent> {
                               ],
                             ),
                           ),
-
                         ],
                       ),
                       SizedBox(

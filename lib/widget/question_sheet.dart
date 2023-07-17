@@ -7,6 +7,7 @@ import 'package:graduation/model/post.dart';
 import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/sub_pages/question_screen.dart';
 import 'package:graduation/widget/comment_widget.dart';
+import 'package:graduation/widget/comment_widget_for_sheet.dart';
 import 'package:provider/provider.dart';
 
 class QuestionSheet extends StatefulWidget {
@@ -106,7 +107,6 @@ class _QuestionSheetState extends State<QuestionSheet> {
                 padding: EdgeInsets.only(left: 5.w),
                 child: SizedBox(
                   width: 325.w,
-                  height: 57.h,
                   child: Text(
                     widget.post.description,
                     maxLines: 3,
@@ -179,45 +179,39 @@ class _QuestionSheetState extends State<QuestionSheet> {
                 height: 20,
               ),
               fireStoreProvider.comments.length == 0
-                  ? const Spacer()
-                  : Column(
-                    children: [
-                      CommentWidget(comment: fireStoreProvider.comments[0]),
-                      SizedBox(height: 31.h,),
-                    ],
-                  ),
+                  ?  Container()
+                  : CommentWidgetSheet(comment: fireStoreProvider.comments[0]),
 
-              // const SizedBox(
-              //   height: 16,
-              // ),
-              ElevatedButton(
-                onPressed: () async {
-                  await fireStoreProvider.getAllComments(widget.post.postId!);
-                  AppRouter.NavigateToWidget(
-                    QuestionScreen(postId: widget.post.postId!, post: widget.post),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r),
-                    side: BorderSide(
-                        color: const Color.fromRGBO(36, 36, 36, 1), width: 0.6.w),
+              Spacer(),
+
+              Padding(
+                padding: EdgeInsets.only(bottom: 39.h),
+                child: ElevatedButton(
+                  onPressed: () async {
+                    await fireStoreProvider.getAllComments(widget.post.postId!);
+                    AppRouter.NavigateToWidget(
+                      QuestionScreen(postId: widget.post.postId!, post: widget.post),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                      side: BorderSide(
+                          color: const Color.fromRGBO(36, 36, 36, 1), width: 0.6.w),
+                    ),
+                    backgroundColor: Colors.white,
+                    minimumSize: Size(325.w, 56.h),
                   ),
-                  backgroundColor: Colors.white,
-                  minimumSize: Size(325.w, 56.h),
+                  child: Text(
+                    'See Full Post',
+                    style: TextStyle(
+                        color: const Color.fromRGBO(36, 36, 36, 1),
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.sp),
+                  ),
                 ),
-                child: Text(
-                  'See Full Post',
-                  style: TextStyle(
-                      color: const Color.fromRGBO(36, 36, 36, 1),
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16.sp),
-                ),
-              ),
-              SizedBox(
-                height: 39.h,
               ),
             ],
           ),

@@ -210,7 +210,7 @@ class _ProfileContentState extends State<ProfileContent> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height/1.1,
+              height: 900.h,
               child: TabBarView(
                 children: [
                   Activites(),

@@ -45,10 +45,12 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                       Text(
                         'Good Morning',
                         style: TextStyle(
-                            color: const Color.fromRGBO(142, 142, 149, 1),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14.sp,
-                            fontFamily: 'Poppins'),
+                          color: const Color.fromRGBO(142, 142, 149, 1),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14.sp,
+                          fontFamily: 'Poppins',
+                          height: 1.5.h,
+                        ),
                       ),
                       SizedBox(
                         height: 1.h,
@@ -129,10 +131,12 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                     const Spacer(),
                                     ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.black,
+                                        backgroundColor:
+                                            Color.fromRGBO(36, 36, 36, 1),
                                         fixedSize: Size(108.w, 34.h),
                                         shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(12.r),
+                                          borderRadius:
+                                              BorderRadius.circular(12.r),
                                         ),
                                       ),
                                       onPressed: () {},
@@ -141,7 +145,7 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.w600,
-                                            fontSize: 13.sp,
+                                            fontSize: 14.sp,
                                             fontFamily: 'Poppins'),
                                       ),
                                     ),

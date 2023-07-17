@@ -43,39 +43,40 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                  top: 299.h, left: 139.w, right: 140.w, bottom: 16.h),
-              child: SvgPicture.asset('assets/icons/logo.svg'),
-            ),
-            Text(
-              'CODNET',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 32.sp,
-                  fontFamily: 'Poppins',
-                  height: 1.5,
-                  fontWeight: FontWeight.w600),
-            ),
-            SizedBox(
-              height: 6.h,
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 299.h),
-              child: Text(
-                'Tech Together, Community Powered!',
+      body: Padding(
+        padding:  EdgeInsets.only(top: 306.h,right: 58.w,left: 85.w),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(child: SvgPicture.asset('assets/icons/logo.svg',height: 115.h,width: 99.w,)),
+              SizedBox(height: 16.h,),
+              Text(
+                'CODNET',
                 style: TextStyle(
-                  color: const Color.fromRGBO(142, 142, 149, 1),
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                    fontSize: 32.sp,
+                    fontFamily: 'Poppins',
+                    height: 1.5,
+                    fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: 6.h,
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 299.h),
+                child: Text(
+                  'Tech Together, Community Powered!',
+                  style: TextStyle(
+                    color: const Color.fromRGBO(142, 142, 149, 1),
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

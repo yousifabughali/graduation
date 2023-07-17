@@ -16,23 +16,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
+      body: Padding(
+        padding: EdgeInsets.only(top: 171.h,left: 25.w,right: 25.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: EdgeInsets.only(
-                  top: 171.h, left: 139.w, right: 140.w,),
-              child: Container(
-                height: 110.h,
-                width: 94.w,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50.h),
-                ),
-                child: SvgPicture.asset('assets/icons/logo.svg'),
-              ),
+            SvgPicture.asset(
+              'assets/icons/logo.svg',
+              width: 94.w,
+              height: 110.h,
             ),
-            SizedBox(height: 21.h,),
+            SizedBox(
+              height: 34.h,
+            ),
             Text(
               'CODNET',
               style: TextStyle(
@@ -40,7 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 fontSize: 32.sp,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w600,
-                height: 1.5,
+                height: 1.5.h,
               ),
             ),
             SizedBox(
@@ -49,18 +46,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Text(
               'Tech Together, Community Powered!',
               style: TextStyle(
-                  color: const Color.fromRGBO(142, 142, 149, 1),
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Poppins'),
+                color: const Color.fromRGBO(142, 142, 149, 1),
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w400,
+                height: 1.5.h,
+                fontFamily: 'Poppins',
+              ),
             ),
             SizedBox(
               height: 134.h,
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => const SignUp()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const SignUp()));
               },
               style: ElevatedButton.styleFrom(
                 elevation: 0,
@@ -84,14 +83,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => const SignIn()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const SignIn()));
               },
               style: ElevatedButton.styleFrom(
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),
-                    side: BorderSide(color: const Color.fromRGBO(36, 36, 36,1),width: 0.6.w)),
+                    side: BorderSide(
+                        color: const Color.fromRGBO(36, 36, 36, 1),
+                        width: 0.6.w)),
                 backgroundColor: Colors.white,
                 minimumSize: Size(325.w, 56.h),
               ),
@@ -105,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
             ),
             SizedBox(
-              height: 20.h,
+              height: 16.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -113,7 +114,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const Flexible(
                     child: Divider(
                   thickness: 0.6,
-                  indent: 25,
                   endIndent: 10,
                   color: Color.fromRGBO(36, 36, 36, 0.5),
                 )),
@@ -130,7 +130,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: Divider(
                     thickness: 0.6,
                     indent: 10,
-                    endIndent: 25,
                     color: Color.fromRGBO(36, 36, 36, 0.5),
                   ),
                 ),

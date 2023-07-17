@@ -15,36 +15,49 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
-    final provider =   Provider.of<AuthProvider>(context,listen: false);
+    final provider = Provider.of<AuthProvider>(context, listen: false);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Padding(
-        padding:  EdgeInsets.only(left: 24.w,top: 72.h,right: 24.w,),
+        padding: EdgeInsets.only(
+          left: 24.w,
+          top: 116.h,
+          right: 24.w,
+        ),
         child: SingleChildScrollView(
           child: Column(
+
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding:  EdgeInsets.only(left: 5.w,bottom: 4.h),
+                padding: EdgeInsets.only(left: 5.w, bottom: 4.h),
                 child: Text(
                   'Signup',
-                  style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.w600,fontFamily: 'Poppins'),
+                  style: TextStyle(
+                    fontSize: 32.sp,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Poppins',
+                    height: 1.5.h,
+                  ),
                 ),
               ),
               Padding(
-                padding:  EdgeInsets.only(left: 5.w),
-                child: const Text(
+                padding: EdgeInsets.only(left: 5.w),
+                child:  Text(
                   'Let\'s Create your account',
                   style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14,
-                      color: Colors.grey),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14.sp,
+                    color: Colors.grey,
+                  ),
                 ),
               ),
-              SizedBox(height: 49.h,),
+              SizedBox(
+                height: 49.h,
+              ),
               Form(
-                key: provider.signUpKey,
+                key: Provider.of<AuthProvider>(context).signUpKey,
                 child: Column(
                   children: [
                     SizedBox(
@@ -56,8 +69,8 @@ class _SignUpState extends State<SignUp> {
                           label: const Text('Name'),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.r),
-                            borderSide:
-                                BorderSide(style: BorderStyle.solid, width: 1.w),
+                            borderSide: BorderSide(
+                                style: BorderStyle.solid, width: 1.w),
                           ),
                         ),
                       ),
@@ -75,8 +88,8 @@ class _SignUpState extends State<SignUp> {
                           prefixText: '@',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.r),
-                            borderSide:
-                                BorderSide(style: BorderStyle.solid, width: 1.w),
+                            borderSide: BorderSide(
+                                style: BorderStyle.solid, width: 1.w),
                           ),
                         ),
                       ),
@@ -93,8 +106,8 @@ class _SignUpState extends State<SignUp> {
                           label: const Text('Email'),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.r),
-                            borderSide:
-                                BorderSide(style: BorderStyle.solid, width: 1.w),
+                            borderSide: BorderSide(
+                                style: BorderStyle.solid, width: 1.w),
                           ),
                         ),
                       ),
@@ -112,8 +125,8 @@ class _SignUpState extends State<SignUp> {
                           // suffix: IconButton(onPressed: (){},icon: Icon(Icons.add)),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.r),
-                            borderSide:
-                                BorderSide(style: BorderStyle.solid, width: 1.w),
+                            borderSide: BorderSide(
+                                style: BorderStyle.solid, width: 1.w),
                           ),
                         ),
                         obscureText: true,
@@ -126,8 +139,8 @@ class _SignUpState extends State<SignUp> {
                 height: 55.h,
               ),
               ElevatedButton(
-                onPressed: () async{
-                 await provider.signUp();
+                onPressed: () async {
+                  await provider.signUp();
                 },
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
@@ -151,13 +164,15 @@ class _SignUpState extends State<SignUp> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignIn()));
-
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const SignIn()));
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.r),
-                      side: BorderSide(color: const Color.fromRGBO(36, 36, 36,1),width: 0.6.w)),
+                      side: BorderSide(
+                          color: const Color.fromRGBO(36, 36, 36, 1),
+                          width: 0.6.w)),
                   backgroundColor: Colors.white,
                   minimumSize: Size(325.w, 56.h),
                 ),
@@ -179,7 +194,6 @@ class _SignUpState extends State<SignUp> {
                   Flexible(
                       child: Divider(
                     thickness: 0.5,
-                    indent: 25,
                     endIndent: 10,
                     color: Colors.grey,
                   )),
@@ -191,7 +205,6 @@ class _SignUpState extends State<SignUp> {
                     child: Divider(
                       thickness: 0.5,
                       indent: 10,
-                      endIndent: 25,
                       color: Colors.grey,
                     ),
                   ),
@@ -201,7 +214,9 @@ class _SignUpState extends State<SignUp> {
                 height: 12.h,
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: 44.h,),
+                padding: EdgeInsets.only(
+                  bottom: 44.h,
+                ),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(

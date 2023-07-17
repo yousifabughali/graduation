@@ -70,6 +70,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, child) {
           return ScreenUtilInit(
               designSize: const Size(375, 812),
+              minTextAdapt: true,
               builder: (context, child) {
                       return GestureDetector(
                         onTap: () {
@@ -79,6 +80,7 @@ class _MyAppState extends State<MyApp> {
                           }
                         },
                         child: MaterialApp(
+
                           navigatorKey: AppRouter.navKey,
                           home: SplashScreen(),
                         ),

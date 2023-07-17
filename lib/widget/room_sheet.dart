@@ -335,22 +335,17 @@ class _RoomSheetState extends State<RoomSheet> {
           SizedBox(
             height: 18.h,
           ),
-          SizedBox(
-            height: 151.h,
-            child: Text(
-              'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et doloreLorem ipsum dolor sit amet, consectetur adipisicing  sed do eiusmod tempor incididunt et doloreLorem ipsum dolor sit amet, consectetur adipisicing consectetur adipisicing  💬',
-              style: TextStyle(
-                color: Color.fromRGBO(36, 36, 36, 1),
-                fontFamily: 'Poppins',
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w400,
-                height: 1.57.h,
-              ),
+          Text(
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et doloreLorem ipsum dolor sit amet, consectetur adipisicing  sed do eiusmod tempor incididunt et doloreLorem ipsum dolor sit amet, consectetur adipisicing consectetur adipisicing  💬',
+            style: TextStyle(
+              color: Color.fromRGBO(36, 36, 36, 1),
+              fontFamily: 'Poppins',
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+              height: 1.57.h,
             ),
           ),
-          SizedBox(
-            height: 20.h,
-          ),
+          Spacer(),
           ElevatedButton(
             onPressed: () {
               AppRouter.NavigateToWidget(RoomScreen());

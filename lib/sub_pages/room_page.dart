@@ -21,7 +21,6 @@ class _RoomScreenState extends State<RoomScreen> {
         backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
         bottomNavigationBar: Container(
           clipBehavior: Clip.antiAlias,
-          height: 90.h,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -32,6 +31,7 @@ class _RoomScreenState extends State<RoomScreen> {
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 17.h, horizontal: 35.5.w),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: () {
@@ -55,15 +55,11 @@ class _RoomScreenState extends State<RoomScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 16.w,
-                ),
+
                 InkWell(
                   child: SvgPicture.asset('assets/icons/muted.svg'),
                 ),
-                SizedBox(
-                  width: 6.w,
-                ),
+
                 InkWell(
                   onTap: (){
                     openBottomSheet(context, const RaiseHand());
