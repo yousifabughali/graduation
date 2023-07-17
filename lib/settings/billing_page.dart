@@ -40,10 +40,10 @@ class _BillingPageState extends State<BillingPage> {
           right: 20.w,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 218.h,
               width: 335.w,
               decoration: BoxDecoration(
                 color: const Color.fromRGBO(252, 252, 252, 1),
@@ -125,7 +125,7 @@ class _BillingPageState extends State<BillingPage> {
               ),
             ),
             SizedBox(
-              height: 30.h,
+              height: 10.h,
             ),
             Row(
               children: [
@@ -157,14 +157,11 @@ class _BillingPageState extends State<BillingPage> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 8.h,
-            ),
             Image.asset(
               'assets/images/record_table.png',
             ),
             SizedBox(
-              height: 15.h,
+              height: 10.h,
             ),
             Text(
               'Payment Method',
@@ -175,9 +172,7 @@ class _BillingPageState extends State<BillingPage> {
                 fontFamily: 'Poppins',
               ),
             ),
-            SizedBox(
-              height: 8.h,
-            ),
+
             Row(
               children: [
                 Image.asset('assets/images/visa2.png'),
@@ -200,9 +195,7 @@ class _BillingPageState extends State<BillingPage> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 41.h,
-            ),
+
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(

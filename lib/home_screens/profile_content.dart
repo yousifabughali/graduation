@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation/mentor/sub_divisioms/activites.dart';
 import 'package:graduation/mentor/sub_divisioms/settings.dart';
 import 'package:graduation/sub_pages/profile_settings.dart';
+import 'package:autoscale_tabbarview/autoscale_tabbarview.dart';
 
 class ProfileContent extends StatefulWidget {
   const ProfileContent({Key? key}) : super(key: key);
@@ -209,27 +210,24 @@ class _ProfileContentState extends State<ProfileContent> {
                 ],
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height,
-              child: TabBarView(
-                children: [
-                  Activites(),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Padding(
-                      padding:  EdgeInsets.only(top: 100.h),
-                      child: Text('There is Nothing here yet!',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16.sp,
-                        ),
+            AutoScaleTabBarView(
+              children: [
+                Activites(),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                    padding:  EdgeInsets.only(top: 100.h),
+                    child: Text('There is Nothing here yet!',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.sp,
                       ),
                     ),
                   ),
-                  Settings(),
-                ],
-              ),
+                ),
+                Settings(),
+              ],
             ),
           ],
         ),

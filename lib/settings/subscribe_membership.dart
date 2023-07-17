@@ -42,7 +42,7 @@ class SubscripeMembership extends StatelessWidget {
               ),
               Text(
                 'As a Premium member, you\'ll gain access to exclusive content and resources that will help you reach your learning goals faster and more efficiently than ever before. Here are just a few of the benefits you\'ll receive:',
-                style: TextStyle(color: Colors.black,fontFamily: 'Poppins',fontWeight: FontWeight.w400, fontSize: 16.sp),
+                style: TextStyle(color: Colors.black,fontWeight: FontWeight.w400, fontSize: 16.sp,),
               ),
               SizedBox(
                 height: 16.h,
@@ -57,6 +57,7 @@ class SubscripeMembership extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
+                            fontFamily: 'Poppins'
                         )),
                     TextSpan(
                       text:
@@ -64,9 +65,11 @@ class SubscripeMembership extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           wordSpacing: 2,
-                          height: 1.4.h),
+                          height: 1.4.h,
+                          fontFamily: 'Poppins'
+                      ),
                     ),
                   ],
                 ),

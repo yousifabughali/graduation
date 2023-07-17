@@ -9,14 +9,12 @@ class RaiseHand extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        height: 305.h,
         width: 276.w,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
               width: 60.w,
-              height: 60.w,
               child: Text(
                 '🖐️',
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 53.sp),
