@@ -70,7 +70,11 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                     onTap: () {
                       AppRouter.NavigateToWidget(const NotificationScreen());
                     },
-                    child: SvgPicture.asset('assets/icons/not.svg'),
+                    child: SvgPicture.asset(
+                      'assets/icons/not.svg',
+                      height: 40.h,
+                      width: 40.w,
+                    ),
                   ),
 
                   SizedBox(
@@ -80,7 +84,11 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                     onTap: () {
                       AppRouter.NavigateToWidget(const SearchPage());
                     },
-                    child: SvgPicture.asset('assets/icons/search.svg'),
+                    child: SvgPicture.asset(
+                      'assets/icons/search.svg',
+                      height: 40.h,
+                      width: 40.w,
+                    ),
                   ),
                 ],
               ),

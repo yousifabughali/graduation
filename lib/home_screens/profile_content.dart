@@ -198,7 +198,7 @@ class _ProfileContentState extends State<ProfileContent> {
                 ),
                 tabs: const [
                   Tab(
-                    text: 'Activites',
+                    text: 'Activities',
                   ),
                   Tab(
                     text: 'Bookmark',
@@ -210,7 +210,7 @@ class _ProfileContentState extends State<ProfileContent> {
               ),
             ),
             SizedBox(
-              height: 900.h,
+              height: MediaQuery.of(context).size.height,
               child: TabBarView(
                 children: [
                   Activites(),

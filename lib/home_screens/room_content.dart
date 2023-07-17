@@ -68,7 +68,7 @@ class _RoomContentState extends State<RoomContent> {
                   onTap: () {
                     AppRouter.NavigateToWidget(const NotificationScreen());
                   },
-                  child: SvgPicture.asset('assets/icons/not.svg'),
+                  child: SvgPicture.asset('assets/icons/not.svg',height: 40.h,width: 40.w,),
                 ),
                 SizedBox(
                   width: 6.w,
@@ -77,7 +77,7 @@ class _RoomContentState extends State<RoomContent> {
                   onTap: () {
                     AppRouter.NavigateToWidget(const SearchPage());
                   },
-                  child: SvgPicture.asset('assets/icons/search.svg'),
+                  child: SvgPicture.asset('assets/icons/search.svg',height: 40.h,width: 40.w,),
                 ),
               ],
             ),
@@ -115,7 +115,11 @@ class _RoomContentState extends State<RoomContent> {
                                 fontFamily: 'Poppins'),
                           ),
                           const Spacer(),
-                          SvgPicture.asset('assets/icons/bill_n.svg'),
+                          SvgPicture.asset(
+                            'assets/icons/bill_n.svg',
+                            height: 33.h,
+                            width: 33.w,
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -179,11 +183,31 @@ class _RoomContentState extends State<RoomContent> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Image.asset('assets/images/Path.png'),
-                          Image.asset('assets/images/Path-1.png'),
-                          Image.asset('assets/images/Path-3.png'),
-                          Image.asset('assets/images/Path-4.png'),
-                          Image.asset('assets/images/Path-5.png'),
+                          Image.asset(
+                            'assets/images/Path.png',
+                            height: 42.h,
+                            width: 42.w,
+                          ),
+                          Image.asset(
+                            'assets/images/Path-1.png',
+                            height: 42.h,
+                            width: 42.w,
+                          ),
+                          Image.asset(
+                            'assets/images/Path-3.png',
+                            height: 42.h,
+                            width: 42.w,
+                          ),
+                          Image.asset(
+                            'assets/images/Path-4.png',
+                            height: 42.h,
+                            width: 42.w,
+                          ),
+                          Image.asset(
+                            'assets/images/Path-5.png',
+                            height: 42.h,
+                            width: 42.w,
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -201,7 +225,7 @@ class _RoomContentState extends State<RoomContent> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                SvgPicture.asset('assets/icons/day.svg'),
+                                SvgPicture.asset('assets/icons/day.svg',height: 20.h,width: 20.w,),
                                 Text(
                                   'Today',
                                   style: TextStyle(
@@ -227,7 +251,7 @@ class _RoomContentState extends State<RoomContent> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                SvgPicture.asset('assets/icons/time.svg'),
+                                SvgPicture.asset('assets/icons/time.svg',height: 20.h,width: 20.w,),
                                 Text(
                                   '08:00 AM',
                                   style: TextStyle(

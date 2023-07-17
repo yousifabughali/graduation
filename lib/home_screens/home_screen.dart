@@ -60,8 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             : Container(),
           ),
           bottomNavigationBar: Container(
+            height: 90.h,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
+              color: Colors.white,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(40.r),
                   topRight: Radius.circular(40.r)),
@@ -85,33 +87,65 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 items: [
                   BottomNavigationBarItem(
-                    icon: SvgPicture.asset('assets/icons/home.svg'),
+                    icon: SvgPicture.asset(
+                      'assets/icons/home.svg',
+                      height: 24.h,
+                      width: 24.h,
+                    ),
                     label: 'Home',
-                    activeIcon:
-                        SvgPicture.asset('assets/icons/selectedHome.svg'),
+                    activeIcon: SvgPicture.asset(
+                      'assets/icons/selectedHome.svg',
+                      height: 40.h,
+                      width: 45.h,
+                    ),
                   ),
                   BottomNavigationBarItem(
-                    icon: SvgPicture.asset('assets/icons/article.svg'),
+                    icon: SvgPicture.asset(
+                      'assets/icons/article.svg',
+                      height: 24.h,
+                      width: 24.h,
+                    ),
                     label: 'Articles',
-                    activeIcon:
-                        SvgPicture.asset('assets/icons/selectedArticle.svg'),
+                    activeIcon: SvgPicture.asset(
+                      'assets/icons/selectedArticle.svg',
+                      height: 40.h,
+                      width: 45.h,
+                    ),
                   ),
                   BottomNavigationBarItem(
-                    icon: SvgPicture.asset('assets/icons/add.svg',
-                        theme: const SvgTheme(currentColor: Colors.black)),
+                    icon: SvgPicture.asset(
+                      'assets/icons/add.svg',
+                      theme: const SvgTheme(currentColor: Colors.black),
+                      height: 35.h,
+                      width: 37.w,
+                    ),
                     label: 'Add',
                   ),
                   BottomNavigationBarItem(
-                    icon: SvgPicture.asset('assets/icons/chatting.svg'),
+                    icon: SvgPicture.asset(
+                      'assets/icons/chatting.svg',
+                      height: 24.h,
+                      width: 24.h,
+                    ),
                     label: 'Rooms',
-                    activeIcon:
-                        SvgPicture.asset('assets/icons/selectedRoom.svg'),
+                    activeIcon: SvgPicture.asset(
+                      'assets/icons/selectedRoom.svg',
+                      height: 40.h,
+                      width: 45.h,
+                    ),
                   ),
                   BottomNavigationBarItem(
-                    icon: SvgPicture.asset('assets/icons/user.svg'),
+                    icon: SvgPicture.asset(
+                      'assets/icons/user.svg',
+                      height: 24.h,
+                      width: 24.h,
+                    ),
                     label: 'Profile',
-                    activeIcon:
-                        SvgPicture.asset('assets/icons/selectedProfile.svg'),
+                    activeIcon: SvgPicture.asset(
+                      'assets/icons/selectedProfile.svg',
+                      height: 40.h,
+                      width: 45.h,
+                    ),
                   ),
                 ]),
           ),

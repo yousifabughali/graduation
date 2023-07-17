@@ -20,6 +20,7 @@ class _RoomScreenState extends State<RoomScreen> {
       child: Scaffold(
         backgroundColor: const Color.fromRGBO(250, 250, 250, 1),
         bottomNavigationBar: Container(
+          height: 90.h,
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
             color: Colors.white,
