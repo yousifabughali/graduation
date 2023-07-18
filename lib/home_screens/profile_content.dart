@@ -173,16 +173,16 @@ class _ProfileContentState extends State<ProfileContent> {
                   'Experienced UX mentor with a passion for helping designers and product teams create user-centered solutions.',
                   style: TextStyle(
                     color: Colors.black,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12.sp,
-                    height: 1.5,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.sp,
+                    height: 1.5.h,
                     fontFamily: 'Poppins',
                   ),
                 ),
               ),
             ),
             SizedBox(
-              height: 20.h,
+              height: 10.h,
             ),
             Container(
               height: 62.h,

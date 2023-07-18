@@ -66,7 +66,6 @@ class _ArticlePageState extends State<ArticlePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: 48.h,
                             width: 335,
                             child: Text(
                               widget.article.question,
@@ -109,7 +108,7 @@ class _ArticlePageState extends State<ArticlePage> {
                                     'Published by',
                                     style: TextStyle(
                                       color: Color.fromRGBO(36, 36, 36, 0.5) ,
-                                      fontSize: 12,
+                                      fontSize: 12.sp,
                                       fontWeight: FontWeight.w400,
                                       fontFamily: 'Poppins',
                                     ),
@@ -118,7 +117,7 @@ class _ArticlePageState extends State<ArticlePage> {
                                     widget.article.name!,
                                     style: TextStyle(
                                       color: Color.fromRGBO(36, 36, 36, 1),
-                                      fontSize: 16,
+                                      fontSize: 16.sp,
                                       fontWeight: FontWeight.w600,
                                       fontFamily: 'Poppins',
                                     ),
@@ -169,7 +168,7 @@ class _ArticlePageState extends State<ArticlePage> {
                                 width: 93.w,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12.r),
-                                  color: Color.fromRGBO(36, 36, 36,0.5) ,
+                                  color: Color.fromRGBO(239, 242, 248, 1) ,
                                 ),
                                 child: Center(
                                   child: Text(

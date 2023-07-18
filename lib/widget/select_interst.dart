@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation/app_router/router.dart';
 import 'package:graduation/auth_screens/last_Screen.dart';
 import 'package:graduation/auth_screens/sign_in.dart';
 import 'package:graduation/provider/auth_provider.dart';
@@ -134,7 +135,7 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
 
                   // if(!mounted) return;
                   Navigator.pop(context);
-                  openBottomSheet(context, AllDone());
+                  AppRouter.NavigateWithReplacemtnToWidget(AllDone());
                 }
               });
             },
@@ -156,23 +157,23 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
     );
   }
 
-  openBottomSheet(BuildContext context, Widget widget) {
-    return showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40.0.r),
-            topRight: Radius.circular(40.0.r)),
-      ),
-      builder: (BuildContext context) {
-        return SizedBox(
-          height: 443.h,
-          width: 375.w,
-          child: widget,
-        );
-      },
-    );
-  }
+  // openBottomSheet(BuildContext context, Widget widget) {
+  //   return showModalBottomSheet<void>(
+  //     context: context,
+  //     isScrollControlled: true,
+  //     backgroundColor: Colors.white,
+  //     shape: RoundedRectangleBorder(
+  //       borderRadius: BorderRadius.only(
+  //           topLeft: Radius.circular(40.0.r),
+  //           topRight: Radius.circular(40.0.r)),
+  //     ),
+  //     builder: (BuildContext context) {
+  //       return SizedBox(
+  //         height: 443.h,
+  //         width: 375.w,
+  //         child: widget,
+  //       );
+  //     },
+  //   );
+  // }
 }

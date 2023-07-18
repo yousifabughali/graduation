@@ -17,7 +17,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.only(top: 171.h,left: 25.w,right: 25.w),
+        padding: EdgeInsets.only(top: 145.h,left: 25.w,right: 25.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
