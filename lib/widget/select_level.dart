@@ -28,6 +28,7 @@ class _SelectLevelState extends State<SelectLevel> {
     final provider = Provider.of<AuthProvider>(context);
 
     return ListView(
+      shrinkWrap: true,
       children: [
         RadioListTile<ExperienceLevel>(
           title: Text(

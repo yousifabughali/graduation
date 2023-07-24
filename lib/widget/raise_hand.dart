@@ -23,23 +23,19 @@ class RaiseHand extends StatelessWidget {
             SizedBox(
               height: 30.h,
             ),
-            SizedBox(
-              height: 27.h,
-              child: Text(
-                'Raise your hand?',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18.sp,
-                  fontFamily: 'Poppins',
-                  color: Color.fromRGBO(36, 36, 36, 1),
-                ),
+            Text(
+              'Raise your hand?',
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 18.sp,
+                fontFamily: 'Poppins',
+                color: Color.fromRGBO(36, 36, 36, 1),
               ),
             ),
             SizedBox(
               height: 9.h,
             ),
             SizedBox(
-              height: 42.h,
               width: 276.w,
               child: Text(
                 textAlign: TextAlign.center,

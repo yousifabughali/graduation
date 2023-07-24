@@ -44,26 +44,28 @@ class _ArticlePublish2State extends State<ArticlePublish2> {
                   fontFamily: 'Poppins'),
             ),
           ),
-          SizedBox(
-            height: 20.h,
-          ),
+
           Form(
             key: context.read<FireStoreProvider>().addNewArticleKey2,
-            child: TextFormField(
-              controller: context
-                  .read<FireStoreProvider>()
-                  .articleDescriptionController,
-              validator: context.read<FireStoreProvider>().requiredValidator,
-              autofocus: true,
-              maxLines: 5,
-              decoration: InputDecoration(
-                hintText: 'Start typing...',
-                enabledBorder: InputBorder.none,
-                border: InputBorder.none,
+            child: SizedBox(
+              height: 124.h,
+              child: TextFormField(
+                controller: context
+                    .read<FireStoreProvider>()
+                    .articleDescriptionController,
+                validator: context.read<FireStoreProvider>().requiredValidator,
+                // autofocus: true,
+                expands: true,
+                maxLines: null,
+                minLines: null,
+                decoration: InputDecoration(
+                  hintText: 'Start typing...',
+                  enabledBorder: InputBorder.none,
+                  border: InputBorder.none,
+                ),
               ),
             ),
           ),
-          SizedBox(height: 43.h,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

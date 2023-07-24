@@ -78,7 +78,7 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                       width: 80.w,
                     ),
                     SizedBox(
-                      width: 16.5,
+                      width: 12.sp,
                     ),
                     Column(
                       children: [
@@ -87,7 +87,8 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             color: Colors.black,
-                            fontSize: 16,
+                            fontSize: 16.sp,
+                            fontFamily: 'Poppins'
                           ),
                         ),
                         Text(
@@ -95,7 +96,8 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
                             color: Colors.grey,
-                            fontSize: 14,
+                            fontSize: 14.sp,
+                            fontFamily: 'Poppins'
                           ),
                         ),
                       ],
@@ -104,16 +106,17 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.black,
-                          fixedSize: Size(72.w, 32.h),
+                          fixedSize: Size(80.w, 32.h),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.r))),
                       onPressed: () {},
-                      child: const Text(
+                      child:  Text(
                         'Follow',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
-                          fontSize: 14,
+                          fontSize: 13.sp,
+                          fontFamily: 'Poppins'
                         ),
                       ),
                     ),
@@ -129,7 +132,8 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                       style: TextStyle(
                         color: Colors.orange,
                         fontWeight: FontWeight.w600,
-                        fontSize: 16,
+                        fontSize: 16.sp,
+                          fontFamily: 'Poppins'
                       ),
                     ),
                     Spacer(),
@@ -142,7 +146,8 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                         style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.w600,
-                          fontSize: 14,
+                          fontSize: 14.sp,
+                            fontFamily: 'Poppins'
                         ),
                       ),
                     ),
@@ -152,7 +157,6 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                   height: 5.h,
                 ),
                 Container(
-                  height: 54.h,
                   width: 335.w,
                   child: Padding(
                     padding: EdgeInsets.only(right: 10.w),
@@ -163,6 +167,7 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                         fontWeight: FontWeight.w400,
                         fontSize: 12.sp,
                         height: 1.4.h,
+                          fontFamily: 'Poppins'
                       ),
                     ),
                   ),
@@ -174,7 +179,7 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                   thickness: 1,
                 ),
                 Container(
-                  height: 60.h,
+                  // height: 60.h,
                   width: 335.w,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -189,7 +194,8 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                             style: TextStyle(
                                 fontSize: 12.sp,
                                 color: Colors.grey,
-                                fontWeight: FontWeight.w600),
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins'),
                           ),
                           SizedBox(height: 4.h,),
                           Text(
@@ -197,7 +203,8 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Colors.black,
-                                fontWeight: FontWeight.w600),
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins'),
                           ),
                         ],
                       ),
@@ -213,7 +220,8 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                             style: TextStyle(
                                 fontSize: 12.sp,
                                 color: Colors.grey,
-                                fontWeight: FontWeight.w600),
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins'),
                           ),
                           SizedBox(height: 4.h,),
                           Text(
@@ -221,7 +229,8 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Colors.black,
-                                fontWeight: FontWeight.w600),
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins'),
                           ),
                         ],
                       ),
@@ -236,7 +245,8 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                             style: TextStyle(
                                 fontSize: 12.sp,
                                 color: Colors.grey,
-                                fontWeight: FontWeight.w600),
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins'),
                           ),
                           SizedBox(height: 4.h,),
                           Row(
@@ -250,7 +260,8 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
                                 style: TextStyle(
                                     fontSize: 20.sp,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w600),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Poppins'),
                               ),
                             ],
                           ),
@@ -291,7 +302,6 @@ class _MentorPublicProfileState extends State<MentorPublicProfile> {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
-      showDragHandle: true,
       useSafeArea: false,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

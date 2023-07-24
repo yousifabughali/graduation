@@ -86,15 +86,15 @@ class _SearchPageState extends State<SearchPage> {
             SizedBox(
               height: 20.h,
             ),
-            RecentlySearchCard(),
+            RecentlySearchCard(name: 'William Robinson',userName: '@william',),
             SizedBox(
               height: 16.h,
             ),
-            RecentlySearchCard(),
+            RecentlySearchCard(name: 'James Wright',userName: '@james',),
             SizedBox(
               height: 16.h,
             ),
-            RecentlySearchCard(),
+            RecentlySearchCard(name: 'Harper Wilson',userName: '@harper',),
             SizedBox(
               height: 31.h,
             ),
@@ -113,11 +113,11 @@ class _SearchPageState extends State<SearchPage> {
             SizedBox(
               height: 16.h,
             ),
-            ConversationSearchCard(str1: '📈 Sales',str2: '💻 Coding',),
+            ConversationSearchCard(str1: '📈 Sales',str2:'sales strategies, sales skills, sales training',str3: '💻 Coding',str4: 'coding resources, coding tips.',),
             SizedBox(height: 9.h,),
-            ConversationSearchCard(str1: '🖥️ Softwore',str2: '💡 Knowledge',),
+            ConversationSearchCard(str1: '🖥️ Softwore',str2:'software design, software testing ',str3: '💡 Knowledge',str4: 'knowledge, information, research.'),
             SizedBox(height: 9.h,),
-            ConversationSearchCard(str1: '👩🏻‍💻 Design',str2: ' 🔥 Trending',),
+            ConversationSearchCard(str1: '👩🏻‍💻 Design',str2:'design, graphic design, web design',str3: ' 🔥 Trending',str4: 'artificial intelligence, machine learning'),
           ],
         ),
       ),

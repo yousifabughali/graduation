@@ -25,7 +25,7 @@ class CardDateEntry extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              SvgPicture.asset('assets/icons/close.svg'),
+              SvgPicture.asset('assets/icons/close.svg',height:40.h,width: 40.w,),
             ],
           ),
           SizedBox(

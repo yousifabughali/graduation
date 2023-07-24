@@ -17,6 +17,7 @@ import 'package:provider/provider.dart';
 
 class FireStoreProvider extends ChangeNotifier {
   GlobalKey<FormState> addNewPostKey = GlobalKey();
+
   TextEditingController postNameController = TextEditingController();
   TextEditingController postDescriptionController = TextEditingController();
 

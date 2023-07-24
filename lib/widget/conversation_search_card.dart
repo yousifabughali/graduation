@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConversationSearchCard extends StatelessWidget {
-  String str1, str2;
+  String str1, str2,str3,str4;
 
   ConversationSearchCard({
     required this.str1,
     required this.str2,
+    required this.str3,
+    required this.str4,
     super.key,
   });
 
@@ -15,7 +17,6 @@ class ConversationSearchCard extends StatelessWidget {
     return Row(
       children: [
         Container(
-          height: 87.h,
           width: 161.w,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.h),
@@ -38,7 +39,7 @@ class ConversationSearchCard extends StatelessWidget {
                   height: 3.h,
                 ),
                 Text(
-                  'Lorem Ipsum is simply dummy text of the',
+                  str2,
                   style: TextStyle(
                       color: const Color.fromRGBO(36, 36, 36, 0.5),
                       fontSize: 12.sp,
@@ -54,7 +55,6 @@ class ConversationSearchCard extends StatelessWidget {
           width: 13.w,
         ),
         Container(
-          height: 87.h,
           width: 161.w,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.h),
@@ -65,7 +65,7 @@ class ConversationSearchCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  str2,
+                  str3,
                   style: TextStyle(
                       color: const Color.fromRGBO(0, 0, 0, 1),
                       fontSize: 16.sp,
@@ -76,7 +76,7 @@ class ConversationSearchCard extends StatelessWidget {
                   height: 3.h,
                 ),
                 Text(
-                  'Lorem Ipsum is simply dummy text of the',
+                  str4,
                   style: TextStyle(
                       color: const Color.fromRGBO(36, 36, 36, 0.5),
                       fontSize: 12.sp,

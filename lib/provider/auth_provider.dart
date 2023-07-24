@@ -14,6 +14,7 @@ import '../auth_screens/last_Screen.dart';
 class AuthProvider extends ChangeNotifier {
   GlobalKey<FormState> signInKey = GlobalKey();
   GlobalKey<FormState> signUpKey = GlobalKey();
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController userNameController = TextEditingController();

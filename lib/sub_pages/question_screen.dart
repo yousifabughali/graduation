@@ -52,7 +52,6 @@ class _QuestionScreenState extends State<QuestionScreen> {
               padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
 
               child: Container(
-                height: 90.h,
                 width: 395.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -60,45 +59,48 @@ class _QuestionScreenState extends State<QuestionScreen> {
                     topRight: Radius.circular(40.r),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Form(
-                      key: fireStoreProvider.addNewCommentKey,
-                      child: SizedBox(
-                        width: 273.w,
-                        child: TextFormField(
-                          validator: fireStoreProvider.requiredValidator,
-                          controller: fireStoreProvider.commentController,
-                          decoration: InputDecoration(
-                            hintText: 'Write your comment',
-                            hintStyle: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: const Color.fromRGBO(36, 36, 36, 0.5),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14.sp,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12.r),
+                child: Padding(
+                  padding:  EdgeInsets.only(bottom: 12.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Form(
+                        key: fireStoreProvider.addNewCommentKey,
+                        child: SizedBox(
+                          width: 273.w,
+                          child: TextFormField(
+                            validator: fireStoreProvider.requiredValidator,
+                            controller: fireStoreProvider.commentController,
+                            decoration: InputDecoration(
+                              hintText: 'Write your comment',
+                              hintStyle: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: const Color.fromRGBO(36, 36, 36, 0.5),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14.sp,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(16.r),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    InkWell(
-                      onTap: () async {
-                        await fireStoreProvider.addNewComment(
-                          widget.postId,
-                          authProvider.nameController.text,
-                        );
-                        FocusScopeNode currentFocus = FocusScope.of(context);
-                        currentFocus.unfocus();
+                      InkWell(
+                        onTap: () async {
+                          await fireStoreProvider.addNewComment(
+                            widget.postId,
+                            authProvider.nameController.text,
+                          );
+                          FocusScopeNode currentFocus = FocusScope.of(context);
+                          currentFocus.unfocus();
 
 
-                      },
-                      child: SvgPicture.asset('assets/icons/comment_sent.svg'),
-                    ),
-                  ],
+                        },
+                        child: SvgPicture.asset('assets/icons/comment_sent.svg'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -153,7 +155,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
-                            fixedSize: Size(72.w, 32.h),
+                            fixedSize: Size(80.w, 32.h),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.r),
                             ),
@@ -164,7 +166,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                             style: TextStyle(
                                 color: const Color.fromRGBO(255, 255, 255, 1),
                                 fontWeight: FontWeight.w500,
-                                fontSize: 14.sp,
+                                fontSize: 13.sp,
                                 fontFamily: 'Poppins'),
                           ),
                         ),

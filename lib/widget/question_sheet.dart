@@ -70,7 +70,7 @@ class _QuestionSheetState extends State<QuestionSheet> {
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
                         backgroundColor: Color.fromRGBO(36, 36, 36, 1),
-                        fixedSize: Size(72.w, 32.h),
+                        fixedSize: Size(80.w, 32.h),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12.r))),
                     onPressed: () {},
@@ -79,7 +79,7 @@ class _QuestionSheetState extends State<QuestionSheet> {
                       style: TextStyle(
                           color: const Color.fromRGBO(255, 255, 255, 1),
                           fontWeight: FontWeight.w500,
-                          fontSize: 14.sp,
+                          fontSize: 13.sp,
                           fontFamily: 'Poppins'),
                     ),
                   ),
@@ -164,7 +164,7 @@ class _QuestionSheetState extends State<QuestionSheet> {
               ),
               //////////////////////////////////
               SizedBox(
-                height: 15.h,
+                height: 10.h,
               ),
               Text(
                 'see all comments',
@@ -175,15 +175,14 @@ class _QuestionSheetState extends State<QuestionSheet> {
                   fontFamily: 'Poppins',
                 ),
               ),
-              const SizedBox(
-                height: 20,
+               SizedBox(
+                height: 20.h,
               ),
               fireStoreProvider.comments.length == 0
                   ?  Container()
                   : CommentWidgetSheet(comment: fireStoreProvider.comments[0]),
 
               Spacer(),
-
               Padding(
                 padding: EdgeInsets.only(bottom: 39.h),
                 child: ElevatedButton(

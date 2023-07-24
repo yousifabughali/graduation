@@ -56,7 +56,7 @@ class _PublishQuesionState extends State<PublishQuesion> {
                 SvgPicture.asset('assets/icons/mention.svg',height: 53.h,width: 53.w,),
                 SizedBox(width: 6.w,),
                 SvgPicture.asset('assets/icons/attatchment.svg',height: 53.h,width: 53.w,),
-                SizedBox(width: 14.w,),
+                Spacer(),
 
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(

@@ -75,7 +75,6 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
         Padding(
           padding: EdgeInsets.only(left: 19.w, right: 20.w),
           child: SizedBox(
-            height: 500.h,
             width: 336.w,
             child: !flag
                 ? SingleChildScrollView(
@@ -121,6 +120,7 @@ class _SelectYourIntrestState extends State<SelectYourIntrest> {
                 : SelectLevel(),
           ),
         ),
+        Spacer(),
         Padding(
           padding:
               EdgeInsets.only(left: 25.w, right: 25.w, top: 17.h, bottom: 17.h),

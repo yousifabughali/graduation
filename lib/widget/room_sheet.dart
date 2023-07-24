@@ -22,11 +22,12 @@ class _RoomSheetState extends State<RoomSheet> {
       ),
       child: Column(
         children: [
+
           SizedBox(
-            height: 94.h,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
                 Row(
                   children: [
                     Text(
@@ -43,6 +44,7 @@ class _RoomSheetState extends State<RoomSheet> {
                     ),
                   ],
                 ),
+
                 Text(
                   'The importance of User Experience design in today\'s digital age',
                   style: TextStyle(
@@ -52,6 +54,8 @@ class _RoomSheetState extends State<RoomSheet> {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
+                SizedBox(height: 10.h,),
+
                 DottedLine(
                   dashColor: Color.fromRGBO(36, 36, 36, 0.5),
                   dashGapLength: 6,
@@ -59,6 +63,7 @@ class _RoomSheetState extends State<RoomSheet> {
               ],
             ),
           ),
+          SizedBox(height: 10.h,),
           SizedBox(
             height: 225.h,
             child: Align(
@@ -245,12 +250,11 @@ class _RoomSheetState extends State<RoomSheet> {
           SizedBox(
             height: 18.h,
           ),
-          //TODO: Take this
+
           Row(
             children: [
               Container(
                 width: 65.w,
-                height: 30.17.h,
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(239, 242, 248, 1),
                   borderRadius: BorderRadius.circular(12.r),
@@ -276,7 +280,6 @@ class _RoomSheetState extends State<RoomSheet> {
               ),
               Container(
                 width: 65.w,
-                height: 30.17.h,
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(239, 242, 248, 1),
                   borderRadius: BorderRadius.circular(12.r),
@@ -336,7 +339,7 @@ class _RoomSheetState extends State<RoomSheet> {
             height: 18.h,
           ),
           Text(
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et doloreLorem ipsum dolor sit amet, consectetur adipisicing  sed do eiusmod tempor incididunt et doloreLorem ipsum dolor sit amet, consectetur adipisicing consectetur adipisicing  💬',
+            'User-Centered Design (UCD) prioritizes the needs and preferences of users throughout the design process, resulting in intuitive and user-friendly products or services.  💬',
             style: TextStyle(
               color: Color.fromRGBO(36, 36, 36, 1),
               fontFamily: 'Poppins',
@@ -346,29 +349,30 @@ class _RoomSheetState extends State<RoomSheet> {
             ),
           ),
           Spacer(),
-          ElevatedButton(
-            onPressed: () {
-              AppRouter.NavigateToWidget(RoomScreen());
-            },
-            child: Text(
-              'Join the room in progress',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16.sp,
-                  fontFamily: 'Poppins'),
-            ),
-            style: ElevatedButton.styleFrom(
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.r)),
-              backgroundColor: Color.fromRGBO(36, 36, 36, 1),
-              minimumSize: Size(325.w, 56.h),
+          Padding(
+            padding:  EdgeInsets.only(bottom: 26.h),
+            child: ElevatedButton(
+              onPressed: () {
+                AppRouter.NavigateToWidget(RoomScreen());
+              },
+              child: Text(
+                'Join the room in progress',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16.sp,
+                    fontFamily: 'Poppins'),
+              ),
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.r)),
+                backgroundColor: Color.fromRGBO(36, 36, 36, 1),
+                minimumSize: Size(325.w, 56.h),
+              ),
             ),
           ),
-          SizedBox(
-            height: 26.h,
-          ),
+
         ],
       ),
     );

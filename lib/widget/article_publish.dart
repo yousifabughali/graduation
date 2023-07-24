@@ -20,10 +20,11 @@ class _ArticlePublishState extends State<ArticlePublish> {
     return Consumer<FireStoreProvider>(
         builder: (context, fireStoreProvider, child) {
       return Padding(
-        padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
+        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
         child: Form(
           key: fireStoreProvider.addNewArticleKey,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Align(
@@ -49,9 +50,6 @@ class _ArticlePublishState extends State<ArticlePublish> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20.h,
-              ),
               Text(
                 'Add Photo For Your Article',
                 style: TextStyle(
@@ -62,7 +60,7 @@ class _ArticlePublishState extends State<ArticlePublish> {
                 ),
               ),
               SizedBox(
-                height: 10.h,
+                height: 5.h,
               ),
               InkWell(
                 onTap: () {
@@ -97,18 +95,19 @@ class _ArticlePublishState extends State<ArticlePublish> {
                       ),
               ),
               SizedBox(
-                height: 26.h,
+                height: 10.h,
               ),
               SizedBox(
-                height: 53.h,
                 width: 335.w,
+                height: 53.h,
                 child: TextFormField(
                   controller: fireStoreProvider.articleNameController,
                   validator: fireStoreProvider.requiredValidator,
                   autofocus: true,
                   decoration: InputDecoration(
-                    label: Text('Article Name'),
+                    label: Text('Article Name',style: TextStyle(fontFamily: 'Poppins',fontWeight: FontWeight.w400,fontSize: 14.sp),),
                     hintText: 'Article name goes here..',
+                    hintStyle: TextStyle(fontFamily: 'Poppins',fontWeight: FontWeight.w400,fontSize: 14.sp),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.r),
                       borderSide:
@@ -117,9 +116,7 @@ class _ArticlePublishState extends State<ArticlePublish> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20.h,
-              ),
+              SizedBox(height: 10.h,),
               SizedBox(
                 height: 53.h,
                 width: 335.w,
@@ -129,8 +126,10 @@ class _ArticlePublishState extends State<ArticlePublish> {
                   decoration: InputDecoration(
                     label: Text(
                       'Add Tags ',
+                        style: TextStyle(fontFamily: 'Poppins',fontWeight: FontWeight.w400,fontSize: 14.sp),
                     ),
                     hintText: 'Ex: User flow',
+                    hintStyle: TextStyle(fontFamily: 'Poppins',fontWeight: FontWeight.w400,fontSize: 14.sp),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.r),
                       borderSide: BorderSide(
@@ -141,6 +140,7 @@ class _ArticlePublishState extends State<ArticlePublish> {
                   ),
                 ),
               ),
+              SizedBox(height: 10.h,),
             ],
           ),
         ),

@@ -18,9 +18,9 @@ class _BillingPageState extends State<BillingPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leadingWidth: 60,
+        leadingWidth: 60.w,
         leading: IconButton(
-            icon: SvgPicture.asset('assets/icons/arrow_back.svg'),
+            icon: SvgPicture.asset('assets/icons/arrow_back.svg',width: 40.w,height: 40.h,),
             onPressed: () {
               Navigator.pop(context);
             }),
@@ -87,7 +87,7 @@ class _BillingPageState extends State<BillingPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: 15.h,
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -107,7 +107,7 @@ class _BillingPageState extends State<BillingPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    height: 5.h,
                   ),
                   TextButton(
                     onPressed: () {},
@@ -125,7 +125,7 @@ class _BillingPageState extends State<BillingPage> {
               ),
             ),
             SizedBox(
-              height: 10.h,
+              height: 5.h,
             ),
             Row(
               children: [
@@ -159,9 +159,12 @@ class _BillingPageState extends State<BillingPage> {
             ),
             Image.asset(
               'assets/images/record_table.png',
+              height: 175.h,
+              width: 375.w,
+              fit: BoxFit.cover,
             ),
             SizedBox(
-              height: 10.h,
+              height: 5.h,
             ),
             Text(
               'Payment Method',
@@ -191,7 +194,8 @@ class _BillingPageState extends State<BillingPage> {
                 const Spacer(),
                 IconButton(
                   onPressed: () {},
-                  icon: SvgPicture.asset('assets/icons/trash.svg'),
+                  icon: SvgPicture.asset('assets/icons/trash.svg',height: 40.h,
+                    width: 40.w,),
                 ),
               ],
             ),

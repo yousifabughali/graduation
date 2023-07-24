@@ -6,7 +6,9 @@ import 'package:graduation/app_router/router.dart';
 import 'package:graduation/widget/room_sheet.dart';
 
 class RoomCard extends StatelessWidget {
-  const RoomCard({
+  String title;
+   RoomCard({
+     required this.title,
     super.key,
   });
 
@@ -17,15 +19,13 @@ class RoomCard extends StatelessWidget {
         openBottomSheet(context, RoomSheet());
       },
       child: Container(
-        height: 181.h,
         width: 335.w,
         decoration: BoxDecoration(
           color: Color.fromRGBO(251, 245, 232, 1),
           borderRadius: BorderRadius.circular(20.r),
         ),
         child: Padding(
-          padding: EdgeInsets.only(
-              top: 21.41.h, left: 20.w, right: 20.w, bottom: 30.17.h),
+          padding: EdgeInsets.only(left: 20.w, right: 20.w,top: 20.h,bottom: 30.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -47,9 +47,8 @@ class RoomCard extends StatelessWidget {
                   ),
                 ],
               ),
-
               Text(
-                'The importance of User Experien...',
+                title,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 16.sp,
@@ -79,19 +78,21 @@ class RoomCard extends StatelessWidget {
                           style: TextStyle(
                               color: const Color.fromRGBO(36, 36, 36,1),
                               fontWeight: FontWeight.w600,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               wordSpacing: 2,
-                              height: 1.4.h),
+                              height: 1.4.h,
+                            fontFamily: 'Poppins'
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-
+              SizedBox(height: 12.h,),
               DottedLine(dashColor: Colors.grey),
-
-             SizedBox(
+              SizedBox(height: 12.h,),
+              SizedBox(
                width: 291.w,
                child: Row(
                  children: [
@@ -99,7 +100,6 @@ class RoomCard extends StatelessWidget {
                    Spacer(),
                    Container(
                      width: 65.w,
-                     height: 30.17.h,
                      decoration: BoxDecoration(
                        color: Colors.white,
                        borderRadius: BorderRadius.circular(12.r),
@@ -125,7 +125,6 @@ class RoomCard extends StatelessWidget {
                    ),
                    Container(
                      width: 65.w,
-                     height: 30.17.h,
                      decoration: BoxDecoration(
                        color: Colors.white,
                        borderRadius: BorderRadius.circular(12.r),

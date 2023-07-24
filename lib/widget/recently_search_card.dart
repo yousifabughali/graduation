@@ -1,74 +1,62 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class RecentlySearchCard extends StatelessWidget {
-  const RecentlySearchCard({
+  String name,userName;
+   RecentlySearchCard({
+    required this.name,required this.userName,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
       children: [
-        Image.asset(
-          'assets/icons/a1.png',
-          height: 40.h,
-          width: 40.w,
-        ),
-        SizedBox(
-          width: 12.h,
-        ),
-        SizedBox(
-          height: 59.h,
-          width: 197.w,
-          child: Column(
+        Container(
+          width: 335.w,
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                'Ahmad Ali',
-                style: TextStyle(
-                  color: const Color.fromRGBO(36, 36, 36, 1),
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: 'Poppins'
-                ),
-              ),Text(
-                'Lorem Ipsum is simply dummy text of the',
-                style: TextStyle(
-                    color: const Color.fromRGBO(36, 36, 36, 0.5),
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Poppins'
-                ),
+              Image.asset(
+                'assets/icons/a1.png',
+                height: 40.h,
+                width: 40.w,
               ),
-              SizedBox(height: 5.5.h,),
-              const DottedLine(dashColor: Color.fromRGBO(36, 36, 36, 0.5),dashGapLength: 6),
+              SizedBox(width: 12.h,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: TextStyle(
+                      color: const Color.fromRGBO(36, 36, 36, 1),
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Poppins'
+                    ),
+                  ),
+                  Text(
+                    userName,
+                    style: TextStyle(
+                        color: const Color.fromRGBO(36, 36, 36, 0.5),
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Poppins'
+                    ),
+                  ),
+                ],
+              ),
+              Spacer(),
+              SvgPicture.asset('assets/icons/search_close.svg'),
+
             ],
           ),
         ),
-        SizedBox(width: 8.5.w,),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              elevation: 0,
-              backgroundColor: Color.fromRGBO(36, 36, 36, 1),
-              fixedSize: Size(73.w, 29.h),
-              shape: RoundedRectangleBorder(
-                  borderRadius:
-                  BorderRadius.circular(12.r))),
-          onPressed: () {},
-          child:  Text(
-            'Follow',
-            style: TextStyle(
-                color: const Color.fromRGBO(255, 255, 255, 1),
-                fontWeight: FontWeight.w500,
-                fontSize: 14.sp,
-                fontFamily: 'Poppins'
-            ),
-          ),
-        ),
+        SizedBox(height: 10.h,),
+        const DottedLine(dashColor: Color.fromRGBO(36, 36, 36, 0.5),dashGapLength: 6,),
       ],
     );
   }

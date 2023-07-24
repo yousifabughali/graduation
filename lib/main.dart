@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, child) {
           return ScreenUtilInit(
               designSize: const Size(375, 812),
-              minTextAdapt: true,
+              // minTextAdapt: true,
               builder: (context, child) {
                       return GestureDetector(
                         onTap: () {

@@ -84,7 +84,7 @@ class _RoomContentState extends State<RoomContent> {
             SizedBox(
               height: 22.h,
             ),
-            const RoomCard(),
+             RoomCard(title: 'Putting Users First: Unlocking th...'),
             SizedBox(
               height: 10.h,
             ),
@@ -126,7 +126,7 @@ class _RoomContentState extends State<RoomContent> {
                         height: 1.h,
                       ),
                       Text(
-                        'The importance of User Experien...',
+                        'Creating Inclusive Experiences: E...',
                         style: TextStyle(
                           color: const Color.fromRGBO(36, 36, 36, 1),
                           fontSize: 16.sp,
@@ -270,7 +270,7 @@ class _RoomContentState extends State<RoomContent> {
                         height: 14.h,
                       ),
                       Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et doloreLorem ipsum dolor sit amet, consectetur adipisicing 💬',
+                        'Accessibility in UX focuses on creating inclusive digital experiences that are accessible and usable for users of all abilities. 💬',
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 14.sp,
@@ -286,7 +286,7 @@ class _RoomContentState extends State<RoomContent> {
             const SizedBox(
               height: 10,
             ),
-            const RoomCard(),
+             RoomCard(title: 'The importance of User Experien...'),
           ],
         ),
       ),

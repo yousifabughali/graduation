@@ -8,73 +8,64 @@ class AccountRoomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: EdgeInsets.only(
-            left: 30.w,
-            right: 20.w,
-          ),
-          child: SizedBox(
-            height: 120.h,
-            width: 375.w,
-            child: Row(
-              children: [
-                Image.asset('assets/icons/a1.png'),
-                SizedBox(width: 13.w,),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Eyad Mohammed',
-                      style: TextStyle(
-                          color: Color.fromRGBO(36, 36, 36, 1),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18.sp,
-                          fontFamily: 'Poppins'),
-                    ),
-                    Text(
-                      '@eyadm',
-                      style: TextStyle(
-                          color: Color.fromRGBO(36, 36, 36, 0.5),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14.sp,
-                          fontFamily: 'Poppins'),
-                    ),
-                  ],
-                ),
-                Spacer(),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: Color.fromRGBO(36, 36, 36, 1),
-                    fixedSize: Size(72.w, 32.h),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child:  Text(
-                    'Follow',
+        SizedBox(
+          width: 375.w,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset('assets/icons/a1.png',width: 80.w,height: 80.h,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Eyad Mohammed',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 13.sp,
+                        color: Color.fromRGBO(36, 36, 36, 1),
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18.sp,
                         fontFamily: 'Poppins'),
                   ),
+                  Text(
+                    '@eyadm',
+                    style: TextStyle(
+                        color: Color.fromRGBO(36, 36, 36, 0.5),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14.sp,
+                        fontFamily: 'Poppins'),
+                  ),
+                ],
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  backgroundColor: Color.fromRGBO(36, 36, 36, 1),
+                  fixedSize: Size(80.w, 32.h),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
                 ),
-              ],
-            ),
+                onPressed: () {},
+                child:  Text(
+                  'Follow',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 13.sp,
+                      fontFamily: 'Poppins'),
+                ),
+              ),
+            ],
           ),
         ),
         SizedBox(
           height: 6.h,
         ),
         SizedBox(
-          height: 110.h,
           width: 335.w,
           child: Text(
             textAlign: TextAlign.left,
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt et dolore  Lorem ipsum dolor sit amet, consectetur adipisicing consectetur adipisicing  🏆',
+            'Dedicated UX Designer committed to crafting user-friendly experiences. With a strong foundation in UX principles, brings attention to detail and a collaborative mindset to every project.🏆',
             style: TextStyle(
                 color: Color.fromRGBO(36, 36, 36, 0.5),
                 fontWeight: FontWeight.w400,

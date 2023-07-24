@@ -115,7 +115,6 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                         children: [
                           // SvgPicture.asset('assets/icons/featured_card.svg',height: 142.h,width: 335.w,fit: BoxFit.cover),
                           SizedBox(
-                            height: 81.h,
                             width: 295.w,
                             child: Text(
                               'If You Have Experience Of 5+ Years in Your Field, Become A Mentor With Us',
@@ -129,38 +128,35 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 17.h),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Row(
-                                  children: [
-                                    const Spacer(),
-                                    ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor:
-                                            Color.fromRGBO(36, 36, 36, 1),
-                                        fixedSize: Size(108.w, 34.h),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12.r),
-                                        ),
-                                      ),
-                                      onPressed: () {},
-                                      child: Text(
-                                        'Get Started',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 14.sp,
-                                            fontFamily: 'Poppins'),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Row(
+                                children: [
+                                  const Spacer(),
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Color.fromRGBO(36, 36, 36, 1),
+                                      fixedSize: Size(113.w, 34.h),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(12.r),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                                    onPressed: () {},
+                                    child: Text(
+                                      'Get Started',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 13.sp,
+                                          fontFamily: 'Poppins'),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
                       ),

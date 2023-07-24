@@ -79,19 +79,15 @@ class CommentWidget extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        '28 likes. 15 reply',
+                        '15 reply',
                         style: TextStyle(
                           fontFamily: 'Poppins',
-                          color: const Color.fromRGBO(142, 142, 149, 1),
-                          fontWeight: FontWeight.w400,
+                          color: const Color.fromRGBO(36, 36, 36, 1),
+                          fontWeight: FontWeight.w600,
                           fontSize: 12.sp,
                         ),
                       ),
                       const Spacer(),
-                      SvgPicture.asset('assets/icons/comment_like.svg'),
-                      SizedBox(
-                        width: 4.w,
-                      ),
                       SvgPicture.asset('assets/icons/comment_reply.svg'),
                     ],
                   ),
