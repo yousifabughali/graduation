@@ -128,7 +128,7 @@ class _ArticlePageState extends State<ArticlePage> {
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Color.fromRGBO(36, 36, 36, 1) ,
-                                    fixedSize: Size(72.w, 32.h),
+                                    fixedSize: Size(80.w, 32.h),
                                     elevation: 0,
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -139,7 +139,7 @@ class _ArticlePageState extends State<ArticlePage> {
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600,
-                                    fontSize: 14.sp,
+                                    fontSize: 13.sp,
                                     fontFamily: 'Poppins',
                                   ),
                                 ),
@@ -149,13 +149,22 @@ class _ArticlePageState extends State<ArticlePage> {
                           SizedBox(
                             height: 34.h,
                           ),
-                          Text(
-                            widget.article.description,
-                            style: TextStyle(
-                              color: Color.fromRGBO(36, 36, 36, 1) ,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15.sp,
-                              fontFamily: 'Poppins',
+                          SizedBox(
+                            height: 250.h,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Text(
+                                    widget.article.description,
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(36, 36, 36, 1) ,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 15.sp,
+                                      fontFamily: 'Poppins',
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(

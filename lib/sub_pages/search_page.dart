@@ -96,7 +96,7 @@ class _SearchPageState extends State<SearchPage> {
             ),
             RecentlySearchCard(name: 'Harper Wilson',userName: '@harper',),
             SizedBox(
-              height: 31.h,
+              height: 18.h,
             ),
             Align(
               alignment: Alignment.topLeft,
@@ -111,7 +111,7 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
             SizedBox(
-              height: 16.h,
+              height: 7.h,
             ),
             ConversationSearchCard(str1: '📈 Sales',str2:'sales strategies, sales skills, sales training',str3: '💻 Coding',str4: 'coding resources, coding tips.',),
             SizedBox(height: 9.h,),

@@ -55,7 +55,6 @@ class ArticleCard extends StatelessWidget {
                   children: [
                     Container(
                       width: 183.w,
-                      height: 48.h,
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -67,6 +66,7 @@ class ArticleCard extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                             fontSize: 16.sp,
                             fontFamily: 'Poppins',
+
                           ),
                         ),
                       ),
@@ -78,23 +78,23 @@ class ArticleCard extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         fontSize: 14.sp,
                         fontFamily: 'Poppins',
+
                       ),
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: 4.h,
                     ),
                     Container(
-                      height: 45.h,
                       width: 197.w,
                       child: Text(
                         article!.description,
-                        maxLines: 3,
+                        maxLines: 2,
                         style: TextStyle(
                             overflow: TextOverflow.ellipsis,
                             color: Color.fromRGBO(36, 36, 36, 1),
                             fontWeight: FontWeight.w600,
                             fontSize: 10.sp,
-                            height: 1.4,
+                            height: 1.4.h,
                           fontFamily: 'Poppins',
                         ),
                       ),

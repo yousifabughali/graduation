@@ -8,6 +8,7 @@ import 'package:graduation/model/post.dart';
 import 'package:graduation/provider/auth_provider.dart';
 import 'package:graduation/provider/firestore_provider.dart';
 import 'package:graduation/widget/comment_widget.dart';
+import 'package:graduation/widget/rate_answer_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
 import '../model/comments.dart';
@@ -264,7 +265,11 @@ class _QuestionScreenState extends State<QuestionScreen> {
                     scrollDirection: Axis.vertical,
                     itemCount: fireStoreProvider.comments.length,
                     itemBuilder: (context, index) {
-                      return CommentWidget(comment: fireStoreProvider.comments[index]);
+                      return InkWell(
+                        onTap: (){
+                          openBottomSheet(context, RateAnswer(comment: fireStoreProvider.comments[index]));
+                        },
+                        child: CommentWidget(comment: fireStoreProvider.comments[index]));
                     },
                   ),
 
@@ -276,4 +281,29 @@ class _QuestionScreenState extends State<QuestionScreen> {
       }
     );
   }
+  openBottomSheet(BuildContext context, Widget widget) {
+    return showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      showDragHandle: true,
+      useSafeArea: false,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40.0.r),
+            topRight: Radius.circular(40.0.r)),
+      ),
+      builder: (BuildContext context) {
+        return Padding(
+          padding:  EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: SizedBox(
+            height: 534.h,
+            width: 375.w,
+            child: widget,
+          ),
+        );
+      },
+    );
+  }
+
 }

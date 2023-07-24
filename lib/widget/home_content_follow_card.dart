@@ -106,30 +106,34 @@ class HomeFollowCard extends StatelessWidget {
                     width: 295.w,
                     child: Text(
                       post.question,
+                      maxLines: 2,
                       style: TextStyle(
                           color: const Color.fromRGBO(36, 36, 36, 1),
                           fontWeight: FontWeight.w500,
                           fontSize: 14.sp,
-                          fontFamily: 'Poppins'
+                          fontFamily: 'Poppins',
+                        height: 1.3.h,
+                        overflow: TextOverflow.ellipsis,
+
                       ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 4.h,
+                  height: 8.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 5.w,bottom: 10.h),
+                  padding: EdgeInsets.only(left: 5.w),
                   child: SizedBox(
                     width: 295.w,
                     child: Text(
                       post.description,
-                      maxLines: 4,
+                      maxLines: 2,
                       style:  TextStyle(
                         color: const Color.fromRGBO(36, 36, 36, 1),
                         fontWeight: FontWeight.w400,
                         fontSize: 12.sp,
-                        height: 1.5,
+                        height: 1.5.h,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
